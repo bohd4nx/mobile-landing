@@ -11,7 +11,7 @@ const Screenshots = ({ images }: ScreenshotsProps) => {
 	return (
 		<div className="mb-16">
 			<div className="mb-6 flex items-center justify-between">
-				<h2 className="text-2xl font-semibold">Screenshots</h2>
+				<h2 className="text-2xl font-semibold text-content dark:text-content-dark">Screenshots</h2>
 				<DeviceToggle activeDevice={activeDevice} onToggle={setActiveDevice} />
 			</div>
 			<div
@@ -24,7 +24,7 @@ const Screenshots = ({ images }: ScreenshotsProps) => {
 						animate={{ opacity: 1, x: 0 }}
 						exit={{ opacity: 0, x: -20 }}
 						transition={{ duration: 0.3 }}
-						className="screenshots-container scrollbar-thin scrollbar-track-white/5 scrollbar-thumb-white/10 hover:scrollbar-thumb-white/20"
+						className="screenshots-container scrollbar-thin scrollbar-track-white/5 scrollbar-thumb-white/10 hover:scrollbar-thumb-white/20 dark:scrollbar-track-white/3 dark:scrollbar-thumb-white/8"
 						onAnimationComplete={() => {
 							const container = document.querySelector(
 								".screenshots-container",
@@ -56,7 +56,7 @@ const Screenshots = ({ images }: ScreenshotsProps) => {
 									<img
 										src={image}
 										alt={`Screenshot ${index + 1}`}
-										className={`rounded-xl border border-white/10 object-cover ${
+										className={`rounded-xl border-card object-cover ${
 											activeDevice === "iphone"
 												? "aspect-[9/16] w-[260px]"
 												: "aspect-[4/3] w-[360px]"

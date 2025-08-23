@@ -60,12 +60,12 @@ const Lightbox = ({ images }: LightboxProps) => {
 					initial={{ opacity: 0 }}
 					animate={{ opacity: 1 }}
 					exit={{ opacity: 0 }}
-					className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-xl"
+					className="fixed inset-0 z-50 flex items-center justify-center bg-bg-dark/95 backdrop-blur-xl dark:bg-bg-dark/95"
 				>
 					<button
 						type="button"
 						onClick={() => setIsOpen(false)}
-						className="absolute right-4 top-4 p-2 text-white/75 hover:text-white"
+						className="absolute right-4 top-4 p-2 text-black/70 dark:text-white/75 hover:text-black dark:hover:text-white"
 					>
 						<FiX size={24} />
 					</button>
@@ -73,7 +73,7 @@ const Lightbox = ({ images }: LightboxProps) => {
 					<button
 						type="button"
 						onClick={handlePrevious}
-						className="absolute left-4 p-2 text-white/75 hover:text-white"
+						className="absolute left-4 p-2 text-black/70 dark:text-white/75 hover:text-black dark:hover:text-white"
 					>
 						<FiChevronLeft size={24} />
 					</button>
@@ -81,13 +81,13 @@ const Lightbox = ({ images }: LightboxProps) => {
 					<img
 						src={currentImages[currentIndex]}
 						alt={`Screenshot ${currentIndex + 1}`}
-						className="max-h-[90vh] max-w-[90vw] object-contain rounded-xl border border-white/10"
+						className="max-h-[90vh] max-w-[90vw] object-contain rounded-xl border-card"
 					/>
 
 					<button
 						type="button"
 						onClick={handleNext}
-						className="absolute right-4 p-2 text-white/75 hover:text-white"
+						className="absolute right-4 p-2 text-black/70 dark:text-white/75 hover:text-black dark:hover:text-white"
 					>
 						<FiChevronRight size={24} />
 					</button>
@@ -99,7 +99,7 @@ const Lightbox = ({ images }: LightboxProps) => {
 								key={image}
 								onClick={() => setCurrentIndex(index)}
 								className={`h-2 w-2 rounded-full transition-colors ${
-									index === currentIndex ? "bg-white" : "bg-white/30"
+									index === currentIndex ? "bg-primary" : "bg-black/10 dark:bg-white/30"
 								}`}
 							/>
 						))}

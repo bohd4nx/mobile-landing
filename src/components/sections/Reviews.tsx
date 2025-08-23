@@ -10,7 +10,7 @@ const Reviews = ({ items }: ReviewsProps) => {
 				initial={{ opacity: 0, y: 10 }}
 				whileInView={{ opacity: 1, y: 0 }}
 				viewport={{ once: true }}
-				className="mb-6 text-2xl font-semibold"
+				className="mb-6 text-2xl font-semibold text-content dark:text-content-dark"
 			>
 				User Reviews
 			</motion.h2>
@@ -23,7 +23,7 @@ const Reviews = ({ items }: ReviewsProps) => {
 						whileInView={{ opacity: 1, y: 0 }}
 						viewport={{ once: true }}
 						transition={{ delay: index * 0.1 }}
-						className="rounded-2xl border border-white/10 bg-white/[0.03] p-6"
+						className="rounded-2xl border-card bg-white/[0.03] dark:bg-bg-dark/40 p-6"
 					>
 						<div className="mb-4 flex items-center gap-4">
 							<div className="flex-shrink-0">
@@ -31,10 +31,10 @@ const Reviews = ({ items }: ReviewsProps) => {
 									<img
 										src={review.avatar}
 										alt={`${review.author} avatar`}
-										className="h-12 w-12 rounded-full object-cover border border-white/10"
+										className="h-12 w-12 rounded-full object-cover border-card"
 									/>
 								) : (
-									<div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/[0.08] text-white/90">
+									<div className="flex h-12 w-12 items-center justify-center rounded-full bg-bg-light dark:bg-bg-dark/30 text-black dark:text-white/90">
 										{review.author.charAt(0)}
 									</div>
 								)}
@@ -44,7 +44,7 @@ const Reviews = ({ items }: ReviewsProps) => {
 								<RatingStars rating={review.rating} />
 							</div>
 						</div>
-						<p className="text-gray-400">{review.text}</p>
+						<p className="text-content/80 dark:text-content-dark/80">{review.text}</p>
 					</motion.div>
 				))}
 			</div>

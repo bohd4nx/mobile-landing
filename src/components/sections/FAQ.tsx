@@ -9,7 +9,7 @@ const FAQ = ({ items }: FAQProps) => {
 				initial={{ opacity: 0, y: 10 }}
 				whileInView={{ opacity: 1, y: 0 }}
 				viewport={{ once: true }}
-				className="mb-6 text-2xl font-semibold"
+				className="mb-6 text-2xl font-semibold text-content dark:text-content-dark"
 			>
 				FAQ
 			</motion.h2>
@@ -21,11 +21,11 @@ const FAQ = ({ items }: FAQProps) => {
 						whileInView={{ opacity: 1, y: 0 }}
 						viewport={{ once: true }}
 						transition={{ delay: index * 0.1 }}
-						className="overflow-hidden rounded-xl border border-white/10 bg-white/[0.03]"
+						className="overflow-hidden rounded-xl border-card bg-white/[0.03] dark:bg-bg-dark/40"
 					>
 						<details className="group">
 							<summary className="flex cursor-pointer items-center justify-between p-6">
-								<h3 className="pr-6 font-medium">{item.question}</h3>
+								<h3 className="pr-6 font-medium text-content dark:text-content-dark">{item.question}</h3>
 								<svg
 									className="h-5 w-5 flex-shrink-0 transition-transform group-open:rotate-180"
 									fill="none"
@@ -43,8 +43,8 @@ const FAQ = ({ items }: FAQProps) => {
 								</svg>
 							</summary>
 							<div className="px-6 pb-6">
-								<div className="border-t border-white/5 pt-6">
-									<p className="text-gray-400">{item.answer}</p>
+								<div className="border-t-card pt-6">
+									<p className="text-content/80 dark:text-content-dark/80">{item.answer}</p>
 								</div>
 							</div>
 						</details>

@@ -20,7 +20,7 @@ const RatingStars = ({ rating, max = 5, size = "md" }: RatingStarsProps) => {
 				<FiStar
 					key={`star-${i}-${rating}-${max}`}
 					className={`${sizeClasses[size]} ${
-						i < rating ? "fill-yellow-400 text-yellow-400" : "text-white/30"
+						i < rating ? "fill-primary text-primary" : "text-black/30 dark:text-white/30"
 					}`}
 				/>
 			))}

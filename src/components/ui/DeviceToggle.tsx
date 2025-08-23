@@ -7,7 +7,7 @@ const DeviceToggle = ({ activeDevice, onToggle }: DeviceToggleProps) => {
 	const handleIpadToggle = useCallback(() => onToggle("ipad"), [onToggle]);
 
 	return (
-		<div className="flex items-center justify-center gap-1.5 rounded-lg border border-white/10 bg-white/[0.03] p-1">
+		<div className="flex items-center justify-center gap-1.5 rounded-lg border-card bg-white/[0.03] dark:bg-bg-dark/30 p-1">
 			<DeviceButton
 				isActive={activeDevice === "iphone"}
 				onClick={handleIphoneToggle}
@@ -33,14 +33,14 @@ const DeviceButton = memo(({ isActive, onClick, label }: DeviceButtonProps) => (
 		type="button"
 		onClick={onClick}
 		className={`relative rounded-md px-3.5 py-1.5 text-sm transition-colors ${
-			isActive ? "text-white" : "text-white/60 hover:text-white"
+			isActive ? "text-black dark:text-white" : "text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white"
 		}`}
 		whileTap={{ scale: 0.95 }}
 	>
 		{isActive && (
 			<motion.div
 				layoutId="activeDevice"
-				className="absolute inset-0 rounded-md bg-white/10"
+				className="absolute inset-0 rounded-md bg-bg-light/40 dark:bg-bg-dark/20"
 				transition={{ type: "spring", bounce: 0.15, duration: 0.5 }}
 			/>
 		)}

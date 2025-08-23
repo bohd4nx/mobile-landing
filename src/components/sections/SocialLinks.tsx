@@ -9,7 +9,7 @@ const SocialLinks = ({ items }: SocialLinksProps) => {
 					<div className="mx-auto border-t border-white/10" />
 				</div>
 				<div className="relative flex justify-center">
-					<span className="bg-black px-6 text-sm font-medium tracking-wider text-white/50 uppercase">
+					<span className="bg-bg-light px-6 text-sm font-medium tracking-wider text-black/60 dark:bg-bg-dark dark:text-white/60 uppercase">
 						Social Media
 					</span>
 				</div>
@@ -24,10 +24,10 @@ const SocialLinks = ({ items }: SocialLinksProps) => {
 							href={link.url}
 							target="_blank"
 							rel="noopener noreferrer"
-							className="group rounded-xl border border-white/10 bg-white/[0.03] p-3 transition-all duration-200 hover:bg-white/[0.05]"
+							className="group rounded-xl border border-white/10 bg-white/[0.03] dark:bg-bg-dark/30 p-3 transition-all duration-200 hover:bg-bg-light dark:hover:bg-bg-dark/40"
 							aria-label={link.label}
 						>
-							<Icon className="h-5 w-5 text-gray-400 transition-colors group-hover:text-white" />
+							<Icon className="h-5 w-5 text-gray-500 dark:text-gray-400 transition-colors group-hover:text-black dark:group-hover:text-white" />
 						</a>
 					);
 				})}

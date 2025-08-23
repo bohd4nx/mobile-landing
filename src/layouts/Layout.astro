@@ -23,8 +23,22 @@ const { showFooter = true } = Astro.props;
     <meta property="og:url" content={Astro.url.href} />
     {description && <meta name="description" content={description} />}
     {description && <meta property="og:description" content={description} />}
-    <meta name="theme-color" content="#000000" />
+    <meta name="theme-color" content="#F4F2F1" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#191015" media="(prefers-color-scheme: dark)" />
     <title>{title}</title>
+    <style is:global>
+      :root{
+        --border-color: rgba(0, 0, 0, 0.247);
+      }
+      @media (prefers-color-scheme: dark) {
+        :root{
+          --border-color: rgba(255,255,255,0.12);
+        }
+      }
+
+      .border-card{ border: 1px solid var(--border-color) !important; }
+      .border-t-card{ border-top: 1px solid var(--border-color) !important; }
+    </style>
     <script>
       history.scrollRestoration = "manual";
       window.addEventListener("load", () => {
@@ -32,7 +46,7 @@ const { showFooter = true } = Astro.props;
       });
     </script>
   </head>
-  <body class="bg-black font-sans text-white">
+  <body class="font-sans bg-bg-light text-content dark:bg-bg-dark dark:text-content-dark">
     <GithubCorner href="https://github.com/bohd4nx/mobile-landing-page" />
     <div class="mx-auto min-h-screen max-w-[800px]">
       <PageAnimation client:load>
