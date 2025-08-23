@@ -29,6 +29,9 @@ const { showFooter = true } = Astro.props;
     <style is:global>
       :root{
         --border-color: rgba(0, 0, 0, 0.247);
+        --content-color: #191015;
+        --content-color-dark: #F4F2F1;
+        --primary-color: #A54F31;
       }
       @media (prefers-color-scheme: dark) {
         :root{
@@ -38,6 +41,24 @@ const { showFooter = true } = Astro.props;
 
       .border-card{ border: 1px solid var(--border-color) !important; }
       .border-t-card{ border-top: 1px solid var(--border-color) !important; }
+      /* Prose heading colors override for better dark/light contrast */
+      .prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+        color: var(--content-color);
+      }
+      .prose p, .prose li, .prose blockquote, .prose td {
+        color: var(--content-color);
+      }
+      /* Prose bold token mapping to centralized content colors */
+      .prose { --tw-prose-bold: var(--content-color); }
+      @media (prefers-color-scheme: dark) {
+        .prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+          color: var(--content-color-dark);
+        }
+        .prose p, .prose li, .prose blockquote, .prose td {
+          color: var(--content-color-dark);
+        }
+        .prose { --tw-prose-bold: var(--content-color-dark); }
+      }
     </style>
     <script>
       history.scrollRestoration = "manual";
