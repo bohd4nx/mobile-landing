@@ -2,45 +2,97 @@
 import Footer from "@components/sections/Footer";
 import GithubCorner from "@components/ui/GithubCorner";
 import PageAnimation from "@components/ui/PageAnimation";
-export interface Props {
-	title: string;
-	description?: string;
-	showFooter?: boolean;
+
+interface Props {
+  title: string;
+  description?: string;
+  showFooter?: boolean;
 }
 
-const { title, description } = Astro.props;
-const { showFooter = true } = Astro.props;
+const { title, description, showFooter = true } = Astro.props;
 ---
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/png" href="favicon.webp" />
-    <meta property="og:title" content={title} />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content={Astro.url.href} />
-    {description && <meta name="description" content={description} />}
-    {description && <meta property="og:description" content={description} />}
-    <meta name="theme-color" content="#000000" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" type="image/png" href="favicon.webp">
+    <meta property="og:title" content={title}>
+    <meta property="og:type" content="website">
+    <meta property="og:url" content={Astro.url.href}>
+    {description && (
+      <>
+        <meta name="description" content={description}>
+        <meta property="og:description" content={description}>
+      </>
+    )}
+    <meta name="theme-color" content="#000000">
     <title>{title}</title>
-    <script>
-      history.scrollRestoration = "manual";
-      window.addEventListener("load", () => {
-        window.scrollTo(0, 0);
-      });
+    <script is:inline>
+      const theme = localStorage.getItem('theme') || 'system';
+      const root = document.documentElement;
+      root.classList.remove('light', 'dark');
+      
+      if (theme === 'system') {
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        root.classList.add(prefersDark ? 'dark' : 'light');
+      } else {
+        root.classList.add(theme);
+      }
+      
+      !localStorage.getItem('theme') && localStorage.setItem('theme', 'system');
     </script>
   </head>
-  <body class="bg-black font-sans text-white">
+  <body class="transition-colors duration-300 bg-gray-50 text-gray-900 dark:bg-black dark:text-white">
     <GithubCorner href="https://github.com/bohd4nx/mobile-landing-page" />
     <div class="mx-auto min-h-screen max-w-[800px]">
       <PageAnimation client:load>
-        <main>
-          <slot />
-        </main>
-        {showFooter && <Footer />}
+        <main><slot /></main>
+        {showFooter && <Footer client:load />}
       </PageAnimation>
     </div>
   </body>
 </html>
+
+<style is:global>
+  * { transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease; }
+  html.light { color-scheme: light; }
+  html.dark { color-scheme: dark; }
+
+  .screenshots-scroll {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: rgb(255 255 255 / 0.1) transparent;
+  }
+  
+  .light .screenshots-scroll { scrollbar-color: rgb(0 0 0 / 0.2) transparent; }
+  
+  .screenshots-scroll::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  .screenshots-scroll::-webkit-scrollbar-track { background: transparent; }
+  
+  .screenshots-scroll::-webkit-scrollbar-thumb {
+    background-color: rgb(255 255 255 / 0.1);
+    border-radius: 3px;
+  }
+  
+  .light .screenshots-scroll::-webkit-scrollbar-thumb { background-color: rgb(0 0 0 / 0.2); }
+  .screenshots-scroll::-webkit-scrollbar-thumb:hover { background-color: rgb(255 255 255 / 0.2); }
+  .light .screenshots-scroll::-webkit-scrollbar-thumb:hover { background-color: rgb(0 0 0 / 0.3); }
+
+  details summary::-webkit-details-marker { display: none; }
+  details summary { list-style: none; }
+
+  .focus\:outline-none:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
+
+  .focus\:ring-2:focus { box-shadow: 0 0 0 2px rgb(59 130 246 / 0.5); }
+  .light .focus\:ring-2:focus { box-shadow: 0 0 0 2px rgb(59 130 246 / 0.4); }
+</style>

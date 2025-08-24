@@ -1,6 +1,6 @@
 {
-	"name": "landing",
-	"version": "0.2.0",
+	"name": "landing.bohd4n.dev",
+	"version": "2025.2.2",
 	"scripts": {
 		"dev": "astro dev",
 		"start": "astro dev",

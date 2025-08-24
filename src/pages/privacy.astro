@@ -5,43 +5,47 @@ import Layout from "@layouts/Layout.astro";
 import { siteConfig } from "../config";
 import { marked } from "marked";
 
-const privacyModules = import.meta.glob("./content/privacy.md", {
-	eager: true,
-});
-const privacyContent = Object.values(privacyModules)[0] as {
-	rawContent: () => string;
-};
+const privacyContent = Object.values(import.meta.glob("./content/privacy.md", { eager: true }))[0] as { rawContent: () => string };
 const htmlContent = marked(privacyContent.rawContent());
-
-const { title } = siteConfig;
 ---
 
-<Layout title={`${title} · Privacy Policy`} description={`Privacy Policy for ${title} application - How we handle and protect your data`}>
+<Layout 
+  title={`${siteConfig.title} · Privacy Policy`} 
+  description={`Privacy Policy for ${siteConfig.title} application - How we handle and protect your data`}
+>
   <main class="min-h-screen max-w-3xl mx-auto px-4 py-8">
-    <Breadcrumbs 
-      items={[{ label: "Privacy Policy" }]}
-    />
-    
-    <div class="prose prose-invert prose-sm sm:prose-base max-w-none">
+    <Breadcrumbs items={[{ label: "Privacy Policy" }]} />
+    <div class="prose prose-gray dark:prose-invert prose-sm sm:prose-base max-w-none">
       <div set:html={htmlContent} />
     </div>
   </main>
-  
   <BackToTop client:load />
 </Layout>
 
 <style is:global>
   .prose {
+    --tw-prose-headings: theme(colors.gray.900);
+    --tw-prose-links: theme(colors.blue.600);
+    --tw-prose-bold: theme(colors.gray.900);
     --tw-prose-invert-headings: theme(colors.white);
     --tw-prose-invert-links: theme(colors.blue.400);
     --tw-prose-invert-bold: theme(colors.white);
   }
   
-  .prose a {
-    text-decoration: none;
+  .prose {
+    a {
+      text-decoration: none;
+      &:hover { text-decoration: underline; }
+    }
+
+    h1, h2, h3, h4, h5, h6 { color: theme(colors.gray.900); }
+    p, li { color: theme(colors.gray.700); }
+    strong { color: theme(colors.gray.800); }
   }
-  
-  .prose a:hover {
-    text-decoration: underline;
+
+  .dark .prose {
+    h1, h2, h3, h4, h5, h6 { color: theme(colors.white); }
+    p, li { color: theme(colors.gray.300); }
+    strong { color: theme(colors.gray.200); }
   }
 </style>

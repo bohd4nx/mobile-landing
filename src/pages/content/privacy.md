@@ -2,62 +2,50 @@
 
 **Last updated:** February 1, 2025
 
-## Information We Collect
+## Data Collection
 
-### Usage Data
+We collect:
+- Anonymous usage metrics
+- App performance data
+- Device information
+- Error reports
 
-We collect anonymous usage data to improve our service, including:
+## Data Usage
 
-- App performance metrics
-- Feature usage statistics
-- Device type and operating system
-- Crash reports
+We use collected data to:
+- Improve app performance
+- Fix technical issues
+- Enhance features
+- Optimize experience
 
-### User Content
+## Security Measures
 
-We store only the content you explicitly create and save within the app.
+We protect your data with:
+- Encryption protocols
+- Regular security checks
+- Secure storage systems
 
-## How We Use Your Information
+## Data Sharing Policy
 
-### Service Improvement
+We do not sell your data. We share data only:
+- With essential services
+- When legally required
+- When you request it
 
-- Analyzing app performance
-- Identifying and fixing bugs
-- Developing new features
-- Optimizing user experience
+## User Rights
 
-### Security
+You can:
+- View your data
+- Delete your data
+- Stop analytics
+- Download your data
 
-We implement industry-standard security measures to protect your data:
+## Policy Updates
 
-- End-to-end encryption
-- Regular security audits
-- Secure data storage
+We will notify you of policy changes through our app or email.
 
-## Data Sharing
+## Contact
 
-We **do not** sell your personal information to third parties. Data sharing is limited to:
-
-- Essential service providers
-- Legal requirements
-- User-initiated sharing
-
-## Your Rights
-
-You have the right to:
-
-- Access your data
-- Request data deletion
-- Opt out of analytics
-- Export your data
-
-## Changes to This Policy
-
-We may update this privacy policy from time to time. Changes will be notified through the app or via email.
-
-## Contact Us
-
-If you have questions about this privacy policy, please contact us at:
-
-- Email: privacy@example.com
-- Support: help.example.com
+Questions? Reach us at:
+- privacy@example.com
+- help.example.com

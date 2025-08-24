@@ -4,36 +4,20 @@ import FAQ from "@components/sections/FAQ";
 import Features from "@components/sections/Features";
 import Reviews from "@components/sections/Reviews";
 import Screenshots from "@components/sections/Screenshots";
-import SocialLinks from "@components/sections/SocialLinks";
 import Lightbox from "@components/ui/Lightbox";
 import Layout from "@layouts/Layout.astro";
 import { siteConfig } from "../config";
 
-const {
-	title,
-	description,
-	screenshots,
-	features,
-	faqs,
-	storeLinks,
-	socialLinks,
-	logo,
-	reviews,
-} = siteConfig;
+const { title, description, screenshots, features, faqs, storeLinks, logo, reviews } = siteConfig;
 ---
 
 <Layout title={title} description={description}>
   <main class="min-h-screen max-w-5xl mx-auto px-4 py-8">
-    <AppHero title={title} description={description} storeLinks={storeLinks} logo={logo} />
-    
-    <div class="mb-16">
-      <Screenshots images={screenshots} client:load />
-    </div>
-
+    <AppHero {title} {description} {storeLinks} {logo} />
+    <div class="mb-16"><Screenshots images={screenshots} client:load /></div>
     <Features items={features} />
     <Reviews items={reviews} client:visible />
     <FAQ items={faqs} client:visible />
-    <SocialLinks items={socialLinks} />
   </main>
 </Layout>
 
@@ -44,9 +28,6 @@ const {
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
-  }
-  
-  .screenshots-scroll::-webkit-scrollbar {
-    display: none;
+    &::-webkit-scrollbar { display: none; }
   }
 </style>

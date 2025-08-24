@@ -2,52 +2,43 @@ import { motion } from "framer-motion";
 import { memo, useCallback } from "react";
 import type { DeviceToggleProps } from "config";
 
-const DeviceToggle = ({ activeDevice, onToggle }: DeviceToggleProps) => {
-	const handleIphoneToggle = useCallback(() => onToggle("iphone"), [onToggle]);
-	const handleIpadToggle = useCallback(() => onToggle("ipad"), [onToggle]);
-
-	return (
-		<div className="flex items-center justify-center gap-1.5 rounded-lg border border-white/10 bg-white/[0.03] p-1">
+const DeviceToggle = ({ activeDevice, onToggle }: DeviceToggleProps) => (
+	<div className="flex items-center justify-center gap-1.5 rounded-lg border border-gray-300 dark:border-white/10 bg-gray-200/80 dark:bg-white/[0.03] p-1 shadow-sm">
+		{(["iphone", "ipad"] as const).map((device) => (
 			<DeviceButton
-				isActive={activeDevice === "iphone"}
-				onClick={handleIphoneToggle}
-				label="iPhone"
+				key={device}
+				isActive={activeDevice === device}
+				onClick={useCallback(() => onToggle(device), [onToggle])}
+				label={device.charAt(0).toUpperCase() + device.slice(1)}
 			/>
-			<DeviceButton
-				isActive={activeDevice === "ipad"}
-				onClick={handleIpadToggle}
-				label="iPad"
-			/>
-		</div>
-	);
-};
+		))}
+	</div>
+);
 
-interface DeviceButtonProps {
+const DeviceButton = memo(({ isActive, onClick, label }: {
 	isActive: boolean;
 	onClick: () => void;
 	label: string;
-}
-
-const DeviceButton = memo(({ isActive, onClick, label }: DeviceButtonProps) => (
+}) => (
 	<motion.button
 		type="button"
 		onClick={onClick}
-		className={`relative rounded-md px-3.5 py-1.5 text-sm transition-colors ${
-			isActive ? "text-white" : "text-white/60 hover:text-white"
+		className={`relative rounded-md px-3.5 py-1.5 text-sm font-medium transition-colors ${
+			isActive 
+				? "text-gray-900 dark:text-white"
+				: "text-gray-600 dark:text-white/60 hover:text-gray-800 dark:hover:text-white"
 		}`}
 		whileTap={{ scale: 0.95 }}
 	>
 		{isActive && (
 			<motion.div
 				layoutId="activeDevice"
-				className="absolute inset-0 rounded-md bg-white/10"
+				className="absolute inset-0 rounded-md bg-white dark:bg-white/10 shadow-sm border border-gray-300/60 dark:border-white/5"
 				transition={{ type: "spring", bounce: 0.15, duration: 0.5 }}
 			/>
 		)}
 		<span className="relative z-10">{label}</span>
 	</motion.button>
 ));
-
-DeviceButton.displayName = "DeviceButton";
 
 export default memo(DeviceToggle);
