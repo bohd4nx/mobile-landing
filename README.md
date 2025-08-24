@@ -13,13 +13,16 @@
   
   <p>
     <a href="https://landing.bohd4n.dev">
-      <img src="https://img.shields.io/badge/Demo-Live-blue?style=for-the-badge&logo=vercel" alt="Live Demo">
+      <img src="https://img.shields.io/badge/demo-live-blue" alt="Live Demo">
     </a>
-    <a href="https://github.com/bohd4nx/mobile-landing/stargazers">
-      <img src="https://img.shields.io/github/stars/bohd4nx/mobile-landing?style=for-the-badge&logo=github" alt="GitHub stars">
+    <a href="https://github.com/bohd4nx/mobile-landing">
+      <img src="https://img.shields.io/github/stars/bohd4nx/mobile-landing" alt="GitHub Stars">
+    </a>
+    <a href="https://github.com/bohd4nx/mobile-landing/issues">
+      <img src="https://img.shields.io/github/issues/bohd4nx/mobile-landing" alt="GitHub Issues">
     </a>
     <a href="https://github.com/bohd4nx/mobile-landing/blob/main/LICENSE">
-      <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License">
+      <img src="https://img.shields.io/github/license/bohd4nx/mobile-landing" alt="License">
     </a>
   </p>
 </div>
@@ -35,11 +38,15 @@
   </tr>
   <tr>
     <td>🖼️ <strong>Device Preview</strong></td>
-    <td>Interactive toggle between iPhone and iPad screenshots</td>
+    <td>Interactive toggle between iPhone and iPad screenshots with lightbox</td>
   </tr>
   <tr>
     <td>🎨 <strong>Modern UI/UX</strong></td>
     <td>Clean design with smooth Framer Motion animations</td>
+  </tr>
+  <tr>
+    <td>🌗 <strong>Smart Theme System</strong></td>
+    <td>Light/Dark/System theme with persistent storage</td>
   </tr>
   <tr>
     <td>📝 <strong>Markdown Support</strong></td>
@@ -54,12 +61,16 @@
     <td>Astro's island architecture for optimal performance</td>
   </tr>
   <tr>
-    <td>🌗 <strong>Dark Mode</strong></td>
-    <td>Beautiful dark theme by default</td>
+    <td>♿ <strong>Accessible</strong></td>
+    <td>WCAG compliant with proper ARIA labels and keyboard navigation</td>
   </tr>
   <tr>
-    <td>♿ <strong>Accessible</strong></td>
-    <td>WCAG compliant with proper ARIA labels</td>
+    <td>📊 <strong>User Reviews</strong></td>
+    <td>Beautiful review cards with star ratings</td>
+  </tr>
+  <tr>
+    <td>🔧 <strong>TypeScript</strong></td>
+    <td>Full TypeScript support for better development experience</td>
   </tr>
 </table>
 
@@ -90,7 +101,6 @@ npm run build
 npm run preview
 ```
 
-
 ## 🎨 Customization Guide
 
 ### 1. App Information
@@ -100,14 +110,14 @@ Edit `src/config/appInfo.ts`:
 ```typescript
 export const appInfo = {
   title: "Your App Name",
-  description: "Your app description",
+  description: "Your app description here. Keep it engaging and concise.",
   logo: {
     type: "image", // or "iframe" for animated logos
-    src: "path/to/logo.png"
+    src: "favicon.webp" // Path to your app icon
   },
   storeLinks: {
-    apple: "https://apps.apple.com/...",
-    google: "https://play.google.com/..."
+    apple: "https://apps.apple.com/app/your-app",
+    google: "https://play.google.com/store/apps/details?id=your.app"
   }
 };
 ```
@@ -117,96 +127,168 @@ export const appInfo = {
 Edit `src/config/features.ts`:
 
 ```typescript
-import { FiStar } from "react-icons/fi";
+import { FiStar, FiZap, FiShield } from "react-icons/fi";
 
 export const features = [
   {
     title: "Amazing Feature",
-    description: "Description of your feature",
+    description: "Detailed description of what makes this feature special",
     icon: FiStar
+  },
+  {
+    title: "Fast Performance",
+    description: "Lightning-fast experience for all users",
+    icon: FiZap
+  },
+  {
+    title: "Secure & Private",
+    description: "Your data is protected with industry-standard security",
+    icon: FiShield
   }
   // Add more features...
 ];
 ```
 
-### 3. Screenshots
+### 3. Screenshots Configuration
 
-1. Add screenshots to:
-   - `public/screenshots/iphone/` (9:16 aspect ratio)
-   - `public/screenshots/ipad/` (4:3 aspect ratio)
+1. **Add your screenshots:**
+   - iPhone screenshots: `public/screenshots/iphone/` (9:16 aspect ratio, ~260px width recommended)
+   - iPad screenshots: `public/screenshots/ipad/` (4:3 aspect ratio, ~360px width recommended)
 
-2. Update `src/config/screenshots.ts`:
+2. **Update screenshot paths in `src/config/screenshots.ts`:**
 
 ```typescript
 export const screenshots = {
-  iphone: ["screenshots/iphone/1.png", "screenshots/iphone/2.png"],
-  ipad: ["screenshots/ipad/1.png", "screenshots/ipad/2.png"]
+  iphone: [
+    "screenshots/iphone/1.png",
+    "screenshots/iphone/2.png",
+    "screenshots/iphone/3.png"
+  ],
+  ipad: [
+    "screenshots/ipad/1.png",
+    "screenshots/ipad/2.png",
+    "screenshots/ipad/3.png"
+  ]
 };
 ```
 
-### 4. Styling
+### 4. User Reviews
 
-The project uses Tailwind CSS. Customize the theme in `tailwind.config.cjs`:
+Edit `src/config/reviews.ts`:
 
-```javascript
-module.exports = {
-  theme: {
-    extend: {
-      colors: {
-        primary: "#your-color",
-        // Add custom colors
-      }
-    }
+```typescript
+export const reviews = [
+  {
+    author: "John Smith",
+    rating: 5, // 1-5 stars
+    text: "This app changed my daily workflow completely!",
+    avatar: "path/to/avatar.jpg" // Optional
   }
-};
+  // Add more reviews...
+];
 ```
 
-## 🐛 Troubleshooting
+### 5. FAQ Section
 
-### Common Issues
+Edit `src/config/faq.ts`:
 
-<details>
-<summary><strong>Screenshots not displaying</strong></summary>
+```typescript
+export const faq = [
+  {
+    question: "Is the app free to use?",
+    answer: "Yes, the app is free with optional premium features."
+  },
+  {
+    question: "Which devices are supported?",
+    answer: "The app supports iOS 14+ and Android 8+."
+  }
+  // Add more questions...
+];
+```
 
-- Ensure images are in the correct folders (`public/screenshots/iphone/` or `public/screenshots/ipad/`)
-- Check file paths in `src/config/screenshots.ts`
-- Verify image file extensions match the configuration
-</details>
+### 6. Social Media Links
 
-<details>
-<summary><strong>Build errors</strong></summary>
+Edit `src/config/socialLinks.ts`:
 
-- Clear the cache: `rm -rf .astro node_modules`
-- Reinstall dependencies: `npm install`
-- Ensure Node.js version is 18 or higher
-</details>
+```typescript
+import { RiInstagramFill, RiTwitterXFill, RiTelegram2Fill } from "react-icons/ri";
 
-<details>
-<summary><strong>Styling issues</strong></summary>
+export const socialLinks = [
+  {
+    url: "https://instagram.com/yourapp",
+    icon: RiInstagramFill,
+    label: "Instagram"
+  },
+  {
+    url: "https://twitter.com/yourapp",
+    icon: RiTwitterXFill,
+    label: "Twitter"
+  }
+  // Add more social links...
+];
+```
 
-- Run `npm run dev` to ensure Tailwind CSS is processing
-- Check for conflicting CSS classes
-- Verify Tailwind configuration
-</details>
+### 7. Privacy Policy & Terms
 
-## 📝 License
+1. **Edit markdown files:**
+   - Privacy Policy: `src/pages/content/privacy.md`
+   - Terms of Service: `src/pages/content/terms.md`
+
+2. **The pages will automatically:**
+   - Render markdown content with proper styling
+   - Include breadcrumb navigation
+   - Add back-to-top functionality
+   - Support both light and dark themes
+
+## 🚀 Deployment
+
+### Vercel (Recommended)
+```bash
+npm install -g vercel
+vercel
+```
+
+### Netlify
+```bash
+npm run build
+# Upload dist/ folder to Netlify
+```
+
+### GitHub Pages
+```bash
+# Set base in astro.config.mjs
+export default defineConfig({
+  site: 'https://username.github.io',
+  base: '/repository-name',
+});
+```
+
+## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 🙏 Acknowledgments
 
-- Built with [Astro](https://astro.build)
-- Icons by [React Icons](https://react-icons.github.io/react-icons/)
-- Animations by [Framer Motion](https://www.framer.com/motion/)
+- **[Astro](https://astro.build)** - The web framework for content-driven websites
+- **[React](https://react.dev)** - JavaScript library for building user interfaces
+- **[Tailwind CSS](https://tailwindcss.com)** - Utility-first CSS framework
+- **[Framer Motion](https://www.framer.com/motion/)** - Production-ready motion library for React
+- **[React Icons](https://react-icons.github.io/react-icons/)** - Popular icon library
+- **[Marked](https://marked.js.org/)** - Markdown parser and compiler
+
 
 ---
 
 <div align="center">
-  <p>
-  
   <p>Made with ❤️ by <a href="https://t.me/bohd4nx">Bohdan</a></p>
   
   <p>
     <sub>If you found this project helpful, please consider giving it a ⭐</sub>
+  </p>
+  
+  <p>
+    <a href="https://github.com/bohd4nx/mobile-landing/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/bohd4nx/mobile-landing/issues">Request Feature</a>
   </p>
 </div>
