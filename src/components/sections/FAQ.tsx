@@ -1,6 +1,6 @@
+import type { FAQProps } from "config";
 import { motion } from "framer-motion";
 import { memo } from "react";
-import type { FAQProps } from "config";
 
 const FAQ = ({ items }: FAQProps) => (
 	<div className="mb-16">
@@ -32,6 +32,8 @@ const FAQ = ({ items }: FAQProps) => (
 								fill="none"
 								viewBox="0 0 24 24"
 								stroke="currentColor"
+								aria-label="Toggle answer visibility"
+								role="img"
 							>
 								<path
 									strokeLinecap="round"

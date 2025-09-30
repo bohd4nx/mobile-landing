@@ -28,7 +28,6 @@ export interface SocialLink {
 }
 
 export interface AppLogo {
-	type: "iframe" | "image";
 	src: string;
 }
 

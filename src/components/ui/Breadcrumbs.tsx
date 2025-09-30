@@ -1,6 +1,6 @@
+import type { BreadcrumbsProps } from "config";
 import { memo } from "react";
 import { FiChevronRight, FiHome } from "react-icons/fi";
-import type { BreadcrumbsProps } from "config";
 
 const Breadcrumbs = ({ items }: BreadcrumbsProps) => (
 	<nav className="flex items-center space-x-2 text-sm text-gray-500 dark:text-gray-400 mb-8">

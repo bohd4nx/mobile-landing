@@ -1,5 +1,5 @@
-import { memo } from "react";
 import type { FeaturesProps } from "config";
+import { memo } from "react";
 
 const Features = ({ items }: FeaturesProps) => (
 	<div className="mb-16">

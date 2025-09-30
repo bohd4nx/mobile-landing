@@ -1,5 +1,5 @@
-import { memo } from "react";
 import type { SocialLink, SocialLinksProps } from "config";
+import { memo } from "react";
 
 const SocialLinks = ({ items }: SocialLinksProps) => (
 	<div className="mb-8">

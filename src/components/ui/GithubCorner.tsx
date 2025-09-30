@@ -1,5 +1,5 @@
-import { memo } from "react";
 import type { GithubCornerProps } from "config";
+import { memo } from "react";
 
 const GithubCorner = ({ href }: GithubCornerProps) => (
 	<>
@@ -10,6 +10,7 @@ const GithubCorner = ({ href }: GithubCornerProps) => (
 			target="_blank"
 			rel="noopener noreferrer"
 		>
+			<span className="sr-only">View source on GitHub</span>
 			<svg
 				width="80"
 				height="80"

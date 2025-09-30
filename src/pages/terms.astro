@@ -2,8 +2,8 @@
 import BackToTop from "@components/ui/BackToTop";
 import Breadcrumbs from "@components/ui/Breadcrumbs";
 import Layout from "@layouts/Layout.astro";
-import { siteConfig } from "../config";
 import { marked } from "marked";
+import { siteConfig } from "../config";
 
 const termsContent = Object.values(import.meta.glob("./content/terms.md", { eager: true }))[0] as { rawContent(): string };
 const htmlContent = marked(termsContent.rawContent());

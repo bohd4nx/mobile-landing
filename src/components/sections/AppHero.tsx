@@ -1,26 +1,22 @@
+import type { AppHeroProps, StoreButtonProps } from "config";
 import { memo } from "react";
 import { FaApple, FaGooglePlay } from "react-icons/fa";
-import type { AppHeroProps, StoreButtonProps } from "config";
 
 const AppHero = ({ title, description, storeLinks, logo }: AppHeroProps) => (
-	<div className="mb-16 flex flex-col md:flex-row gap-8">
+	<div className="mb-16 flex flex-col items-center md:items-start md:flex-row gap-8">
 		<div className="flex-shrink-0 md:self-center">
 			<div className="rounded-2xl border border-gray-200/50 dark:border-white/10 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-white/[0.02] dark:to-white/[0.05] p-6 w-[192px] h-[192px] flex items-center justify-center shadow-sm">
-				{logo.type === "iframe" ? (
-					<iframe src={logo.src} className="h-40 w-40 rounded-2xl border-0" title="App Logo" />
-				) : (
-					<img src={logo.src} alt="App Icon" className="h-40 w-40 rounded-2xl object-cover" />
-				)}
+				<img src={logo.src} alt="App Icon" className="h-40 w-40 rounded-2xl object-cover" />
 			</div>
 		</div>
 
-		<div className="flex flex-1 flex-col justify-between">
+		<div className="flex flex-1 flex-col justify-between text-center md:text-left">
 			<div>
 				<h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-3">{title}</h1>
-				<p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed mb-6 max-w-2xl">{description}</p>
+				<p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed mb-6 max-w-2xl mx-auto md:mx-0">{description}</p>
 			</div>
 
-			<div className="flex flex-wrap gap-4">
+			<div className="flex flex-wrap gap-4 justify-center md:justify-start">
 				<StoreButton store="apple" href={storeLinks.apple} label="Download on the" storeName="App Store" />
 				<StoreButton store="google" href={storeLinks.google} label="Get it on" storeName="Google Play" />
 			</div>
@@ -30,7 +26,7 @@ const AppHero = ({ title, description, storeLinks, logo }: AppHeroProps) => (
 
 const StoreButton = memo(({ store, href, label, storeName }: StoreButtonProps) => {
 	const Icon = store === "apple" ? FaApple : FaGooglePlay;
-	
+
 	return (
 		<a
 			href={href}

@@ -11,8 +11,8 @@ module.exports = {
 	},
 	plugins: [
 		require("@tailwindcss/typography"),
-		require("tailwind-scrollbar"),
-		function ({ addVariant }) {
+		require("tailwind-scrollbar-hide"),
+		({ addVariant }) => {
 			addVariant("light", ".light &");
 		},
 	],

@@ -1,8 +1,8 @@
+import type { LightboxProps } from "config";
+import { areImagesEqual } from "config";
 import { AnimatePresence, motion } from "framer-motion";
 import { memo, useCallback, useEffect, useState } from "react";
 import { FiChevronLeft, FiChevronRight, FiX } from "react-icons/fi";
-import type { LightboxProps } from "config";
-import { areImagesEqual } from "config";
 
 declare global {
 	interface Window {
@@ -73,6 +73,7 @@ const Lightbox = ({ images }: LightboxProps) => {
 				onClick={() => setIsOpen(false)}
 			>
 				<button
+					type="button"
 					onClick={() => setIsOpen(false)}
 					className="absolute right-4 top-4 p-3 text-gray-800 hover:text-gray-900 dark:text-white/90 dark:hover:text-white transition-colors rounded-full bg-white/80 dark:bg-black/60 hover:bg-white/90 dark:hover:bg-black/80 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 shadow-lg"
 					aria-label="Close lightbox"
@@ -81,6 +82,7 @@ const Lightbox = ({ images }: LightboxProps) => {
 				</button>
 
 				<button
+					type="button"
 					onClick={(e) => {
 						e.stopPropagation();
 						handlePrevious();
@@ -96,9 +98,15 @@ const Lightbox = ({ images }: LightboxProps) => {
 					alt={`Screenshot ${currentIndex + 1}`}
 					className="max-h-[90vh] max-w-[90vw] object-contain rounded-xl shadow-2xl"
 					onClick={(e) => e.stopPropagation()}
+					onKeyDown={(e) => {
+						if (e.key === 'Enter' || e.key === ' ') {
+							e.stopPropagation();
+						}
+					}}
 				/>
 
 				<button
+					type="button"
 					onClick={(e) => {
 						e.stopPropagation();
 						handleNext();
@@ -112,6 +120,7 @@ const Lightbox = ({ images }: LightboxProps) => {
 				<div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2">
 					{currentImages.map((image, index) => (
 						<button
+							type="button"
 							key={image}
 							onClick={(e) => {
 								e.stopPropagation();

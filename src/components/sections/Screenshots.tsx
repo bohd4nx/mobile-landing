@@ -1,7 +1,7 @@
-import { AnimatePresence, motion } from "framer-motion";
-import { memo, useState } from "react";
 import type { ScreenshotsProps } from "config";
 import { areImagesEqual } from "config";
+import { AnimatePresence, motion } from "framer-motion";
+import { memo, useState } from "react";
 import DeviceToggle from "../ui/DeviceToggle";
 
 const Screenshots = ({ images }: ScreenshotsProps) => {
@@ -47,9 +47,8 @@ const Screenshots = ({ images }: ScreenshotsProps) => {
 									<img
 										src={image}
 										alt={`Screenshot ${index + 1}`}
-										className={`rounded-xl border border-gray-300 dark:border-white/10 object-cover shadow-lg ${
-											isIphone ? "aspect-[9/16] w-[260px]" : "aspect-[4/3] w-[360px]"
-										}`}
+										className={`rounded-xl border border-gray-300 dark:border-white/10 object-cover shadow-lg ${isIphone ? "aspect-[9/16] w-[260px]" : "aspect-[4/3] w-[360px]"
+											}`}
 										loading="lazy"
 									/>
 								</motion.button>

@@ -1,10 +1,10 @@
-import type { AppData } from "./types";
 import { appInfo } from "./appInfo";
-import { features } from "./features";
 import { faq } from "./faq";
+import { features } from "./features";
+import { reviews } from "./reviews";
 import { screenshots } from "./screenshots";
 import { socialLinks } from "./socialLinks";
-import { reviews } from "./reviews";
+import type { AppData } from "./types";
 
 export const siteConfig: AppData = {
 	...appInfo,

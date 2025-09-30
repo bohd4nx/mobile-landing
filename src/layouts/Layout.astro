@@ -16,19 +16,18 @@ const { title, description, showFooter = true } = Astro.props;
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width">
-    <link rel="icon" type="image/png" href="favicon.webp">
-    <meta property="og:title" content={title}>
-    <meta property="og:type" content="website">
-    <meta property="og:url" content={Astro.url.href}>
-    {description && (
-      <>
-        <meta name="description" content={description}>
-        <meta property="og:description" content={description}>
-      </>
-    )}
-    <meta name="theme-color" content="#000000">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content={Astro.generator}>
+    
+    <link rel="icon" type="image/webp" href="/favicon-512.svg">
+    
     <title>{title}</title>
+    {description && <meta name="description" content={description}>}
+    
+    <meta property="og:title" content={title}>
+    {description && <meta property="og:description" content={description}>}
+    <meta property="og:image" content={new URL('/favicon-512.svg', Astro.url).href}>
+    
     <script is:inline>
       const theme = localStorage.getItem('theme') || 'system';
       const root = document.documentElement;
@@ -54,6 +53,7 @@ const { title, description, showFooter = true } = Astro.props;
     </div>
   </body>
 </html>
+
 
 <style is:global>
   * { transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease; }
@@ -82,17 +82,4 @@ const { title, description, showFooter = true } = Astro.props;
   }
   
   .light .screenshots-scroll::-webkit-scrollbar-thumb { background-color: rgb(0 0 0 / 0.2); }
-  .screenshots-scroll::-webkit-scrollbar-thumb:hover { background-color: rgb(255 255 255 / 0.2); }
-  .light .screenshots-scroll::-webkit-scrollbar-thumb:hover { background-color: rgb(0 0 0 / 0.3); }
-
-  details summary::-webkit-details-marker { display: none; }
-  details summary { list-style: none; }
-
-  .focus\:outline-none:focus {
-    outline: 2px solid transparent;
-    outline-offset: 2px;
-  }
-
-  .focus\:ring-2:focus { box-shadow: 0 0 0 2px rgb(59 130 246 / 0.5); }
-  .light .focus\:ring-2:focus { box-shadow: 0 0 0 2px rgb(59 130 246 / 0.4); }
 </style>

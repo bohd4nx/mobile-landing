@@ -1,6 +1,6 @@
+import type { Review, ReviewsProps } from "config";
 import { motion } from "framer-motion";
 import { memo } from "react";
-import type { Review, ReviewsProps } from "config";
 import RatingStars from "../ui/RatingStars";
 
 const Reviews = ({ items }: ReviewsProps) => (

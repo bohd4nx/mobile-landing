@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { memo, useCallback, useEffect, useState } from "react";
-import { FiMoon, FiSun, FiMonitor } from "react-icons/fi";
+import { FiMonitor, FiMoon, FiSun } from "react-icons/fi";
 
 type Theme = "light" | "dark" | "system";
 
@@ -16,6 +16,10 @@ const ThemeToggle = () => {
 
     const applyTheme = useCallback((newTheme: Theme) => {
         const root = document.documentElement;
+        
+        // Temporarily disable transitions to prevent flash
+        root.style.transition = 'none';
+        
         root.classList.remove("light", "dark");
         
         if (newTheme === "system") {
@@ -24,6 +28,11 @@ const ThemeToggle = () => {
         } else {
             root.classList.add(newTheme);
         }
+        
+        // Re-enable transitions after a small delay
+        setTimeout(() => {
+            root.style.transition = '';
+        }, 50);
     }, []);
 
     useEffect(() => {

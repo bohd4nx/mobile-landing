@@ -1,19 +1,28 @@
+import type { DeviceToggleProps } from "config";
 import { motion } from "framer-motion";
 import { memo, useCallback } from "react";
-import type { DeviceToggleProps } from "config";
 
-const DeviceToggle = ({ activeDevice, onToggle }: DeviceToggleProps) => (
-	<div className="flex items-center justify-center gap-1.5 rounded-lg border border-gray-300 dark:border-white/10 bg-gray-200/80 dark:bg-white/[0.03] p-1 shadow-sm">
-		{(["iphone", "ipad"] as const).map((device) => (
+const DeviceToggle = ({ activeDevice, onToggle }: DeviceToggleProps) => {
+	const handleIphoneClick = useCallback(() => onToggle("iphone"), [onToggle]);
+	const handleIpadClick = useCallback(() => onToggle("ipad"), [onToggle]);
+
+	return (
+		<div className="flex items-center justify-center gap-1.5 rounded-lg border border-gray-300 dark:border-white/10 bg-gray-200/80 dark:bg-white/[0.03] p-1 shadow-sm">
 			<DeviceButton
-				key={device}
-				isActive={activeDevice === device}
-				onClick={useCallback(() => onToggle(device), [onToggle])}
-				label={device.charAt(0).toUpperCase() + device.slice(1)}
+				key="iphone"
+				isActive={activeDevice === "iphone"}
+				onClick={handleIphoneClick}
+				label="Iphone"
 			/>
-		))}
-	</div>
-);
+			<DeviceButton
+				key="ipad"
+				isActive={activeDevice === "ipad"}
+				onClick={handleIpadClick}
+				label="Ipad"
+			/>
+		</div>
+	);
+};
 
 const DeviceButton = memo(({ isActive, onClick, label }: {
 	isActive: boolean;
@@ -23,11 +32,10 @@ const DeviceButton = memo(({ isActive, onClick, label }: {
 	<motion.button
 		type="button"
 		onClick={onClick}
-		className={`relative rounded-md px-3.5 py-1.5 text-sm font-medium transition-colors ${
-			isActive 
+		className={`relative rounded-md px-3.5 py-1.5 text-sm font-medium transition-colors ${isActive
 				? "text-gray-900 dark:text-white"
 				: "text-gray-600 dark:text-white/60 hover:text-gray-800 dark:hover:text-white"
-		}`}
+			}`}
 		whileTap={{ scale: 0.95 }}
 	>
 		{isActive && (
