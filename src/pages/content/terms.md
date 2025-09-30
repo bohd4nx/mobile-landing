@@ -23,6 +23,7 @@ By using this service, you agree to these terms.
 ## Usage Rules
 
 Do not:
+
 - Break laws
 - Infringe copyrights
 - Share harmful content
@@ -31,6 +32,7 @@ Do not:
 ## Content Policy
 
 No uploading of:
+
 - Illegal materials
 - Harmful content
 - Spam

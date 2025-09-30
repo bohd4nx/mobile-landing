@@ -5,6 +5,7 @@
 ## Data Collection
 
 We collect:
+
 - Anonymous usage metrics
 - App performance data
 - Device information
@@ -13,6 +14,7 @@ We collect:
 ## Data Usage
 
 We use collected data to:
+
 - Improve app performance
 - Fix technical issues
 - Enhance features
@@ -21,6 +23,7 @@ We use collected data to:
 ## Security Measures
 
 We protect your data with:
+
 - Encryption protocols
 - Regular security checks
 - Secure storage systems
@@ -28,6 +31,7 @@ We protect your data with:
 ## Data Sharing Policy
 
 We do not sell your data. We share data only:
+
 - With essential services
 - When legally required
 - When you request it
@@ -35,6 +39,7 @@ We do not sell your data. We share data only:
 ## User Rights
 
 You can:
+
 - View your data
 - Delete your data
 - Stop analytics
@@ -47,5 +52,6 @@ We will notify you of policy changes through our app or email.
 ## Contact
 
 Questions? Reach us at:
+
 - privacy@example.com
 - help.example.com

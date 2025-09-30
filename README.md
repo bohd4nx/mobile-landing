@@ -1,22 +1,25 @@
 <div align="center">
-  <img src="public/favicon.webp" alt="Logo" width="120" height="120" style="border-radius: 20px;">
-  
-  <h1>Mobile App Landing Page</h1>
-  
-  <p>
-    <strong>A modern, responsive landing page template for mobile applications</strong>
+  <img src="public/favicon-512.svg" alt="Mobile Landing Logo" width="120" height="120" style="border-radius: 24px;">
+
+  <h1 style="margin-top: 24px;">🚀 Mobile App Landing Page</h1>
+
+  <p style="font-size: 18px; color: #666; margin-bottom: 24px;">
+    <strong>The ultimate modern landing page template for mobile applications</strong>
   </p>
-  
-  <p>
-    Built with Astro, React, and Tailwind CSS for optimal performance and developer experience
+
+  <p style="margin-bottom: 32px;">
+    Built with cutting-edge technologies: <strong>Astro</strong>, <strong>React</strong>, <strong>TypeScript</strong> & <strong>Tailwind CSS</strong>
   </p>
-  
+
   <p>
     <a href="https://landing.bohd4n.dev">
       <img src="https://img.shields.io/badge/demo-live-blue" alt="Live Demo">
     </a>
     <a href="https://github.com/bohd4nx/mobile-landing">
       <img src="https://img.shields.io/github/stars/bohd4nx/mobile-landing" alt="GitHub Stars">
+    </a>
+    <a href="https://github.com/bohd4nx/mobile-landing/network/members">
+      <img src="https://img.shields.io/github/forks/bohd4nx/mobile-landing" alt="GitHub Forks">
     </a>
     <a href="https://github.com/bohd4nx/mobile-landing/issues">
       <img src="https://img.shields.io/github/issues/bohd4nx/mobile-landing" alt="GitHub Issues">
@@ -29,7 +32,7 @@
 
 ---
 
-## ✨ Features
+## Features
 
 <table>
   <tr>
@@ -74,14 +77,16 @@
   </tr>
 </table>
 
-## 🚀 Quick Start
+## 🚀 Quick Start Guide
 
-### Prerequisites
+### 📋 Prerequisites
 
-- Node.js 18+ 
-- npm, yarn, or pnpm
+Make sure you have these installed:
 
-### Installation
+- **Node.js** 20+
+- **npm**, **yarn**, or **pnpm**
+
+### ⚡ Installation
 
 ```bash
 # Clone the repository
@@ -101,194 +106,211 @@ npm run build
 npm run preview
 ```
 
-## 🎨 Customization Guide
+> 🎉 **That's it!** Your landing page will be running at `http://localhost:4321`
 
-### 1. App Information
+---
 
-Edit `src/config/appInfo.ts`:
+## 🎨 Customization Made Easy
+
+### 1️⃣ **App Information** (`src/config/appInfo.ts`)
 
 ```typescript
 export const appInfo = {
-  title: "Your App Name",
-  description: "Your app description here. Keep it engaging and concise.",
-  logo: {
-    type: "image", // or "iframe" for animated logos
-    src: "favicon.webp" // Path to your app icon
-  },
-  storeLinks: {
-    apple: "https://apps.apple.com/app/your-app",
-    google: "https://play.google.com/store/apps/details?id=your.app"
-  }
+    title: "Your Amazing App", // Your app name
+    description: "Transform your daily workflow with our revolutionary app", // Compelling description
+    logo: {
+        src: "favicon-512.svg" // Your app icon (SVG recommended)
+    },
+    storeLinks: {
+        apple: "https://apps.apple.com/app/your-app", // App Store link
+        google: "https://play.google.com/store/apps/details?id=your.app" // Google Play link
+    }
 };
 ```
 
-### 2. Features Section
-
-Edit `src/config/features.ts`:
+### 2️⃣ **Features Section** (`src/config/features.ts`)
 
 ```typescript
-import { FiStar, FiZap, FiShield } from "react-icons/fi";
+import {FiStar, FiZap, FiShield, FiSmartphone} from "react-icons/fi";
 
 export const features = [
-  {
-    title: "Amazing Feature",
-    description: "Detailed description of what makes this feature special",
-    icon: FiStar
-  },
-  {
-    title: "Fast Performance",
-    description: "Lightning-fast experience for all users",
-    icon: FiZap
-  },
-  {
-    title: "Secure & Private",
-    description: "Your data is protected with industry-standard security",
-    icon: FiShield
-  }
-  // Add more features...
+    {
+        title: "🎯 Smart Analytics",
+        description: "Get detailed insights into your app usage with beautiful, actionable analytics",
+        icon: FiStar
+    },
+    {
+        title: "⚡ Lightning Speed",
+        description: "Experience blazing-fast performance optimized for modern devices",
+        icon: FiZap
+    },
+    {
+        title: "🔒 Bank-Level Security",
+        description: "Your data is protected with industry-leading security measures",
+        icon: FiShield
+    },
+    {
+        title: "📱 Cross-Platform",
+        description: "Works seamlessly across iOS, Android, and web platforms",
+        icon: FiSmartphone
+    }
 ];
 ```
 
-### 3. Screenshots Configuration
+### 3️⃣ **Screenshots Setup**
 
-1. **Add your screenshots:**
-   - iPhone screenshots: `public/screenshots/iphone/` (9:16 aspect ratio, ~260px width recommended)
-   - iPad screenshots: `public/screenshots/ipad/` (4:3 aspect ratio, ~360px width recommended)
+#### 📸 **Adding Your Screenshots**
 
-2. **Update screenshot paths in `src/config/screenshots.ts`:**
+1. **iPhone Screenshots** → `public/screenshots/iphone/`
+    - Aspect ratio: `9:16`
+    - Recommended width: `260px`
+    - Format: PNG or WEBP
+
+2. **iPad Screenshots** → `public/screenshots/ipad/`
+    - Aspect ratio: `4:3`
+    - Recommended width: `360px`
+    - Format: PNG or WEBP
+
+#### ⚙️ **Update Configuration** (`src/config/screenshots.ts`)
 
 ```typescript
 export const screenshots = {
-  iphone: [
-    "screenshots/iphone/1.png",
-    "screenshots/iphone/2.png",
-    "screenshots/iphone/3.png"
-  ],
-  ipad: [
-    "screenshots/ipad/1.png",
-    "screenshots/ipad/2.png",
-    "screenshots/ipad/3.png"
-  ]
+    iphone: [
+        "screenshots/iphone/home.png",
+        "screenshots/iphone/features.png",
+        "screenshots/iphone/profile.png"
+    ],
+    ipad: [
+        "screenshots/ipad/dashboard.png",
+        "screenshots/ipad/analytics.png",
+        "screenshots/ipad/settings.png"
+    ]
 };
 ```
 
-### 4. User Reviews
-
-Edit `src/config/reviews.ts`:
+### 4️⃣ **User Reviews** (`src/config/reviews.ts`)
 
 ```typescript
 export const reviews = [
-  {
-    author: "John Smith",
-    rating: 5, // 1-5 stars
-    text: "This app changed my daily workflow completely!",
-    avatar: "path/to/avatar.jpg" // Optional
-  }
-  // Add more reviews...
+    {
+        author: "Sarah Johnson",
+        rating: 5,
+        text: "This app completely transformed how I manage my daily tasks. The interface is intuitive and the performance is outstanding! 🚀",
+        avatar: "avatars/sarah.jpg" // Optional
+    },
+    {
+        author: "Mike Chen",
+        rating: 5,
+        text: "I've tried dozens of similar apps, but this one stands out with its unique features and reliability. Highly recommended! ⭐"
+    }
 ];
 ```
 
-### 5. FAQ Section
-
-Edit `src/config/faq.ts`:
+### 5️⃣ **FAQ Section** (`src/config/faq.ts`)
 
 ```typescript
 export const faq = [
-  {
-    question: "Is the app free to use?",
-    answer: "Yes, the app is free with optional premium features."
-  },
-  {
-    question: "Which devices are supported?",
-    answer: "The app supports iOS 14+ and Android 8+."
-  }
-  // Add more questions...
+    {
+        question: "Is the app free to use?",
+        answer: "Yes! The app is completely free with optional premium features for advanced users."
+    },
+    {
+        question: "Which devices are supported?",
+        answer: "Our app supports iOS 14+, Android 8+, and modern web browsers."
+    },
+    {
+        question: "How do I get customer support?",
+        answer: "You can reach our support team 24/7 through the in-app chat or email us at support@yourapp.com"
+    }
 ];
 ```
 
-### 6. Social Media Links
-
-Edit `src/config/socialLinks.ts`:
+### 6️⃣ **Social Media Links** (`src/config/socialLinks.ts`)
 
 ```typescript
-import { RiInstagramFill, RiTwitterXFill, RiTelegram2Fill } from "react-icons/ri";
+import {RiInstagramFill, RiTwitterXFill, RiTelegram2Fill, RiYoutubeFill} from "react-icons/ri";
 
 export const socialLinks = [
-  {
-    url: "https://instagram.com/yourapp",
-    icon: RiInstagramFill,
-    label: "Instagram"
-  },
-  {
-    url: "https://twitter.com/yourapp",
-    icon: RiTwitterXFill,
-    label: "Twitter"
-  }
-  // Add more social links...
+    {
+        url: "https://instagram.com/yourapp",
+        icon: RiInstagramFill,
+        label: "Follow us on Instagram"
+    },
+    {
+        url: "https://twitter.com/yourapp",
+        icon: RiTwitterXFill,
+        label: "Follow us on Twitter"
+    },
+    {
+        url: "https://t.me/yourapp",
+        icon: RiTelegram2Fill,
+        label: "Join our Telegram"
+    },
+    {
+        url: "https://youtube.com/@yourapp",
+        icon: RiYoutubeFill,
+        label: "Subscribe to our YouTube"
+    }
 ];
 ```
 
-### 7. Privacy Policy & Terms
+---
 
-1. **Edit markdown files:**
-   - Privacy Policy: `src/pages/content/privacy.md`
-   - Terms of Service: `src/pages/content/terms.md`
+## 📄 Content Pages
 
-2. **The pages will automatically:**
-   - Render markdown content with proper styling
-   - Include breadcrumb navigation
-   - Add back-to-top functionality
-   - Support both light and dark themes
+### 🔒 **Privacy Policy & Terms**
 
-## 🚀 Deployment
+Edit these Markdown files to customize your legal pages:
 
-### Vercel (Recommended)
+- **Privacy Policy**: `src/pages/content/privacy.md`
+- **Terms of Service**: `src/pages/content/terms.md`
+
+---
+
+## 🌐 Deployment Options
+
+### 🟡 **Vercel** (Recommended)
+
 ```bash
 npm install -g vercel
-vercel
+vercel --prod
 ```
 
-### Netlify
-```bash
-npm run build
-# Upload dist/ folder to Netlify
-```
+### 🟢 **GitHub Pages**
 
-### GitHub Pages
 ```bash
-# Set base in astro.config.mjs
+# Update astro.config.mjs
 export default defineConfig({
   site: 'https://username.github.io',
   base: '/repository-name',
 });
 ```
 
-## 📄 License
+### 🔵 **Custom Server**
+
+```bash
+npm run build
+# Upload dist/ folder to your server
+```
+
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- **[Astro](https://astro.build)** - The web framework for content-driven websites
-- **[React](https://react.dev)** - JavaScript library for building user interfaces
-- **[Tailwind CSS](https://tailwindcss.com)** - Utility-first CSS framework
-- **[Framer Motion](https://www.framer.com/motion/)** - Production-ready motion library for React
-- **[React Icons](https://react-icons.github.io/react-icons/)** - Popular icon library
-- **[Marked](https://marked.js.org/)** - Markdown parser and compiler
-
 
 ---
 
 <div align="center">
   <p>Made with ❤️ by <a href="https://t.me/bohd4nx">Bohdan</a></p>
-  
+
   <p>
     <sub>If you found this project helpful, please consider giving it a ⭐</sub>
   </p>
-  
+
   <p>
     <a href="https://github.com/bohd4nx/mobile-landing/issues">Report Bug</a>
     ·
     <a href="https://github.com/bohd4nx/mobile-landing/issues">Request Feature</a>
+    ·
+    <a href="https://landing.bohd4n.dev">View Demo</a>
   </p>
 </div>
