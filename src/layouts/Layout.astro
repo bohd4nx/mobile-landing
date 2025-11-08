@@ -1,4 +1,7 @@
 ---
+/** biome-ignore-all lint/correctness/noUnusedImports: React icons are used in JSX */
+/** biome-ignore-all lint/correctness/noUnusedVariables: variables used in Astro components */
+
 import Footer from "@components/sections/Footer";
 import GithubCorner from "@components/ui/GithubCorner";
 import PageAnimation from "@components/ui/PageAnimation";
@@ -6,10 +9,9 @@ import PageAnimation from "@components/ui/PageAnimation";
 interface Props {
   title: string;
   description?: string;
-  showFooter?: boolean;
 }
 
-const { title, description, showFooter = true } = Astro.props;
+const { title, description } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -48,7 +50,7 @@ const { title, description, showFooter = true } = Astro.props;
     <div class="mx-auto min-h-screen max-w-[800px]">
       <PageAnimation client:load>
         <main><slot /></main>
-        {showFooter && <Footer client:load />}
+        <Footer client:load />
       </PageAnimation>
     </div>
   </body>

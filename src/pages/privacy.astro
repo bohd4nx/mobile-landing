@@ -1,9 +1,12 @@
 ---
+/** biome-ignore-all lint/correctness/noUnusedImports: React icons are used in JSX */
+/** biome-ignore-all lint/correctness/noUnusedVariables: variables used in Astro components */
+
 import BackToTop from "@components/ui/BackToTop";
 import Breadcrumbs from "@components/ui/Breadcrumbs";
 import Layout from "@layouts/Layout.astro";
-import { siteConfig } from "../config";
 import { marked } from "marked";
+import { siteConfig } from "../config";
 
 const privacyContent = Object.values(import.meta.glob("./content/privacy.md", { eager: true }))[0] as { rawContent: () => string };
 const htmlContent = marked(privacyContent.rawContent());

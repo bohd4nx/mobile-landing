@@ -1,10 +1,12 @@
 ---
+/** biome-ignore-all lint/correctness/noUnusedImports: React icons are used in JSX */
+
 import Layout from "@layouts/Layout.astro";
 import { FiArrowLeft } from "react-icons/fi";
 import { siteConfig } from "../config";
 ---
 
-<Layout title={`${siteConfig.title} · Page Not Found`} description="The page you're looking for doesn't exist" showFooter={false}>
+<Layout title={`${siteConfig.title} · Page Not Found`} description="The page you're looking for doesn't exist">
   <main class="flex min-h-screen items-center justify-center">
     <div class="text-center">
       <h1 class="text-9xl font-bold text-gray-900 dark:text-white/90">404</h1>
