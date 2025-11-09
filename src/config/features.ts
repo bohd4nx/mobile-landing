@@ -1,5 +1,5 @@
 import { FiBox, FiStar, FiZap } from "react-icons/fi";
-import type { Feature } from "./types";
+import type { Feature } from "@/types/app";
 
 export const features: Feature[] = [
 	{

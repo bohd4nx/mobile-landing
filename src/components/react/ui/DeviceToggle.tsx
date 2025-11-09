@@ -1,6 +1,8 @@
-import type { DeviceToggleProps } from "config";
+import type { DeviceToggleProps } from "@/types/ui";
 import { motion } from "framer-motion";
 import { memo, useCallback } from "react";
+import { IoPhonePortraitOutline } from "react-icons/io5";
+import { FiTablet } from "react-icons/fi";
 
 const DeviceToggle = ({ activeDevice, onToggle }: DeviceToggleProps) => {
 	const handleIphoneClick = useCallback(() => onToggle("iphone"), [onToggle]);
@@ -12,29 +14,32 @@ const DeviceToggle = ({ activeDevice, onToggle }: DeviceToggleProps) => {
 				key="iphone"
 				isActive={activeDevice === "iphone"}
 				onClick={handleIphoneClick}
-				label="Iphone"
+				label="iPhone"
+				icon={<IoPhonePortraitOutline className="w-4 h-4" />}
 			/>
 			<DeviceButton
 				key="ipad"
 				isActive={activeDevice === "ipad"}
 				onClick={handleIpadClick}
-				label="Ipad"
+				label="iPad"
+				icon={<FiTablet className="w-4 h-4" />}
 			/>
 		</div>
 	);
 };
 
-const DeviceButton = memo(({ isActive, onClick, label }: {
+const DeviceButton = memo(({ isActive, onClick, label, icon }: {
 	isActive: boolean;
 	onClick: () => void;
 	label: string;
+	icon: React.ReactNode;
 }) => (
 	<motion.button
 		type="button"
 		onClick={onClick}
-		className={`relative rounded-md px-3.5 py-1.5 text-sm font-medium transition-colors ${isActive
-				? "text-gray-900 dark:text-white"
-				: "text-gray-600 dark:text-white/60 hover:text-gray-800 dark:hover:text-white"
+		className={`relative rounded-md px-3.5 py-1.5 text-sm font-medium flex items-center gap-1 sm:gap-2 ${isActive
+			? "text-gray-900 dark:text-white"
+			: "text-gray-600 dark:text-white/60 hover:text-gray-800 dark:hover:text-white"
 			}`}
 		whileTap={{ scale: 0.95 }}
 	>
@@ -45,6 +50,7 @@ const DeviceButton = memo(({ isActive, onClick, label }: {
 				transition={{ type: "spring", bounce: 0.15, duration: 0.5 }}
 			/>
 		)}
+		<span className="relative z-10 hidden sm:inline">{icon}</span>
 		<span className="relative z-10">{label}</span>
 	</motion.button>
 ));

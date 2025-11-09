@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="public/favicon-512.svg" alt="Mobile Landing Logo" width="120" height="120" style="border-radius: 24px;">
+  <img src="public/assets/favicon-512.svg" alt="Mobile Landing Logo" width="120" height="120" style="border-radius: 24px;">
 
   <h1 style="margin-top: 24px;">🚀 Mobile App Landing Page</h1>
 
@@ -12,22 +12,13 @@
   </p>
 
   <p>
-    <a href="https://landing.bohd4n.dev">
-      <img src="https://img.shields.io/badge/demo-live-blue" alt="Live Demo">
-    </a>
-    <a href="https://github.com/bohd4nx/mobile-landing">
-      <img src="https://img.shields.io/github/stars/bohd4nx/mobile-landing" alt="GitHub Stars">
-    </a>
-    <a href="https://github.com/bohd4nx/mobile-landing/network/members">
-      <img src="https://img.shields.io/github/forks/bohd4nx/mobile-landing" alt="GitHub Forks">
-    </a>
-    <a href="https://github.com/bohd4nx/mobile-landing/issues">
-      <img src="https://img.shields.io/github/issues/bohd4nx/mobile-landing" alt="GitHub Issues">
-    </a>
-    <a href="https://github.com/bohd4nx/mobile-landing/blob/main/LICENSE">
-      <img src="https://img.shields.io/github/license/bohd4nx/mobile-landing" alt="License">
-    </a>
+    <a href="https://github.com/bohd4nx/mobile-landing/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/bohd4nx/mobile-landing/issues">Request Feature</a>
+    ·
+    <a href="https://landing.bohd4n.dev">View Demo</a>
   </p>
+
 </div>
 
 ---
@@ -48,32 +39,16 @@
     <td>Clean design with smooth Framer Motion animations</td>
   </tr>
   <tr>
-    <td>🌗 <strong>Smart Theme System</strong></td>
+    <td>🌗 <strong>Theme System</strong></td>
     <td>Light/Dark/System theme with persistent storage</td>
-  </tr>
-  <tr>
-    <td>📝 <strong>Markdown Support</strong></td>
-    <td>Easy editing of Privacy Policy and Terms of Service</td>
   </tr>
   <tr>
     <td>🔍 <strong>SEO Optimized</strong></td>
     <td>Built-in meta tags and semantic HTML structure</td>
   </tr>
   <tr>
-    <td>⚡ <strong>Lightning Fast</strong></td>
-    <td>Astro's island architecture for optimal performance</td>
-  </tr>
-  <tr>
-    <td>♿ <strong>Accessible</strong></td>
-    <td>WCAG compliant with proper ARIA labels and keyboard navigation</td>
-  </tr>
-  <tr>
     <td>📊 <strong>User Reviews</strong></td>
     <td>Beautiful review cards with star ratings</td>
-  </tr>
-  <tr>
-    <td>🔧 <strong>TypeScript</strong></td>
-    <td>Full TypeScript support for better development experience</td>
   </tr>
 </table>
 
@@ -112,147 +87,171 @@ npm run preview
 
 ## 🎨 Customization Made Easy
 
-### 1️⃣ **App Information** (`src/config/appInfo.ts`)
+<details>
+<summary><strong>Site Configuration</strong> <code>src/config/site.ts</code></summary>
 
 ```typescript
-export const appInfo = {
-    title: "Your Amazing App", // Your app name
-    description: "Transform your daily workflow with our revolutionary app", // Compelling description
+export const siteConfig = {
+    name: "Your App Name", // Your application name
+    description: "Here you can write a brief description of your application. Tell users about its main features and benefits in 1-2 sentences.", // SEO description
+    keywords: ["mobile app", "landing page", "astro", "react", "typescript"], // SEO keywords
     logo: {
-        src: "favicon-512.svg" // Your app icon (SVG recommended)
+        src192: "/assets/favicon-192.svg", // Logo 192x192px
+        src512: "/assets/favicon-512.svg", // Logo 512x512px
     },
     storeLinks: {
-        apple: "https://apps.apple.com/app/your-app", // App Store link
-        google: "https://play.google.com/store/apps/details?id=your.app" // Google Play link
-    }
-};
+        apple: "#", // App Store link
+        google: "#", // Google Play link
+    },
+    socialLinks, // Imported from socialLinks.ts
+} as const;
 ```
 
-### 2️⃣ **Features Section** (`src/config/features.ts`)
+</details>
+
+<details>
+<summary><strong>Features Section</strong> <code>src/config/features.ts</code></summary>
 
 ```typescript
-import {FiStar, FiZap, FiShield, FiSmartphone} from "react-icons/fi";
+import { FiBox, FiStar, FiZap } from "react-icons/fi";
+import type { Feature } from "@/types/app";
 
-export const features = [
+export const features: Feature[] = [
     {
-        title: "🎯 Smart Analytics",
-        description: "Get detailed insights into your app usage with beautiful, actionable analytics",
-        icon: FiStar
+        title: "Main Feature",
+        description: "Describe your main feature here. What makes it special?",
+        icon: FiStar,
     },
     {
-        title: "⚡ Lightning Speed",
-        description: "Experience blazing-fast performance optimized for modern devices",
-        icon: FiZap
+        title: "Another Feature", 
+        description: "What else can your app do? Tell users about it here.",
+        icon: FiZap,
     },
     {
-        title: "🔒 Bank-Level Security",
-        description: "Your data is protected with industry-leading security measures",
-        icon: FiShield
+        title: "One More Feature",
+        description: "Add another key feature of your application here.",
+        icon: FiBox,
     },
-    {
-        title: "📱 Cross-Platform",
-        description: "Works seamlessly across iOS, Android, and web platforms",
-        icon: FiSmartphone
-    }
 ];
 ```
 
-### 3️⃣ **Screenshots Setup**
+</details>
 
-#### 📸 **Adding Your Screenshots**
+<details>
+<summary><strong>Screenshots Setup</strong> <code>src/config/screenshots.ts</code></summary>
 
-1. **iPhone Screenshots** → `public/screenshots/iphone/`
+#### **Adding Your Screenshots**
+
+1. **iPhone Screenshots** → `public/assets/screenshots/iphone/`
     - Aspect ratio: `9:16`
     - Recommended width: `260px`
     - Format: PNG or WEBP
 
-2. **iPad Screenshots** → `public/screenshots/ipad/`
+2. **iPad Screenshots** → `public/assets/screenshots/ipad/`
     - Aspect ratio: `4:3`
     - Recommended width: `360px`
     - Format: PNG or WEBP
 
-#### ⚙️ **Update Configuration** (`src/config/screenshots.ts`)
+#### **Update Configuration**
 
 ```typescript
-export const screenshots = {
+import type { Screenshots } from "@/types/app";
+
+export const screenshots: Screenshots = {
     iphone: [
-        "screenshots/iphone/home.png",
-        "screenshots/iphone/features.png",
-        "screenshots/iphone/profile.png"
+        "/assets/screenshots/iphone/1.png",
+        "/assets/screenshots/iphone/2.png",
+        "/assets/screenshots/iphone/3.png",
     ],
     ipad: [
-        "screenshots/ipad/dashboard.png",
-        "screenshots/ipad/analytics.png",
-        "screenshots/ipad/settings.png"
-    ]
+        "/assets/screenshots/ipad/1.png",
+        "/assets/screenshots/ipad/2.png", 
+        "/assets/screenshots/ipad/3.png",
+    ],
 };
 ```
 
-### 4️⃣ **User Reviews** (`src/config/reviews.ts`)
+</details>
+
+<details>
+<summary><strong>User Reviews</strong> <code>src/config/reviews.ts</code></summary>
 
 ```typescript
-export const reviews = [
+import type { Review } from "@/types/app";
+
+export const reviews: Review[] = [
     {
-        author: "Sarah Johnson",
+        author: "John Doe",
         rating: 5,
-        text: "This app completely transformed how I manage my daily tasks. The interface is intuitive and the performance is outstanding! 🚀",
-        avatar: "avatars/sarah.jpg" // Optional
+        text: "Amazing app! Really helped me with my daily tasks.",
+        avatar: "/assets/avatars/john.jpg", // Optional
     },
     {
-        author: "Mike Chen",
-        rating: 5,
-        text: "I've tried dozens of similar apps, but this one stands out with its unique features and reliability. Highly recommended! ⭐"
-    }
+        author: "Jane Smith",
+        rating: 4,
+        text: "Great functionality and beautiful design.",
+        // No avatar - will show initials
+    },
 ];
 ```
 
-### 5️⃣ **FAQ Section** (`src/config/faq.ts`)
+</details>
+
+<details>
+<summary><strong>FAQ Section</strong> <code>src/config/faqs.ts</code></summary>
 
 ```typescript
-export const faq = [
+import type { FAQ } from "@/types/app";
+
+export const faqs: FAQ[] = [
     {
-        question: "Is the app free to use?",
-        answer: "Yes! The app is completely free with optional premium features for advanced users."
+        question: "How do I get started?",
+        answer: "Simply download the app from your preferred store and follow the onboarding process.",
     },
     {
-        question: "Which devices are supported?",
-        answer: "Our app supports iOS 14+, Android 8+, and modern web browsers."
+        question: "Is there a free trial?",
+        answer: "Yes! We offer a 14-day free trial with full access to all features.",
     },
     {
-        question: "How do I get customer support?",
-        answer: "You can reach our support team 24/7 through the in-app chat or email us at support@yourapp.com"
-    }
+        question: "Can I cancel anytime?",
+        answer: "Absolutely. You can cancel your subscription at any time without penalties.",
+    },
 ];
 ```
 
-### 6️⃣ **Social Media Links** (`src/config/socialLinks.ts`)
+</details>
+
+<details>
+<summary><strong>Social Media Links</strong> <code>src/config/socialLinks.ts</code></summary>
 
 ```typescript
-import {RiInstagramFill, RiTwitterXFill, RiTelegram2Fill, RiYoutubeFill} from "react-icons/ri";
+import {
+    RiInstagramFill,
+    RiTelegram2Fill,
+    RiTwitterXFill,
+} from "react-icons/ri";
+import type { SocialLink } from "@/types/app";
 
-export const socialLinks = [
+export const socialLinks: SocialLink[] = [
     {
         url: "https://instagram.com/yourapp",
         icon: RiInstagramFill,
-        label: "Follow us on Instagram"
+        label: "Instagram",
+    },
+    {
+        url: "https://t.me/yourapp", 
+        icon: RiTelegram2Fill,
+        label: "Telegram",
     },
     {
         url: "https://twitter.com/yourapp",
         icon: RiTwitterXFill,
-        label: "Follow us on Twitter"
+        label: "Twitter",
     },
-    {
-        url: "https://t.me/yourapp",
-        icon: RiTelegram2Fill,
-        label: "Join our Telegram"
-    },
-    {
-        url: "https://youtube.com/@yourapp",
-        icon: RiYoutubeFill,
-        label: "Subscribe to our YouTube"
-    }
 ];
 ```
+
+</details>
 
 ---
 
@@ -262,36 +261,12 @@ export const socialLinks = [
 
 Edit these Markdown files to customize your legal pages:
 
-- **Privacy Policy**: `src/pages/content/privacy.md`
+- **Privacy Policy**: `src/pages/content/privacy.md`  
 - **Terms of Service**: `src/pages/content/terms.md`
 
+Both pages support full Markdown syntax and are automatically styled.
+
 ---
-
-## 🌐 Deployment Options
-
-### 🟡 **Vercel** (Recommended)
-
-```bash
-npm install -g vercel
-vercel --prod
-```
-
-### 🟢 **GitHub Pages**
-
-```bash
-# Update astro.config.mjs
-export default defineConfig({
-  site: 'https://username.github.io',
-  base: '/repository-name',
-});
-```
-
-### 🔵 **Custom Server**
-
-```bash
-npm run build
-# Upload dist/ folder to your server
-```
 
 ## License
 
@@ -304,13 +279,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
   <p>
     <sub>If you found this project helpful, please consider giving it a ⭐</sub>
-  </p>
-
-  <p>
-    <a href="https://github.com/bohd4nx/mobile-landing/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/bohd4nx/mobile-landing/issues">Request Feature</a>
-    ·
-    <a href="https://landing.bohd4n.dev">View Demo</a>
   </p>
 </div>

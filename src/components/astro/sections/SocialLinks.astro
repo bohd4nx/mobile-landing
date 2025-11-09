@@ -1,0 +1,36 @@
+---
+/** biome-ignore-all lint/correctness/noUnusedVariables: variables used in Astro components */
+
+import type { SocialLinksProps } from "@/types/app";
+
+interface Props extends SocialLinksProps {}
+
+const { items } = Astro.props;
+---
+
+<div class="mb-8">
+	<div class="relative">
+		<div class="absolute inset-0 flex items-center">
+			<div class="mx-auto border-t border-gray-300 dark:border-white/10"></div>
+		</div>
+		<div class="relative flex justify-center">
+			<span class="bg-gray-50 dark:bg-black px-6 text-sm font-medium tracking-wider text-gray-500 dark:text-white/50 uppercase">
+				Social Media
+			</span>
+		</div>
+	</div>
+
+	<div class="mt-6 flex justify-center gap-4">
+		{items.map(({ icon: Icon, label, url }) => (
+			<a
+				href={url}
+				target="_blank"
+				rel="noopener noreferrer"
+				class="group rounded-xl border border-gray-300 dark:border-white/10 bg-white dark:bg-white/[0.03] p-3 hover:bg-gray-50 dark:hover:bg-white/[0.05] shadow-sm"
+				aria-label={label}
+			>
+				<Icon className="h-5 w-5 text-gray-600 dark:text-gray-400 group-hover:text-gray-800 dark:group-hover:text-white" />
+			</a>
+		))}
+	</div>
+</div>

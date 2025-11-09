@@ -2,19 +2,19 @@
 /** biome-ignore-all lint/correctness/noUnusedImports: React icons are used in JSX */
 /** biome-ignore-all lint/correctness/noUnusedVariables: variables used in Astro components */
 
-import BackToTop from "@components/ui/BackToTop";
-import Breadcrumbs from "@components/ui/Breadcrumbs";
+import Breadcrumbs from "@astro/ui/Breadcrumbs.astro";
+import { siteConfig } from "@config/site";
 import Layout from "@layouts/Layout.astro";
+import BackToTop from "@react/ui/BackToTop";
 import { marked } from "marked";
-import { siteConfig } from "../config";
 
 const privacyContent = Object.values(import.meta.glob("./content/privacy.md", { eager: true }))[0] as { rawContent: () => string };
 const htmlContent = marked(privacyContent.rawContent());
 ---
 
 <Layout 
-  title={`${siteConfig.title} · Privacy Policy`} 
-  description={`Privacy Policy for ${siteConfig.title} application - How we handle and protect your data`}
+  title={`${siteConfig.name} · Privacy Policy`} 
+  description={`Privacy Policy for ${siteConfig.name} application - How we handle and protect your data`}
 >
   <main class="min-h-screen max-w-3xl mx-auto px-4 py-8">
     <Breadcrumbs items={[{ label: "Privacy Policy" }]} />

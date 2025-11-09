@@ -2,19 +2,19 @@
 /** biome-ignore-all lint/correctness/noUnusedImports: React icons are used in JSX */
 /** biome-ignore-all lint/correctness/noUnusedVariables: variables used in Astro components */
 
-import BackToTop from "@components/ui/BackToTop";
-import Breadcrumbs from "@components/ui/Breadcrumbs";
+import Breadcrumbs from "@astro/ui/Breadcrumbs.astro";
+import { siteConfig } from "@config/site";
 import Layout from "@layouts/Layout.astro";
+import BackToTop from "@react/ui/BackToTop";
 import { marked } from "marked";
-import { siteConfig } from "../config";
 
 const termsContent = Object.values(import.meta.glob("./content/terms.md", { eager: true }))[0] as { rawContent(): string };
 const htmlContent = marked(termsContent.rawContent());
 ---
 
 <Layout 
-  title={`${siteConfig.title} · Terms of Service`} 
-  description={`Terms of Service for ${siteConfig.title} application - Rules and guidelines for using our service`}
+  title={`${siteConfig.name} · Terms of Service`} 
+  description={`Terms of Service for ${siteConfig.name} application - Rules and guidelines for using our service`}
 >
   <main class="min-h-screen max-w-3xl mx-auto px-4 py-8">
     <Breadcrumbs items={[{ label: "Terms of Service" }]} />

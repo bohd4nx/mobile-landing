@@ -39,7 +39,7 @@ const BackToTop = () => {
 					exit={{ opacity: 0, scale: 0.8 }}
 					transition={{ duration: 0.2 }}
 					onClick={scrollToTop}
-					className="fixed bottom-8 right-8 z-50 flex h-12 w-12 items-center justify-center rounded-full border border-gray-300 dark:border-white/10 bg-white/90 dark:bg-black/80 text-gray-800 dark:text-white shadow-lg backdrop-blur-sm transition-colors hover:bg-white dark:hover:bg-white/10"
+					className="fixed bottom-8 right-8 z-50 flex h-12 w-12 items-center justify-center rounded-full border border-gray-300 dark:border-white/10 bg-white/90 dark:bg-black/80 text-gray-800 dark:text-white shadow-lg backdrop-blur-sm hover:bg-white dark:hover:bg-white/10"
 					aria-label="Back to top"
 				>
 					<FiChevronUp size={24} />

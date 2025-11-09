@@ -2,14 +2,12 @@
 /** biome-ignore-all lint/correctness/noUnusedImports: React icons are used in JSX */
 /** biome-ignore-all lint/correctness/noUnusedVariables: variables used in Astro components */
 
-import Footer from "@components/sections/Footer";
-import GithubCorner from "@components/ui/GithubCorner";
-import PageAnimation from "@components/ui/PageAnimation";
+import Footer from "@astro/sections/Footer.astro";
+import PageAnimation from "@react/ui/PageAnimation";
+import type { LayoutProps } from "@/types/ui";
+import { siteConfig } from "@config/site";
 
-interface Props {
-  title: string;
-  description?: string;
-}
+interface Props extends LayoutProps {}
 
 const { title, description } = Astro.props;
 ---
@@ -20,37 +18,54 @@ const { title, description } = Astro.props;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content={Astro.generator}>
-    
-    <link rel="icon" type="image/webp" href="/favicon-512.svg">
-    
+    <meta name="keywords" content={siteConfig.keywords.join(", ")}>
+
+    <link rel="icon" type="image/svg+xml" href={siteConfig.logo.src192}>
+    <link rel="icon" type="image/svg+xml" href={siteConfig.logo.src512} sizes="512x512">
+
     <title>{title}</title>
     {description && <meta name="description" content={description}>}
     
     <meta property="og:title" content={title}>
+    <meta property="og:type" content="website">
+    <meta property="og:url" content={Astro.url.href}>
     {description && <meta property="og:description" content={description}>}
-    <meta property="og:image" content={new URL('/favicon-512.svg', Astro.url).href}>
+    <meta property="og:image" content={new URL(siteConfig.logo.src512, Astro.url).href}>
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content={title}>
+    {description && <meta name="twitter:description" content={description}>}
+    <meta name="twitter:image" content={new URL(siteConfig.logo.src512, Astro.url).href}>
     
     <script is:inline>
+      if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+      }
+
+      window.addEventListener('beforeunload', () => {
+        window.scrollTo(0, 0);
+      });
+
+      window.scrollTo(0, 0);
+      
       const theme = localStorage.getItem('theme') || 'system';
-      const root = document.documentElement;
-      root.classList.remove('light', 'dark');
+      document.documentElement.classList.remove('light', 'dark');
       
       if (theme === 'system') {
         const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        root.classList.add(prefersDark ? 'dark' : 'light');
+        document.documentElement.classList.add(prefersDark ? 'dark' : 'light');
       } else {
-        root.classList.add(theme);
+        document.documentElement.classList.add(theme);
       }
       
       !localStorage.getItem('theme') && localStorage.setItem('theme', 'system');
     </script>
   </head>
-  <body class="transition-colors duration-300 bg-gray-50 text-gray-900 dark:bg-black dark:text-white">
-    <GithubCorner href="https://github.com/bohd4nx/mobile-landing" />
+  <body class="bg-gray-50 text-gray-900 dark:bg-black dark:text-white transition-colors duration-300">
     <div class="mx-auto min-h-screen max-w-[800px]">
       <PageAnimation client:load>
         <main><slot /></main>
-        <Footer client:load />
+        <Footer />
       </PageAnimation>
     </div>
   </body>
@@ -58,7 +73,14 @@ const { title, description } = Astro.props;
 
 
 <style is:global>
-  * { transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease; }
+  * { 
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; 
+  }
+  
+  html.theme-transitioning * {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease !important;
+  }
+  
   html.light { color-scheme: light; }
   html.dark { color-scheme: dark; }
 

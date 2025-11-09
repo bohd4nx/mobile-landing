@@ -13,7 +13,7 @@ React: reactjs.org
 
 /* SITE */
 
-Last update: 2025/09/30
+Last update: 2025/11/09
 Language: English
 Doctype: HTML5
 IDE: Visual Studio Code

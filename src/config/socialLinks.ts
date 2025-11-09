@@ -3,7 +3,7 @@ import {
 	RiTelegram2Fill,
 	RiTwitterXFill,
 } from "react-icons/ri";
-import type { SocialLink } from "./types";
+import type { SocialLink } from "@/types/app";
 
 export const socialLinks: SocialLink[] = [
 	{

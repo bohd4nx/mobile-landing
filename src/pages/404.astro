@@ -1,20 +1,30 @@
 ---
 /** biome-ignore-all lint/correctness/noUnusedImports: React icons are used in JSX */
 
+import { siteConfig } from "@config/site";
 import Layout from "@layouts/Layout.astro";
-import { FiArrowLeft } from "react-icons/fi";
-import { siteConfig } from "../config";
+import { FiHome } from "react-icons/fi";
 ---
 
-<Layout title={`${siteConfig.title} · Page Not Found`} description="The page you're looking for doesn't exist">
-  <main class="flex min-h-screen items-center justify-center">
-    <div class="text-center">
-      <h1 class="text-9xl font-bold text-gray-900 dark:text-white/90">404</h1>
-      <h2 class="mt-8 text-xl font-medium text-gray-900 dark:text-white">Page not found</h2>
-      <p class="mt-4 text-gray-600 dark:text-gray-400">The page you're looking for doesn't exist.</p>
-      <a href="/" class="mt-8 inline-flex items-center gap-3 rounded-xl border border-gray-300 dark:border-white/10 bg-white dark:bg-white/[0.04] px-5 py-3 hover:bg-gray-50 dark:hover:bg-white/[0.08]">
-        <FiArrowLeft className="h-5 w-5 text-gray-600 dark:text-gray-300" />
-        <span class="font-medium text-gray-900 dark:text-white">Back to Home</span>
+<Layout title={`${siteConfig.name} • Page Not Found`} description="The page you're looking for doesn't exist">
+  <main class="flex min-h-[calc(100vh-250px)] items-center justify-center px-4">
+    <div class="w-full max-w-lg text-center">
+      <div class="mb-8">
+        <h1 class="text-8xl font-bold text-gray-900 dark:text-white/90 mb-4 sm:text-9xl">404</h1>
+      </div>
+      <h2 class="mb-4 text-2xl font-semibold text-gray-900 dark:text-white sm:text-2xl">
+        Page Not Found
+      </h2>
+      <p class="mb-8 text-lg leading-relaxed text-gray-600 dark:text-gray-400 sm:text-lg">
+        Oops! The page you're looking for seems to have wandered off into the digital void.
+      </p>
+      <a
+        href="/"
+        class="inline-flex items-center justify-center gap-3 rounded-xl border border-gray-300 dark:border-white/10 bg-white dark:bg-white/[0.04] px-7 py-4 font-medium text-gray-900 dark:text-white hover:scale-105 hover:bg-gray-50 dark:hover:bg-white/[0.08] hover:border-gray-400 dark:hover:border-white/20 hover:shadow-lg active:scale-95 sm:px-6 sm:py-3"
+        style="touch-action: manipulation; -webkit-tap-highlight-color: transparent;"
+      >
+        <FiHome className="h-6 w-6 sm:h-5 sm:w-5" />
+        <span class="text-base sm:text-sm">Go Home</span>
       </a>
     </div>
   </main>

@@ -1,8 +1,7 @@
+import type { Theme } from "@/types/ui";
 import { motion } from "framer-motion";
 import { memo, useCallback, useEffect, useState } from "react";
 import { FiMonitor, FiMoon, FiSun } from "react-icons/fi";
-
-type Theme = "light" | "dark" | "system";
 
 const themes: { key: Theme; icon: typeof FiSun; label: string }[] = [
     { key: "light", icon: FiSun, label: "Light" },
@@ -16,23 +15,23 @@ const ThemeToggle = () => {
 
     const applyTheme = useCallback((newTheme: Theme) => {
         const root = document.documentElement;
-        
-        // Temporarily disable transitions to prevent flash
-        root.style.transition = 'none';
-        
+
+        if (!root.classList.contains('theme-transitioning')) {
+            root.classList.add('theme-transitioning');
+        }
+
         root.classList.remove("light", "dark");
-        
+
         if (newTheme === "system") {
             const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
             root.classList.add(prefersDark ? "dark" : "light");
         } else {
             root.classList.add(newTheme);
         }
-        
-        // Re-enable transitions after a small delay
+
         setTimeout(() => {
-            root.style.transition = '';
-        }, 50);
+            root.classList.remove('theme-transitioning');
+        }, 300);
     }, []);
 
     useEffect(() => {
@@ -62,9 +61,8 @@ const ThemeToggle = () => {
                         localStorage.setItem("theme", key);
                         applyTheme(key);
                     }}
-                    className={`relative rounded-md p-2 text-sm font-medium transition-colors ${
-                        theme === key ? "text-gray-900 dark:text-white" : "text-gray-600 dark:text-white/60 hover:text-gray-800 dark:hover:text-white"
-                    }`}
+                    className={`relative rounded-md p-2 text-sm font-medium ${theme === key ? "text-gray-900 dark:text-white" : "text-gray-600 dark:text-white/60 hover:text-gray-800 dark:hover:text-white"
+                        }`}
                     whileTap={{ scale: 0.95 }}
                     title={label}
                     aria-label={`Switch to ${label.toLowerCase()} theme`}

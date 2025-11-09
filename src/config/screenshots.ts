@@ -1,14 +1,14 @@
-import type { DeviceScreenshots } from "./types";
+import type { Screenshots } from "@/types/app";
 
-export const screenshots: DeviceScreenshots = {
+export const screenshots: Screenshots = {
 	iphone: [
-		"screenshots/iphone/1.png",
-		"screenshots/iphone/2.png",
-		"screenshots/iphone/3.png",
+		"/assets/screenshots/iphone/1.png",
+		"/assets/screenshots/iphone/2.png",
+		"/assets/screenshots/iphone/3.png",
 	],
 	ipad: [
-		"screenshots/ipad/1.png",
-		"screenshots/ipad/2.png",
-		"screenshots/ipad/3.png",
+		"/assets/screenshots/ipad/1.png",
+		"/assets/screenshots/ipad/2.png",
+		"/assets/screenshots/ipad/3.png",
 	],
 };

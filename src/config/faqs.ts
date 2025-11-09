@@ -1,6 +1,6 @@
-import type { FAQ } from "./types";
+import type { FAQ } from "@/types/app";
 
-export const faq: FAQ[] = [
+export const faqs: FAQ[] = [
 	{
 		question: "Question 1?",
 		answer: "Answer to question 1 goes here.",

@@ -1,5 +1,5 @@
-import type { LightboxProps } from "config";
-import { areImagesEqual } from "config";
+import type { LightboxProps } from "@/types/app";
+import { areImagesEqual } from "@/types/app";
 import { AnimatePresence, motion } from "framer-motion";
 import { memo, useCallback, useEffect, useState } from "react";
 import { FiChevronLeft, FiChevronRight, FiX } from "react-icons/fi";
@@ -126,11 +126,10 @@ const Lightbox = ({ images }: LightboxProps) => {
 								e.stopPropagation();
 								setCurrentIndex(index);
 							}}
-							className={`h-2 w-2 rounded-full transition-colors ${
-								index === currentIndex
-									? "bg-gray-800 dark:bg-white"
-									: "bg-gray-500 dark:bg-white/60 hover:bg-gray-700 dark:hover:bg-white/80"
-							}`}
+							className={`h-2 w-2 rounded-full transition-colors ${index === currentIndex
+								? "bg-gray-800 dark:bg-white"
+								: "bg-gray-500 dark:bg-white/60 hover:bg-gray-700 dark:hover:bg-white/80"
+								}`}
 							aria-label={`Go to image ${index + 1}`}
 						/>
 					))}

@@ -1,14 +1,14 @@
+import type { RatingStarsProps } from "@/types/ui";
 import { memo } from "react";
 import { FiStar } from "react-icons/fi";
 
-type Size = "sm" | "md" | "lg";
-const sizeClasses: Record<Size, string> = {
+const sizeClasses: Record<NonNullable<RatingStarsProps["size"]>, string> = {
 	sm: "h-3 w-3",
 	md: "h-4 w-4",
 	lg: "h-5 w-5"
 };
 
-const RatingStars = ({ rating, max = 5, size = "md" }: { rating: number; max?: number; size?: Size }) => (
+const RatingStars = ({ rating, max = 5, size = "md" }: RatingStarsProps) => (
 	<div className="flex items-center gap-1">
 		{Array.from({ length: max }).map((_, i) => (
 			<FiStar

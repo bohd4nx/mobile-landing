@@ -1,0 +1,31 @@
+---
+/** biome-ignore-all lint/correctness/noUnusedImports: React icons are used in JSX */
+/** biome-ignore-all lint/correctness/noUnusedVariables: variables used in Astro components */
+
+import type { FeaturesProps } from "@/types/app";
+
+interface Props extends FeaturesProps {}
+
+const { items } = Astro.props;
+---
+
+<div class="mb-16">
+	<h2 class="mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
+		Features
+	</h2>
+	<div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+		{items.map(({ title, description, icon: Icon }) => (
+			<div class="rounded-2xl border border-gray-300 dark:border-white/10 bg-white dark:bg-white/[0.03] p-6 shadow-sm">
+				<div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gray-100 dark:bg-white/[0.04]">
+					<Icon className="h-6 w-6 text-gray-700 dark:text-white opacity-90" />
+				</div>
+				<h3 class="mb-2 text-lg font-medium text-gray-900 dark:text-white">
+					{title}
+				</h3>
+				<p class="text-sm leading-relaxed text-gray-600 dark:text-gray-400">
+					{description}
+				</p>
+			</div>
+		))}
+	</div>
+</div>
