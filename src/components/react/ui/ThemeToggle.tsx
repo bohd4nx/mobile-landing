@@ -30,7 +30,7 @@ const ThemeToggle = () => {
 
 		setTimeout(() => {
 			root.classList.remove("theme-switching");
-		}, 300);
+		}, 150);
 	}, []);
 
 	useEffect(() => {

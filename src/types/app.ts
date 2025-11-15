@@ -1,9 +1,6 @@
 import type { IconType } from "react-icons";
 
-export interface AppLogo {
-	src192: string;
-	src512: string;
-}
+export type AppLogo = string;
 
 export interface StoreLinks {
 	apple: string;

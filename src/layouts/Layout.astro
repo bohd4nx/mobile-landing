@@ -20,8 +20,8 @@ const { title, description } = Astro.props;
     <meta name="generator" content={Astro.generator}>
     <meta name="keywords" content={siteConfig.keywords.join(", ")}>
 
-    <link rel="icon" type="image/svg+xml" href={siteConfig.logo.src192}>
-    <link rel="icon" type="image/svg+xml" href={siteConfig.logo.src512} sizes="512x512">
+    <link rel="icon" type="image/png" href={siteConfig.logo} sizes="512x512">
+    <link rel="apple-touch-icon" href={siteConfig.logo}>
 
     <title>{title}</title>
     {description && <meta name="description" content={description}>}
@@ -30,12 +30,12 @@ const { title, description } = Astro.props;
     <meta property="og:type" content="website">
     <meta property="og:url" content={Astro.url.href}>
     {description && <meta property="og:description" content={description}>}
-    <meta property="og:image" content={new URL(siteConfig.logo.src512, Astro.url).href}>
+    <meta property="og:image" content={new URL(siteConfig.logo, Astro.url).href}>
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content={title}>
     {description && <meta name="twitter:description" content={description}>}
-    <meta name="twitter:image" content={new URL(siteConfig.logo.src512, Astro.url).href}>
+    <meta name="twitter:image" content={new URL(siteConfig.logo, Astro.url).href}>
     
     <script is:inline>
       if ('scrollRestoration' in history) {
