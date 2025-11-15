@@ -16,10 +16,7 @@ const ThemeToggle = () => {
 	const applyTheme = useCallback((newTheme: Theme) => {
 		const root = document.documentElement;
 
-		if (!root.classList.contains("theme-transitioning")) {
-			root.classList.add("theme-transitioning");
-		}
-
+		root.classList.add("theme-switching");
 		root.classList.remove("light", "dark");
 
 		if (newTheme === "system") {
@@ -32,7 +29,7 @@ const ThemeToggle = () => {
 		}
 
 		setTimeout(() => {
-			root.classList.remove("theme-transitioning");
+			root.classList.remove("theme-switching");
 		}, 300);
 	}, []);
 
