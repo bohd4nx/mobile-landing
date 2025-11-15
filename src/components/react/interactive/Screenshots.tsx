@@ -1,7 +1,7 @@
+import DeviceToggle from "@react/ui/DeviceToggle";
+import { memo, useState } from "react";
 import type { ScreenshotsProps } from "@/types/app";
 import { areImagesEqual } from "@/types/app";
-import { memo, useState } from "react";
-import DeviceToggle from "@react/ui/DeviceToggle";
 
 const Screenshots = ({ images }: ScreenshotsProps) => {
 	const [activeDevice, setActiveDevice] = useState<"iphone" | "ipad">("iphone");
@@ -16,7 +16,9 @@ const Screenshots = ({ images }: ScreenshotsProps) => {
 				</h2>
 				<DeviceToggle activeDevice={activeDevice} onToggle={setActiveDevice} />
 			</div>
-			<div className={`relative overflow-hidden min-h-[${isIphone ? "400px" : "300px"}]`}>
+			<div
+				className={`relative overflow-hidden min-h-[${isIphone ? "400px" : "300px"}]`}
+			>
 				<div className="screenshots-container overflow-x-auto scrollbar-thin scrollbar-track-gray-200 dark:scrollbar-track-white/5 scrollbar-thumb-gray-400 dark:scrollbar-thumb-white/10 hover:scrollbar-thumb-gray-500 dark:hover:scrollbar-thumb-white/20">
 					<div className="flex gap-6 pb-4">
 						{currentImages.map((image, index) => (
@@ -29,8 +31,11 @@ const Screenshots = ({ images }: ScreenshotsProps) => {
 								<img
 									src={image}
 									alt={`Screenshot ${index + 1}`}
-									className={`rounded-xl border border-gray-300 dark:border-white/10 object-cover shadow-lg ${isIphone ? "aspect-[9/16] w-[260px]" : "aspect-[4/3] w-[360px]"
-										}`}
+									className={`rounded-xl border border-gray-300 dark:border-white/10 object-cover shadow-lg ${
+										isIphone
+											? "aspect-[9/16] w-[260px]"
+											: "aspect-[4/3] w-[360px]"
+									}`}
 									loading="lazy"
 								/>
 							</button>

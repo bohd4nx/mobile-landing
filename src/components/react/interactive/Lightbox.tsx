@@ -1,8 +1,8 @@
-import type { LightboxProps } from "@/types/app";
-import { areImagesEqual } from "@/types/app";
 import { AnimatePresence, motion } from "framer-motion";
 import { memo, useCallback, useEffect, useState } from "react";
 import { FiChevronLeft, FiChevronRight, FiX } from "react-icons/fi";
+import type { LightboxProps } from "@/types/app";
+import { areImagesEqual } from "@/types/app";
 
 declare global {
 	interface Window {
@@ -29,21 +29,23 @@ const Lightbox = ({ images }: LightboxProps) => {
 
 	useEffect(() => {
 		if (isOpen) {
-			document.documentElement.style.overflow = 'hidden';
-			document.documentElement.style.paddingRight = '0px';
+			document.documentElement.style.overflow = "hidden";
+			document.documentElement.style.paddingRight = "0px";
 		} else {
-			document.documentElement.style.overflow = '';
-			document.documentElement.style.paddingRight = '';
+			document.documentElement.style.overflow = "";
+			document.documentElement.style.paddingRight = "";
 		}
 
 		return () => {
-			document.documentElement.style.overflow = '';
-			document.documentElement.style.paddingRight = '';
+			document.documentElement.style.overflow = "";
+			document.documentElement.style.paddingRight = "";
 		};
 	}, [isOpen]);
 
 	const handlePrevious = useCallback(() => {
-		setCurrentIndex((prev) => (prev - 1 + currentImages.length) % currentImages.length);
+		setCurrentIndex(
+			(prev) => (prev - 1 + currentImages.length) % currentImages.length,
+		);
 	}, [currentImages.length]);
 
 	const handleNext = useCallback(() => {
@@ -99,7 +101,7 @@ const Lightbox = ({ images }: LightboxProps) => {
 					className="max-h-[90vh] max-w-[90vw] object-contain rounded-xl shadow-2xl"
 					onClick={(e) => e.stopPropagation()}
 					onKeyDown={(e) => {
-						if (e.key === 'Enter' || e.key === ' ') {
+						if (e.key === "Enter" || e.key === " ") {
 							e.stopPropagation();
 						}
 					}}
@@ -126,10 +128,11 @@ const Lightbox = ({ images }: LightboxProps) => {
 								e.stopPropagation();
 								setCurrentIndex(index);
 							}}
-							className={`h-2 w-2 rounded-full transition-colors ${index === currentIndex
-								? "bg-gray-800 dark:bg-white"
-								: "bg-gray-500 dark:bg-white/60 hover:bg-gray-700 dark:hover:bg-white/80"
-								}`}
+							className={`h-2 w-2 rounded-full transition-colors ${
+								index === currentIndex
+									? "bg-gray-800 dark:bg-white"
+									: "bg-gray-500 dark:bg-white/60 hover:bg-gray-700 dark:hover:bg-white/80"
+							}`}
 							aria-label={`Go to image ${index + 1}`}
 						/>
 					))}

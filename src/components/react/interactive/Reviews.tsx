@@ -1,6 +1,6 @@
-import type { Review, ReviewsProps } from "@/types/app";
-import { memo } from "react";
 import RatingStars from "@react/ui/RatingStars";
+import { memo } from "react";
+import type { Review, ReviewsProps } from "@/types/app";
 
 const Reviews = ({ items }: ReviewsProps) => (
 	<div className="mb-16">

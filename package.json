@@ -18,12 +18,12 @@
 		"@astrojs/tailwind": "^6.0.2",
 		"react-dom": "^19.2.0",
 		"marked": "^17.0.0",
-		"astro": "^5.15.4",
+		"astro": "^5.15.7",
 		"react": "^19.2.0"
 	},
 	"devDependencies": {
-		"@types/react-dom": "^19.2.2",
-		"@types/react": "^19.2.2"
+		"@types/react-dom": "^19.2.3",
+		"@types/react": "^19.2.5"
 	},
 	"overrides": {
 		"path-to-regexp": "8.3.0"
