@@ -73,37 +73,54 @@ const { title, description } = Astro.props;
 
 
 <style is:global>
-  * { 
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; 
-  }
-  
-  html.theme-transitioning * {
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease !important;
+  html.theme-switching *,
+  html.theme-switching {
+    transition: none !important;
   }
   
   html.light { color-scheme: light; }
   html.dark { color-scheme: dark; }
 
-  .screenshots-scroll {
+  .screenshots-container {
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: thin;
-    scrollbar-color: rgb(255 255 255 / 0.1) transparent;
+    scrollbar-color: rgb(156 163 175 / 0.75) rgb(229 231 235 / 0.6);
   }
   
-  .light .screenshots-scroll { scrollbar-color: rgb(0 0 0 / 0.2) transparent; }
+  .dark .screenshots-container {
+    scrollbar-color: rgb(255 255 255 / 0.3) rgb(255 255 255 / 0.05);
+  }
   
-  .screenshots-scroll::-webkit-scrollbar {
-    width: 6px;
+  .screenshots-container::-webkit-scrollbar {
     height: 6px;
   }
   
-  .screenshots-scroll::-webkit-scrollbar-track { background: transparent; }
-  
-  .screenshots-scroll::-webkit-scrollbar-thumb {
-    background-color: rgb(255 255 255 / 0.1);
+  .screenshots-container::-webkit-scrollbar-track {
+    background: rgb(229 231 235 / 0.6);
     border-radius: 3px;
+    margin: 0 12px;
   }
   
-  .light .screenshots-scroll::-webkit-scrollbar-thumb { background-color: rgb(0 0 0 / 0.2); }
+  .dark .screenshots-container::-webkit-scrollbar-track {
+    background: rgb(255 255 255 / 0.05);
+  }
+  
+  .screenshots-container::-webkit-scrollbar-thumb {
+    background-color: rgb(156 163 175 / 0.75);
+    border-radius: 3px;
+    transition: background-color 0.2s ease;
+  }
+  
+  .dark .screenshots-container::-webkit-scrollbar-thumb {
+    background-color: rgb(255 255 255 / 0.3);
+  }
+  
+  .screenshots-container:hover::-webkit-scrollbar-thumb {
+    background-color: rgb(107 114 128 / 0.9);
+  }
+  
+  .dark .screenshots-container:hover::-webkit-scrollbar-thumb {
+    background-color: rgb(255 255 255 / 0.45);
+  }
 </style>

@@ -1,8 +1,19 @@
+# Build output directory
 dist/
+
+# Astro cache directory
 .astro/
+
+# Dependencies
 node_modules/
+
+# Log files
 *.log*
-.env
-.env.production
+
+# macOS system files
 .DS_Store
+Thumbs.db
+
+# IDE settings
 .idea/
+.vscode/
