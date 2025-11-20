@@ -18,7 +18,7 @@
 		"@astrojs/tailwind": "^6.0.2",
 		"react-dom": "^19.2.0",
 		"marked": "^17.0.0",
-		"astro": "^5.15.7",
+		"astro": "^5.16.0",
 		"react": "^19.2.0"
 	},
 	"devDependencies": {
