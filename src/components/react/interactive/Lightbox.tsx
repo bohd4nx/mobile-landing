@@ -128,11 +128,10 @@ const Lightbox = ({ images }: LightboxProps) => {
 								e.stopPropagation();
 								setCurrentIndex(index);
 							}}
-							className={`h-2 w-2 rounded-full transition-colors ${
-								index === currentIndex
+							className={`h-2 w-2 rounded-full transition-colors ${index === currentIndex
 									? "bg-gray-800 dark:bg-white"
 									: "bg-gray-500 dark:bg-white/60 hover:bg-gray-700 dark:hover:bg-white/80"
-							}`}
+								}`}
 							aria-label={`Go to image ${index + 1}`}
 						/>
 					))}
