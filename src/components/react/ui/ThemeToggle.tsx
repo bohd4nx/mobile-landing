@@ -65,11 +65,10 @@ const ThemeToggle = () => {
 						localStorage.setItem("theme", key);
 						applyTheme(key);
 					}}
-					className={`relative rounded-md p-2 text-sm font-medium ${
-						theme === key
+					className={`relative rounded-md p-2 text-sm font-medium ${theme === key
 							? "text-gray-900 dark:text-white"
 							: "text-gray-600 dark:text-white/60 hover:text-gray-800 dark:hover:text-white"
-					}`}
+						}`}
 					whileTap={{ scale: 0.95 }}
 					title={label}
 					aria-label={`Switch to ${label.toLowerCase()} theme`}
