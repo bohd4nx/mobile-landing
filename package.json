@@ -1,6 +1,6 @@
 {
 	"name": "landing.bohd4n.dev",
-	"version": "2025.2.4",
+	"version": "2025.2.5",
 	"scripts": {
 		"dev": "astro dev",
 		"start": "astro dev",
@@ -17,13 +17,13 @@
 		"@astrojs/react": "^4.4.2",
 		"@astrojs/tailwind": "^6.0.2",
 		"react-dom": "^19.2.0",
-		"marked": "^17.0.0",
-		"astro": "^5.15.7",
+		"marked": "^17.0.1",
+		"astro": "^5.16.0",
 		"react": "^19.2.0"
 	},
 	"devDependencies": {
 		"@types/react-dom": "^19.2.3",
-		"@types/react": "^19.2.5"
+		"@types/react": "^19.2.6"
 	},
 	"overrides": {
 		"path-to-regexp": "8.3.0"
