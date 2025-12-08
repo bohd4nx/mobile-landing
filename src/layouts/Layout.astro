@@ -4,39 +4,43 @@
 
 import Footer from "@astro/sections/Footer.astro";
 import { siteConfig } from "@config/site";
-import PageAnimation from "@react/ui/PageAnimation";
+import BackToTop from "@react/ui/BackToTop";
 import type { LayoutProps } from "@/types/ui";
 
 interface Props extends LayoutProps {}
 
 const { title, description } = Astro.props;
+const canonicalURL = Astro.site ? new URL(Astro.url.pathname, Astro.site) : Astro.url;
+const ogImageURL = new URL(siteConfig.logo, Astro.url).href;
+const appleTouchIconURL = Astro.site ? new URL(siteConfig.logo, Astro.site).href : siteConfig.logo;
 ---
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content={Astro.generator}>
-    <meta name="keywords" content={siteConfig.keywords.join(", ")}>
-
-    <link rel="icon" type="image/png" href={siteConfig.logo} sizes="192x192">
-    <link rel="icon" type="image/png" href={siteConfig.logo} sizes="512x512">
-    <link rel="apple-touch-icon" href={siteConfig.logo}>
-
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="keywords" content={siteConfig.keywords.join(", ")} />
+    
     <title>{title}</title>
-    {description && <meta name="description" content={description}>}
+    {description && <meta name="description" content={description} />}
     
-    <meta property="og:title" content={title}>
-    <meta property="og:type" content="website">
-    <meta property="og:url" content={Astro.url.href}>
-    {description && <meta property="og:description" content={description}>}
-    <meta property="og:image" content={new URL(siteConfig.logo, Astro.url).href}>
+    <link rel="canonical" href={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:type" content="website" />
+    {description && <meta property="og:description" content={description} />}
     
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content={title}>
-    {description && <meta name="twitter:description" content={description}>}
-    <meta name="twitter:image" content={new URL(siteConfig.logo, Astro.url).href}>
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    {description && <meta name="twitter:description" content={description} />}
+    
+    <link rel="icon" type="image/png" sizes="32x32" href={siteConfig.logo} />
+    <link rel="icon" type="image/png" sizes="16x16" href={siteConfig.logo} />
+    <link rel="icon" sizes="192x192" href={siteConfig.logo} />
+    <link rel="icon" sizes="512x512" href={siteConfig.logo} />
+    <link rel="apple-touch-icon" sizes="180x180" href={appleTouchIconURL} />
     
     <script is:inline>
       if ('scrollRestoration' in history) {
@@ -64,11 +68,10 @@ const { title, description } = Astro.props;
   </head>
   <body class="bg-gray-50 text-gray-900 dark:bg-black dark:text-white transition-colors duration-300">
     <div class="mx-auto min-h-screen max-w-[800px]">
-      <PageAnimation client:load>
-        <main><slot /></main>
-        <Footer />
-      </PageAnimation>
+      <main><slot /></main>
+      <Footer />
     </div>
+    <BackToTop client:load />
   </body>
 </html>
 

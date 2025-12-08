@@ -1,6 +1,6 @@
 {
 	"name": "landing.bohd4n.dev",
-	"version": "2025.2.5",
+	"version": "2025.3.0",
 	"scripts": {
 		"dev": "astro dev",
 		"start": "astro dev",
@@ -8,22 +8,22 @@
 		"preview": "astro preview"
 	},
 	"dependencies": {
-		"@tailwindcss/typography": "^0.5.19",
-		"tailwind-scrollbar-hide": "^4.0.0",
-		"framer-motion": "^12.23.24",
-		"react-icons": "^5.5.0",
-		"tailwindcss": "^3.4.17",
-		"@astrojs/sitemap": "^3.6.0",
 		"@astrojs/react": "^4.4.2",
+		"@astrojs/sitemap": "^3.6.0",
 		"@astrojs/tailwind": "^6.0.2",
-		"react-dom": "^19.2.0",
+		"@tailwindcss/typography": "^0.5.19",
+		"astro": "^5.16.4",
+		"framer-motion": "^12.23.25",
 		"marked": "^17.0.1",
-		"astro": "^5.16.0",
-		"react": "^19.2.0"
+		"react": "^19.2.1",
+		"react-dom": "^19.2.1",
+		"react-icons": "^5.5.0",
+		"tailwind-scrollbar-hide": "^4.0.0",
+		"tailwindcss": "^3.4.17"
 	},
 	"devDependencies": {
-		"@types/react-dom": "^19.2.3",
-		"@types/react": "^19.2.6"
+		"@types/react": "^19.2.7",
+		"@types/react-dom": "^19.2.3"
 	},
 	"overrides": {
 		"path-to-regexp": "8.3.0"
