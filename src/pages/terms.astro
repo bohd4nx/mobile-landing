@@ -17,7 +17,7 @@ const htmlContent = marked(termsContent.rawContent());
   title={`${siteConfig.name} • Terms of Service`} 
   description={`Terms of Service for ${siteConfig.name} application - Rules and guidelines for using our service`}
 >
-  <main class="min-h-screen max-w-3xl mx-auto px-4 py-4">
+  <main class="min-h-screen container mx-auto px-3 md:px-6 py-8">
     <Breadcrumbs items={[{ label: "Terms of Service" }]} client:load />
     <div class="prose prose-gray dark:prose-invert prose-sm sm:prose-base max-w-none">
       <div set:html={htmlContent} />

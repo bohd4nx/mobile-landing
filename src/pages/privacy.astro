@@ -17,7 +17,7 @@ const htmlContent = marked(privacyContent.rawContent());
   title={`${siteConfig.name} • Privacy Policy`} 
   description={`Privacy Policy for ${siteConfig.name} application - How we handle and protect your data`}
 >
-  <main class="min-h-screen max-w-3xl mx-auto px-4 py-4">
+  <main class="min-h-screen container mx-auto px-3 md:px-6 py-8">
     <Breadcrumbs items={[{ label: "Privacy Policy" }]} client:load />
     <div class="prose prose-gray dark:prose-invert prose-sm sm:prose-base max-w-none">
       <div set:html={htmlContent} />

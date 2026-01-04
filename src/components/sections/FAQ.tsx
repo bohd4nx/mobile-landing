@@ -10,7 +10,7 @@ const FAQ = ({ items }: FAQList) => (
 			{items.map((item) => (
 				<div key={item.question} className="card-base">
 					<details className="group">
-						<summary className="flex cursor-pointer items-center justify-between p-6">
+						<summary className="flex cursor-pointer items-center justify-between p-5 md:p-6">
 							<h3 className="pr-6 font-medium text-heading">
 								{item.question}
 							</h3>
@@ -30,7 +30,7 @@ const FAQ = ({ items }: FAQList) => (
 								/>
 							</svg>
 						</summary>
-						<div className="border-t border-gray-200 dark:border-white/5 px-6 pb-6 pt-6">
+						<div className="border-t border-gray-200 dark:border-white/5 px-5 pb-5 pt-5 md:px-6 md:pb-6 md:pt-6">
 							<p className="text-body">{item.answer}</p>
 						</div>
 					</details>

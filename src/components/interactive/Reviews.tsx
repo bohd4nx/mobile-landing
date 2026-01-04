@@ -11,7 +11,7 @@ const Reviews = ({ items }: ReviewsList) => (
 
 		<div className="grid grid-cols-1 gap-6 md:grid-cols-2">
 			{items.map((review: Review) => (
-				<div key={review.author} className="card-base p-6">
+				<div key={review.author} className="card-base p-3 md:p-6">
 					<div className="mb-4 flex items-center gap-4">
 						{review.avatar ? (
 							<img

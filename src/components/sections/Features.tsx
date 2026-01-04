@@ -1,3 +1,4 @@
+import { memo } from "react";
 import type { FeaturesList } from "@/types/components";
 import { getIcon } from "@/utils/getIcon";
 
@@ -9,7 +10,7 @@ const Features = ({ items }: FeaturesList) => {
 				{items.map((feature) => {
 					const Icon = getIcon(feature.icon);
 					return (
-						<div key={feature.title} className="card-base p-6">
+						<div key={feature.title} className="card-base p-3 md:p-6">
 							<div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gray-100 dark:bg-white/[0.04]">
 								{Icon && (
 									<Icon className="h-6 w-6 text-gray-700 dark:text-white opacity-90" />
@@ -29,4 +30,4 @@ const Features = ({ items }: FeaturesList) => {
 	);
 };
 
-export default Features;
+export default memo(Features);

@@ -24,7 +24,7 @@ const SocialLinks = ({ items }: SocialLinksList) => (
 						href={item.url}
 						target="_blank"
 						rel="noopener noreferrer"
-						className="group card-base p-3 hover:bg-gray-50 dark:hover:bg-white/[0.05]"
+						className="group card-base p-2.5 md:p-3 hover:bg-gray-50 dark:hover:bg-white/[0.05]"
 						aria-label={item.label}
 					>
 						{Icon && (

@@ -6,6 +6,7 @@ import { siteConfig } from "@config/site";
 import Footer from "@/sections/Footer";
 import type { LayoutProps } from "@/types/ui";
 import BackToTop from "@/ui/BackToTop";
+import FloatingNavbar from "@/ui/FloatingNavbar";
 
 interface Props extends LayoutProps {}
 
@@ -70,7 +71,8 @@ const appleTouchIconURL = Astro.site
     </script>
   </head>
   <body class="bg-gray-50 text-gray-900 dark:bg-black dark:text-white">
-    <div class="mx-auto min-h-screen max-w-[800px]">
+    <FloatingNavbar logo={siteConfig.logo} title={siteConfig.name} storeLinks={siteConfig.storeLinks} client:load />
+    <div class="mx-auto h-screen max-w-[500px] px-5 lg:max-w-[1400px]">
       <main><slot /></main>
       <Footer client:load />
     </div>
