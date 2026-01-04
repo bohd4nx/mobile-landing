@@ -1,5 +1,6 @@
 import { memo } from "react";
 import type { SocialLinksList } from "@/types/components";
+import { getIcon } from "@/utils/getIcon";
 
 const SocialLinks = ({ items }: SocialLinksList) => (
 	<div className="mb-8">
@@ -15,18 +16,23 @@ const SocialLinks = ({ items }: SocialLinksList) => (
 		</div>
 
 		<div className="mt-6 flex justify-center gap-4">
-			{items.map(({ icon: Icon, label, url }) => (
-				<a
-					key={label}
-					href={url}
-					target="_blank"
-					rel="noopener noreferrer"
-					className="group card-base p-3 hover:bg-gray-50 dark:hover:bg-white/[0.05]"
-					aria-label={label}
-				>
-					<Icon className="h-5 w-5 text-gray-600 dark:text-gray-400 group-hover:text-gray-800 dark:group-hover:text-white" />
-				</a>
-			))}
+			{items.map((item) => {
+				const Icon = getIcon(item.icon);
+				return (
+					<a
+						key={item.label}
+						href={item.url}
+						target="_blank"
+						rel="noopener noreferrer"
+						className="group card-base p-3 hover:bg-gray-50 dark:hover:bg-white/[0.05]"
+						aria-label={item.label}
+					>
+						{Icon && (
+							<Icon className="h-5 w-5 text-gray-600 dark:text-gray-400 group-hover:text-gray-800 dark:group-hover:text-white" />
+						)}
+					</a>
+				);
+			})}
 		</div>
 	</div>
 );

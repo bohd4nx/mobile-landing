@@ -1,9 +1,7 @@
-import type { IconType } from "react-icons";
-
 export interface Feature {
 	title: string;
 	description: string;
-	icon: IconType;
+	icon: string;
 }
 
 export interface FAQ {
@@ -20,7 +18,7 @@ export interface Review {
 
 export interface SocialLink {
 	url: string;
-	icon: IconType;
+	icon: string;
 	label: string;
 }
 

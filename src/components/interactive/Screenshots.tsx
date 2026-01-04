@@ -16,11 +16,9 @@ const Screenshots = ({ images }: ScreenshotsGallery) => {
 				</h2>
 				<DeviceToggle activeDevice={activeDevice} onToggle={setActiveDevice} />
 			</div>
-			<div
-				className={`relative overflow-hidden min-h-[${isIphone ? "400px" : "300px"}]`}
-			>
-				<div className="screenshots-container overflow-x-auto [scrollbar-width:thin] md:[scrollbar-width:auto] scrollbar-track-gray-200 dark:scrollbar-track-white/5 scrollbar-thumb-gray-400 dark:scrollbar-thumb-white/10 hover:scrollbar-thumb-gray-500 dark:hover:scrollbar-thumb-white/20">
-					<div className="flex gap-6 pb-4">
+			<div className="relative overflow-hidden">
+				<div className="screenshots-scrollbar overflow-x-scroll pb-4" style={{ maxHeight: '500px', scrollbarGutter: 'stable' }}>
+					<div className="flex gap-6">
 						{currentImages.map((image: string, index: number) => (
 							<button
 								key={image}

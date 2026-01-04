@@ -88,46 +88,33 @@ const appleTouchIconURL = Astro.site
   html.light { color-scheme: light; }
   html.dark { color-scheme: dark; }
 
-  .screenshots-container {
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: thin;
-    scrollbar-color: rgb(156 163 175 / 0.75) rgb(229 231 235 / 0.6);
+  .screenshots-scrollbar::-webkit-scrollbar {
+    height: 8px;
   }
   
-  .dark .screenshots-container {
-    scrollbar-color: rgb(255 255 255 / 0.3) rgb(255 255 255 / 0.05);
+  .screenshots-scrollbar::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
   }
   
-  .screenshots-container::-webkit-scrollbar {
-    height: 6px;
+  .dark .screenshots-scrollbar::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
   }
   
-  .screenshots-container::-webkit-scrollbar-track {
-    background: rgb(229 231 235 / 0.6);
-    border-radius: 3px;
-    margin: 0 12px;
+  .screenshots-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
   }
   
-  .dark .screenshots-container::-webkit-scrollbar-track {
-    background: rgb(255 255 255 / 0.05);
+  .dark .screenshots-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
   }
   
-  .screenshots-container::-webkit-scrollbar-thumb {
-    background-color: rgb(156 163 175 / 0.75);
-    border-radius: 3px;
-    transition: background-color 0.2s ease;
+  .screenshots-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.25);
   }
   
-  .dark .screenshots-container::-webkit-scrollbar-thumb {
-    background-color: rgb(255 255 255 / 0.3);
-  }
-  
-  .screenshots-container:hover::-webkit-scrollbar-thumb {
-    background-color: rgb(107 114 128 / 0.9);
-  }
-  
-  .dark .screenshots-container:hover::-webkit-scrollbar-thumb {
-    background-color: rgb(255 255 255 / 0.45);
+  .dark .screenshots-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.25);
   }
 </style>

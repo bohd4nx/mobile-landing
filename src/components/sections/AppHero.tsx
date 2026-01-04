@@ -24,21 +24,21 @@ const AppHero = ({ title, description, storeLinks, logo }: AppHeroProps) => (
 				</p>
 			</div>
 
-			<div className="flex gap-3 justify-center md:justify-start">
+			<div className="flex gap-4 justify-center md:justify-start">
 				<a
 					href={storeLinks.apple}
 					target="_blank"
 					rel="noopener noreferrer"
-					className="group button-base flex items-center gap-2 px-4 py-3 flex-1 min-w-0 md:flex-initial"
+					className="group button-base flex items-center gap-3 px-5 py-4 justify-center"
 				>
-					<div className="flex items-center justify-center w-6 h-6 flex-shrink-0">
-						<FaApple className="text-gray-600 dark:text-gray-300 group-hover:scale-110 group-hover:text-gray-800 dark:group-hover:text-white w-5 h-5" />
+					<div className="flex items-center justify-center w-7 h-7 flex-shrink-0">
+						<FaApple className="text-gray-600 dark:text-gray-300 group-hover:scale-110 group-hover:text-gray-800 dark:group-hover:text-white w-6 h-6" />
 					</div>
 					<span className="text-left min-w-0">
-						<div className="text-[10px] font-medium text-muted group-hover:text-gray-600 dark:group-hover:text-gray-300">
+						<div className="text-[11px] font-medium text-muted group-hover:text-gray-600 dark:group-hover:text-gray-300">
 							Download on the
 						</div>
-						<div className="text-xs font-semibold tracking-wide text-heading group-hover:text-gray-900 dark:group-hover:text-white">
+						<div className="text-sm font-semibold tracking-wide text-heading group-hover:text-gray-900 dark:group-hover:text-white">
 							App Store
 						</div>
 					</span>
@@ -48,16 +48,16 @@ const AppHero = ({ title, description, storeLinks, logo }: AppHeroProps) => (
 					href={storeLinks.google}
 					target="_blank"
 					rel="noopener noreferrer"
-					className="group button-base flex items-center gap-2 px-4 py-3 flex-1 min-w-0 md:flex-initial"
+					className="group button-base flex items-center gap-3 px-5 py-4 justify-center"
 				>
-					<div className="flex items-center justify-center w-6 h-6 flex-shrink-0">
-						<FaGooglePlay className="text-gray-600 dark:text-gray-300 group-hover:scale-110 group-hover:text-gray-800 dark:group-hover:text-white w-4 h-4" />
+					<div className="flex items-center justify-center w-7 h-7 flex-shrink-0">
+						<FaGooglePlay className="text-gray-600 dark:text-gray-300 group-hover:scale-110 group-hover:text-gray-800 dark:group-hover:text-white w-5 h-5" />
 					</div>
 					<span className="text-left min-w-0">
-						<div className="text-[10px] font-medium text-muted group-hover:text-gray-600 dark:group-hover:text-gray-300">
-							GET IT ON
+						<div className="text-[11px] font-medium text-muted group-hover:text-gray-600 dark:group-hover:text-gray-300">
+							Get it on
 						</div>
-						<div className="text-xs font-semibold tracking-wide text-heading group-hover:text-gray-900 dark:group-hover:text-white">
+						<div className="text-sm font-semibold tracking-wide text-heading group-hover:text-gray-900 dark:group-hover:text-white">
 							Google Play
 						</div>
 					</span>

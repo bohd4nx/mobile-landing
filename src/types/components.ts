@@ -34,3 +34,9 @@ export interface FAQList {
 export interface SocialLinksList {
 	items: SocialLink[];
 }
+
+export interface FloatingNavbar {
+	logo: string;
+	title: string;
+	storeLinks: StoreLinks;
+}

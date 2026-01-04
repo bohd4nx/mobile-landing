@@ -9,6 +9,7 @@
 			"@/ui/*": ["components/ui/*"],
 			"@/sections/*": ["components/sections/*"],
 			"@/styles/*": ["styles/*"],
+			"@/utils/*": ["utils/*"],
 			"@layouts/*": ["layouts/*"],
 			"@config/*": ["config/*"],
 			"@/types/*": ["types/*"]

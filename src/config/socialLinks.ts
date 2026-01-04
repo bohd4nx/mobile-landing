@@ -1,8 +1,3 @@
-import {
-	RiInstagramFill,
-	RiTelegram2Fill,
-	RiTwitterXFill,
-} from "react-icons/ri";
 import type { SocialLink } from "@/types/content";
 
 /**
@@ -11,7 +6,7 @@ import type { SocialLink } from "@/types/content";
  * Add your social media profiles here.
  * Each link should have:
  * - url: Full URL to your profile
- * - icon: React icon component
+ * - icon: Icon name from react-icons (RiInstagramFill, RiTwitterXFill, etc.)
  * - label: Platform name (for accessibility)
  *
  * Available social icons:
@@ -29,17 +24,17 @@ import type { SocialLink } from "@/types/content";
 export const socialLinks: SocialLink[] = [
 	{
 		url: "#", // Replace with your Instagram URL
-		icon: RiInstagramFill,
+		icon: "RiInstagramFill",
 		label: "Instagram",
 	},
 	{
 		url: "#", // Replace with your Telegram URL
-		icon: RiTelegram2Fill,
+		icon: "RiTelegram2Fill",
 		label: "Telegram",
 	},
 	{
 		url: "#", // Replace with your Twitter/X URL
-		icon: RiTwitterXFill,
+		icon: "RiTwitterXFill",
 		label: "X (Twitter)",
 	},
 	// Add more social links here...
