@@ -1,13 +1,29 @@
 import { socialLinks } from "./socialLinks";
 
+/**
+ * Site configuration
+ * Edit these values to customize your landing page
+ */
 export const siteConfig = {
+	/** Your app name (displayed in header, footer, page title) */
 	name: "Your App Name",
-	description: "Here you can write a brief description of your application. Tell users about its main features and benefits in 1-2 sentences.",
+
+	/** Brief description of your app (shown in hero section and meta tags) */
+	description:
+		"Here you can write a brief description of your application. Tell users about its main features and benefits in 1-2 sentences.",
+
+	/** SEO keywords for better search engine visibility */
 	keywords: ["mobile app", "landing page", "astro", "react", "typescript"],
+
+	/** Path to your app logo/icon */
 	logo: "/assets/favicon.png",
+
+	/** App store download links */
 	storeLinks: {
-		apple: "#",
-		google: "#",
+		apple: "#", // Replace with your App Store URL
+		google: "#", // Replace with your Google Play URL
 	},
+
+	/** Social media links (edit in socialLinks.ts) */
 	socialLinks,
 } as const;

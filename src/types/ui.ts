@@ -18,7 +18,18 @@ export interface DeviceToggleProps {
 export interface RatingStarsProps {
 	rating: number;
 	max?: number;
-	size?: "sm" | "md" | "lg";
+}
+
+export interface LogoProps {
+	className?: string;
+}
+
+export interface SocialIconsProps {
+	className?: string;
+}
+
+export interface LegalLinksProps {
+	className?: string;
 }
 
 export type Theme = "light" | "dark" | "system";

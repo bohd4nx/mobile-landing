@@ -1,6 +1,17 @@
 import { FiBox, FiStar, FiZap } from "react-icons/fi";
-import type { Feature } from "@/types/app";
+import type { Feature } from "@/types/content";
 
+/**
+ * App features configuration
+ *
+ * Add or remove features to showcase your app's capabilities.
+ * Each feature should have:
+ * - title: Short, catchy name (2-4 words)
+ * - description: Brief explanation (1-2 sentences)
+ * - icon: React icon component from react-icons
+ *
+ * Available icons: https://react-icons.github.io/react-icons/
+ */
 export const features: Feature[] = [
 	{
 		title: "Main Feature",
@@ -17,4 +28,5 @@ export const features: Feature[] = [
 		description: "Add another key feature of your application here.",
 		icon: FiBox,
 	},
+	// Add more features here...
 ];

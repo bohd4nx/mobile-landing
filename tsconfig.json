@@ -5,10 +5,10 @@
 		"jsxImportSource": "react",
 		"baseUrl": "./src",
 		"paths": {
-			"@astro/sections/*": ["components/astro/sections/*"],
-			"@astro/ui/*": ["components/astro/ui/*"],
-			"@react/interactive/*": ["components/react/interactive/*"],
-			"@react/ui/*": ["components/react/ui/*"],
+			"@/interactive/*": ["components/interactive/*"],
+			"@/ui/*": ["components/ui/*"],
+			"@/sections/*": ["components/sections/*"],
+			"@/styles/*": ["styles/*"],
 			"@layouts/*": ["layouts/*"],
 			"@config/*": ["config/*"],
 			"@/types/*": ["types/*"]

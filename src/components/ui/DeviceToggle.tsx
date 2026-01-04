@@ -44,8 +44,8 @@ const DeviceButton = memo(
 			type="button"
 			onClick={onClick}
 			className={`relative rounded-md px-3.5 py-1.5 text-sm font-medium flex items-center gap-1 sm:gap-2 ${isActive
-					? "text-gray-900 dark:text-white"
-					: "text-gray-600 dark:text-white/60 hover:text-gray-800 dark:hover:text-white"
+				? "text-heading"
+				: "text-gray-600 dark:text-white/60 hover:text-gray-800 dark:hover:text-white"
 				}`}
 			whileTap={{ scale: 0.95 }}
 		>

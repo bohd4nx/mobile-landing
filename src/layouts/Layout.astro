@@ -2,17 +2,20 @@
 /** biome-ignore-all lint/correctness/noUnusedImports: React icons are used in JSX */
 /** biome-ignore-all lint/correctness/noUnusedVariables: variables used in Astro components */
 
-import Footer from "@astro/sections/Footer.astro";
 import { siteConfig } from "@config/site";
-import BackToTop from "@react/ui/BackToTop";
+import Footer from "@/sections/Footer";
 import type { LayoutProps } from "@/types/ui";
+import BackToTop from "@/ui/BackToTop";
 
 interface Props extends LayoutProps {}
 
 const { title, description } = Astro.props;
-const canonicalURL = Astro.site ? new URL(Astro.url.pathname, Astro.site) : Astro.url;
-const ogImageURL = new URL(siteConfig.logo, Astro.url).href;
-const appleTouchIconURL = Astro.site ? new URL(siteConfig.logo, Astro.site).href : siteConfig.logo;
+const canonicalURL = Astro.site
+	? new URL(Astro.url.pathname, Astro.site)
+	: Astro.url;
+const appleTouchIconURL = Astro.site
+	? new URL(siteConfig.logo, Astro.site).href
+	: siteConfig.logo;
 ---
 
 <!DOCTYPE html>
@@ -69,7 +72,7 @@ const appleTouchIconURL = Astro.site ? new URL(siteConfig.logo, Astro.site).href
   <body class="bg-gray-50 text-gray-900 dark:bg-black dark:text-white">
     <div class="mx-auto min-h-screen max-w-[800px]">
       <main><slot /></main>
-      <Footer />
+      <Footer client:load />
     </div>
     <BackToTop client:load />
   </body>
