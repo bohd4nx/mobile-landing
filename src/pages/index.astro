@@ -15,12 +15,14 @@ import AppHero from "@/sections/AppHero";
 import FAQ from "@/sections/FAQ";
 import Features from "@/sections/Features";
 
-const { name: title, description, storeLinks, logo } = siteConfig;
+const { name, description, storeLinks, logo } = siteConfig;
+const title = `${name} - Modern Mobile App Landing Page Template`;
+const pageDescription = `${description} Download now for iOS and Android.`;
 ---
 
-<Layout title={title} description={description}>
+<Layout title={title} description={pageDescription}>
   <main class="min-h-screen py-8 container mx-auto px-3 md:px-6">
-    <AppHero title={title} description={description} storeLinks={storeLinks} logo={logo} client:load />
+    <AppHero title={name} description={description} storeLinks={storeLinks} logo={logo} client:load />
     <div class="mb-16"><Screenshots images={screenshots} client:load /></div>
     <Features items={features} client:load />
     <Reviews items={reviews} client:visible />
