@@ -1,8 +1,8 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { memo, useCallback, useEffect, useState } from "react";
 import { FiChevronLeft, FiChevronRight, FiX } from "react-icons/fi";
-import type { LightboxProps } from "@/types/app";
-import { areImagesEqual } from "@/types/app";
+import type { Lightbox as LightboxProps } from "@/types/components";
+import { areImagesEqual } from "@/types/content";
 
 declare global {
 	interface Window {
@@ -77,7 +77,7 @@ const Lightbox = ({ images }: LightboxProps) => {
 				<button
 					type="button"
 					onClick={() => setIsOpen(false)}
-					className="absolute right-4 top-4 p-3 text-gray-800 hover:text-gray-900 dark:text-white/90 dark:hover:text-white transition-colors rounded-full bg-white/80 dark:bg-black/60 hover:bg-white/90 dark:hover:bg-black/80 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 shadow-lg"
+					className="button-base absolute right-4 top-4 p-3 text-heading transition-colors rounded-full bg-white/80 dark:bg-black/60 hover:bg-white/90 dark:hover:bg-black/80 backdrop-blur-sm border-gray-200/50 dark:border-white/10 shadow-lg"
 					aria-label="Close lightbox"
 				>
 					<FiX size={20} />
@@ -89,7 +89,7 @@ const Lightbox = ({ images }: LightboxProps) => {
 						e.stopPropagation();
 						handlePrevious();
 					}}
-					className="absolute left-4 top-1/2 -translate-y-1/2 p-3 text-gray-800 hover:text-gray-900 dark:text-white/90 dark:hover:text-white transition-colors rounded-full bg-white/80 dark:bg-black/60 hover:bg-white/90 dark:hover:bg-black/80 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 shadow-lg"
+					className="button-base absolute left-4 top-1/2 -translate-y-1/2 p-3 text-heading transition-colors rounded-full bg-white/80 dark:bg-black/60 hover:bg-white/90 dark:hover:bg-black/80 backdrop-blur-sm border-gray-200/50 dark:border-white/10 shadow-lg"
 					aria-label="Previous image"
 				>
 					<FiChevronLeft size={20} />
@@ -113,7 +113,7 @@ const Lightbox = ({ images }: LightboxProps) => {
 						e.stopPropagation();
 						handleNext();
 					}}
-					className="absolute right-4 top-1/2 -translate-y-1/2 p-3 text-gray-800 hover:text-gray-900 dark:text-white/90 dark:hover:text-white transition-colors rounded-full bg-white/80 dark:bg-black/60 hover:bg-white/90 dark:hover:bg-black/80 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 shadow-lg"
+					className="button-base absolute right-4 top-1/2 -translate-y-1/2 p-3 text-heading transition-colors rounded-full bg-white/80 dark:bg-black/60 hover:bg-white/90 dark:hover:bg-black/80 backdrop-blur-sm border-gray-200/50 dark:border-white/10 shadow-lg"
 					aria-label="Next image"
 				>
 					<FiChevronRight size={20} />
@@ -129,8 +129,8 @@ const Lightbox = ({ images }: LightboxProps) => {
 								setCurrentIndex(index);
 							}}
 							className={`h-2 w-2 rounded-full transition-colors ${index === currentIndex
-									? "bg-gray-800 dark:bg-white"
-									: "bg-gray-500 dark:bg-white/60 hover:bg-gray-700 dark:hover:bg-white/80"
+								? "bg-gray-800 dark:bg-white"
+								: "bg-gray-500 dark:bg-white/60 hover:bg-gray-700 dark:hover:bg-white/80"
 								}`}
 							aria-label={`Go to image ${index + 1}`}
 						/>

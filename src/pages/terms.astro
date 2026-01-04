@@ -2,21 +2,23 @@
 /** biome-ignore-all lint/correctness/noUnusedImports: React icons are used in JSX */
 /** biome-ignore-all lint/correctness/noUnusedVariables: variables used in Astro components */
 
-import Breadcrumbs from "@astro/ui/Breadcrumbs.astro";
 import { siteConfig } from "@config/site";
 import Layout from "@layouts/Layout.astro";
 import { marked } from "marked";
+import Breadcrumbs from "@/ui/Breadcrumbs";
 
-const termsContent = Object.values(import.meta.glob("./content/terms.md", { eager: true }))[0] as { rawContent(): string };
+const termsContent = Object.values(
+	import.meta.glob("./content/terms.md", { eager: true }),
+)[0] as { rawContent(): string };
 const htmlContent = marked(termsContent.rawContent());
 ---
 
 <Layout 
-  title={`${siteConfig.name} • Terms of Service`} 
-  description={`Terms of Service for ${siteConfig.name} application - Rules and guidelines for using our service`}
+  title={`Terms of Service - ${siteConfig.name}`} 
+  description="Read our terms and conditions for using this application. Covers account usage, billing, content policy, and legal guidelines."
 >
-  <main class="min-h-screen max-w-3xl mx-auto px-4 py-4">
-    <Breadcrumbs items={[{ label: "Terms of Service" }]} />
+  <main class="min-h-screen container mx-auto px-3 md:px-6 py-8">
+    <Breadcrumbs items={[{ label: "Terms of Service" }]} client:load />
     <div class="prose prose-gray dark:prose-invert prose-sm sm:prose-base max-w-none">
       <div set:html={htmlContent} />
     </div>

@@ -2,17 +2,21 @@
 /** biome-ignore-all lint/correctness/noUnusedImports: React icons are used in JSX */
 /** biome-ignore-all lint/correctness/noUnusedVariables: variables used in Astro components */
 
-import Footer from "@astro/sections/Footer.astro";
 import { siteConfig } from "@config/site";
-import BackToTop from "@react/ui/BackToTop";
+import Footer from "@/sections/Footer";
 import type { LayoutProps } from "@/types/ui";
+import BackToTop from "@/ui/BackToTop";
+import FloatingNavbar from "@/ui/FloatingNavbar";
 
 interface Props extends LayoutProps {}
 
 const { title, description } = Astro.props;
-const canonicalURL = Astro.site ? new URL(Astro.url.pathname, Astro.site) : Astro.url;
-const ogImageURL = new URL(siteConfig.logo, Astro.url).href;
-const appleTouchIconURL = Astro.site ? new URL(siteConfig.logo, Astro.site).href : siteConfig.logo;
+const canonicalURL = Astro.site
+	? new URL(Astro.url.pathname, Astro.site)
+	: Astro.url;
+const appleTouchIconURL = Astro.site
+	? new URL(siteConfig.logo, Astro.site).href
+	: siteConfig.logo;
 ---
 
 <!DOCTYPE html>
@@ -67,9 +71,10 @@ const appleTouchIconURL = Astro.site ? new URL(siteConfig.logo, Astro.site).href
     </script>
   </head>
   <body class="bg-gray-50 text-gray-900 dark:bg-black dark:text-white">
-    <div class="mx-auto min-h-screen max-w-[800px]">
+    <FloatingNavbar logo={siteConfig.logo} title={siteConfig.name} storeLinks={siteConfig.storeLinks} client:load />
+    <div class="mx-auto h-screen max-w-[500px] px-5 lg:max-w-[1400px]">
       <main><slot /></main>
-      <Footer />
+      <Footer client:load />
     </div>
     <BackToTop client:load />
   </body>
@@ -85,46 +90,33 @@ const appleTouchIconURL = Astro.site ? new URL(siteConfig.logo, Astro.site).href
   html.light { color-scheme: light; }
   html.dark { color-scheme: dark; }
 
-  .screenshots-container {
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: thin;
-    scrollbar-color: rgb(156 163 175 / 0.75) rgb(229 231 235 / 0.6);
+  .screenshots-scrollbar::-webkit-scrollbar {
+    height: 8px;
   }
   
-  .dark .screenshots-container {
-    scrollbar-color: rgb(255 255 255 / 0.3) rgb(255 255 255 / 0.05);
+  .screenshots-scrollbar::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
   }
   
-  .screenshots-container::-webkit-scrollbar {
-    height: 6px;
+  .dark .screenshots-scrollbar::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
   }
   
-  .screenshots-container::-webkit-scrollbar-track {
-    background: rgb(229 231 235 / 0.6);
-    border-radius: 3px;
-    margin: 0 12px;
+  .screenshots-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
   }
   
-  .dark .screenshots-container::-webkit-scrollbar-track {
-    background: rgb(255 255 255 / 0.05);
+  .dark .screenshots-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
   }
   
-  .screenshots-container::-webkit-scrollbar-thumb {
-    background-color: rgb(156 163 175 / 0.75);
-    border-radius: 3px;
-    transition: background-color 0.2s ease;
+  .screenshots-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.25);
   }
   
-  .dark .screenshots-container::-webkit-scrollbar-thumb {
-    background-color: rgb(255 255 255 / 0.3);
-  }
-  
-  .screenshots-container:hover::-webkit-scrollbar-thumb {
-    background-color: rgb(107 114 128 / 0.9);
-  }
-  
-  .dark .screenshots-container:hover::-webkit-scrollbar-thumb {
-    background-color: rgb(255 255 255 / 0.45);
+  .dark .screenshots-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.25);
   }
 </style>

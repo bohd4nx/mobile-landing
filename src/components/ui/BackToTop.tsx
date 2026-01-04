@@ -38,11 +38,13 @@ const BackToTop = () => {
 					animate={{ opacity: 1, scale: 1 }}
 					exit={{ opacity: 0, scale: 0.8 }}
 					transition={{ duration: 0.2 }}
+					whileHover={{ scale: 1.1 }}
+					whileTap={{ scale: 0.95 }}
 					onClick={scrollToTop}
-					className="fixed bottom-8 right-8 z-50 flex h-14 w-14 items-center justify-center rounded-xl border border-gray-300 dark:border-white/10 bg-white dark:bg-white/[0.04] text-gray-900 dark:text-white shadow-lg hover:bg-gray-50 dark:hover:bg-white/[0.08] hover:border-gray-400 dark:hover:border-white/20 transition-colors"
+					className="button-base fixed bottom-8 right-8 z-50 flex h-14 w-14 items-center justify-center text-heading shadow-lg hover:shadow-xl transition-all duration-200 p-0 group"
 					aria-label="Back to top"
 				>
-					<FiChevronUp size={28} />
+					<FiChevronUp size={28} className="group-hover:scale-110 transition-transform" />
 				</motion.button>
 			)}
 		</AnimatePresence>

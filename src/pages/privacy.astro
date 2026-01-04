@@ -2,21 +2,23 @@
 /** biome-ignore-all lint/correctness/noUnusedImports: React icons are used in JSX */
 /** biome-ignore-all lint/correctness/noUnusedVariables: variables used in Astro components */
 
-import Breadcrumbs from "@astro/ui/Breadcrumbs.astro";
 import { siteConfig } from "@config/site";
 import Layout from "@layouts/Layout.astro";
 import { marked } from "marked";
+import Breadcrumbs from "@/ui/Breadcrumbs";
 
-const privacyContent = Object.values(import.meta.glob("./content/privacy.md", { eager: true }))[0] as { rawContent: () => string };
+const privacyContent = Object.values(
+	import.meta.glob("./content/privacy.md", { eager: true }),
+)[0] as { rawContent: () => string };
 const htmlContent = marked(privacyContent.rawContent());
 ---
 
 <Layout 
-  title={`${siteConfig.name} • Privacy Policy`} 
-  description={`Privacy Policy for ${siteConfig.name} application - How we handle and protect your data`}
+  title={`Privacy Policy - ${siteConfig.name}`} 
+  description="Learn how we collect, use, and protect your personal information. Our privacy policy outlines data handling practices, security measures, and your rights."
 >
-  <main class="min-h-screen max-w-3xl mx-auto px-4 py-4">
-    <Breadcrumbs items={[{ label: "Privacy Policy" }]} />
+  <main class="min-h-screen container mx-auto px-3 md:px-6 py-8">
+    <Breadcrumbs items={[{ label: "Privacy Policy" }]} client:load />
     <div class="prose prose-gray dark:prose-invert prose-sm sm:prose-base max-w-none">
       <div set:html={htmlContent} />
     </div>
