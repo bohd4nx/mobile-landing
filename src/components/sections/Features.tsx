@@ -10,16 +10,16 @@ const Features = ({ items }: FeaturesList) => {
 				{items.map((feature) => {
 					const Icon = getIcon(feature.icon);
 					return (
-						<div key={feature.title} className="card-base p-3 md:p-6">
-							<div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gray-100 dark:bg-white/[0.04]">
+						<div key={feature.title} className="card-base p-5 md:p-6">
+							<div className="mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-gray-100 dark:bg-white/[0.04]">
 								{Icon && (
-									<Icon className="h-6 w-6 text-gray-700 dark:text-white opacity-90" />
+									<Icon className="h-7 w-7 text-heading opacity-90" />
 								)}
 							</div>
-							<h3 className="mb-2 text-lg font-medium text-heading">
+							<h3 className="mb-2.5 text-xl font-semibold text-gray-800 dark:text-white">
 								{feature.title}
 							</h3>
-							<p className="text-sm leading-relaxed text-body">
+							<p className="text-base leading-relaxed text-body">
 								{feature.description}
 							</p>
 						</div>

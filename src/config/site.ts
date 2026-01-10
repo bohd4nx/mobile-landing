@@ -24,6 +24,15 @@ export const siteConfig = {
 		google: "#", // Replace with your Google Play URL
 	},
 
+	/** App rating and reviews */
+	rating: {
+		score: 4.8,
+		count: "1.2K",
+	},
+
+	/** Age rating (e.g., 4+, 12+, 17+) */
+	ageRating: "4+",
+
 	/** Social media links (edit in socialLinks.ts) */
 	socialLinks,
 } as const;

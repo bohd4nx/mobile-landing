@@ -52,6 +52,11 @@ description: "..."             // Hero section + SEO
 keywords: [...]                // SEO optimization
 logo: "/path/to/logo.png"      // App icon
 storeLinks: { apple, google }  // Download buttons
+rating: {                      // App Store rating display
+  score: 4.8,                  // Rating score (0-5)
+  count: "1.2K"                // Number of ratings
+}
+ageRating: "4+"                // Age rating badge (4+, 12+, 17+)
 ```
 
 ### features.ts

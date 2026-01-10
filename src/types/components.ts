@@ -39,4 +39,5 @@ export interface FloatingNavbar {
 	logo: string;
 	title: string;
 	storeLinks: StoreLinks;
+	socialLinks: SocialLink[];
 }

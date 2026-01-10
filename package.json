@@ -1,25 +1,49 @@
 {
 	"name": "landing.bohd4n.dev",
-	"version": "2026.1.0",
+	"version": "2026.1.1",
+	"private": true,
+	"description": "Modern landing page template built with Astro, React, and Tailwind CSS",
+	"author": "Bohdan <https://bohd4n.dev>",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/bohd4n/landing.bohd4n.dev"
+	},
+	"bugs": {
+		"url": "https://github.com/bohd4n/landing.bohd4n.dev/issues"
+	},
+	"homepage": "https://landing.bohd4n.dev",
+	"keywords": [
+		"astro",
+		"landing-page",
+		"react",
+		"tailwindcss",
+		"template",
+		"mobile landing page",
+		"modern landing page",
+		"landing page template"
+	],
 	"scripts": {
 		"dev": "astro dev",
 		"start": "astro dev",
 		"build": "astro build",
-		"preview": "astro preview"
+		"preview": "astro preview",
+		"toolbar:disable": "astro preferences disable devToolbar",
+		"toolbar:enable": "astro preferences enable devToolbar"
 	},
 	"dependencies": {
 		"@astrojs/react": "^4.4.2",
-		"@astrojs/sitemap": "^3.6.0",
+		"@astrojs/sitemap": "^3.6.1",
 		"@astrojs/tailwind": "^6.0.2",
 		"@tailwindcss/typography": "^0.5.19",
-		"astro": "^5.16.6",
-		"framer-motion": "^12.23.26",
+		"astro": "^5.16.8",
+		"framer-motion": "^12.25.0",
 		"marked": "^17.0.1",
 		"react": "^19.2.3",
 		"react-dom": "^19.2.3",
 		"react-icons": "^5.5.0",
 		"tailwind-scrollbar-hide": "^4.0.0",
-		"tailwindcss": "^3.4.17"
+		"tailwindcss": "^3.4.18"
 	},
 	"devDependencies": {
 		"@types/react": "^19.2.7",

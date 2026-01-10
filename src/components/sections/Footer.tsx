@@ -1,6 +1,40 @@
 import { siteConfig } from "@config/site";
+import SocialLinks from "@/sections/SocialLinks";
 import ThemeToggle from "@/ui/ThemeToggle";
-import { LegalLinks, Logo, SocialIcons } from "./FooterComponents";
+
+const Logo = ({ className = "w-10 h-10" }) => (
+	<div className="flex items-center gap-3">
+		<div className="relative">
+			<div className="absolute inset-0 bg-gradient-to-br from-gray-200/50 to-gray-300/50 dark:from-white/5 dark:to-white/10 rounded-lg blur-sm" />
+			<img
+				src={siteConfig.logo}
+				alt={`${siteConfig.name} Logo`}
+				className={`relative ${className} rounded-lg object-cover border border-gray-200/50 dark:border-white/10`}
+			/>
+		</div>
+		<span className="text-xl font-bold text-heading">
+			{siteConfig.name}
+		</span>
+	</div>
+);
+
+const LegalLinks = ({ className = "" }) => (
+	<div className={`flex items-center gap-2 text-base ${className}`}>
+		<a
+			href="/privacy"
+			className="flex items-center gap-2 text-body hover:text-heading transition-colors font-medium"
+		>
+			<span>Privacy</span>
+		</a>
+		<span className="text-gray-400 dark:text-gray-500">•</span>
+		<a
+			href="/terms"
+			className="flex items-center gap-2 text-body hover:text-heading transition-colors font-medium"
+		>
+			<span>Terms</span>
+		</a>
+	</div>
+);
 
 const Footer = () => {
 	const currentYear = new Date().getFullYear();
@@ -18,17 +52,19 @@ const Footer = () => {
 						<ThemeToggle />
 					</div>
 
-					<p className="text-base text-body leading-relaxed">
+					<p className="text-lg text-body leading-relaxed">
 						{siteConfig.description}
 					</p>
 
 					<div className="flex items-center justify-between">
-						<SocialIcons />
-						<LegalLinks className="text-sm" />
+						<div className="flex gap-3">
+							<SocialLinks items={siteConfig.socialLinks} />
+						</div>
+						<LegalLinks />
 					</div>
 
 					<div className="text-center">
-						<div className="text-base text-neutral-500 dark:text-neutral-400">
+						<div className="text-base text-body">
 							{copyrightText}
 						</div>
 					</div>
@@ -39,7 +75,7 @@ const Footer = () => {
 					<div className="flex items-start justify-between">
 						<div className="flex flex-col gap-3 max-w-lg">
 							<Logo />
-							<p className="text-base text-neutral-600 dark:text-neutral-400 leading-relaxed">
+							<p className="text-lg text-body leading-relaxed">
 								{siteConfig.description}
 							</p>
 						</div>
@@ -48,8 +84,10 @@ const Footer = () => {
 
 					<div className="flex items-center justify-between pt-6 border-t border-gray-200/30 dark:border-gray-700/30">
 						<div className="flex items-center gap-6">
-							<SocialIcons />
-							<div className="text-base text-neutral-500 dark:text-neutral-400">
+							<div className="flex gap-3">
+								<SocialLinks items={siteConfig.socialLinks} />
+							</div>
+							<div className="text-base text-body">
 								{copyrightText}
 							</div>
 						</div>
@@ -61,4 +99,4 @@ const Footer = () => {
 	);
 };
 
-export default (Footer);
+export default Footer;

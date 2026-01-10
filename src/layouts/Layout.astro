@@ -47,16 +47,6 @@ const appleTouchIconURL = Astro.site
     <link rel="apple-touch-icon" sizes="180x180" href={appleTouchIconURL} />
     
     <script is:inline>
-      // if ('scrollRestoration' in history) {
-      //   history.scrollRestoration = 'manual';
-      // }
-
-      // window.addEventListener('beforeunload', () => {
-      //   window.scrollTo(0, 0);
-      // });
-
-      // window.scrollTo(0, 0);
-      
       const theme = localStorage.getItem('theme') || 'system';
       document.documentElement.classList.remove('light', 'dark');
       
@@ -71,8 +61,8 @@ const appleTouchIconURL = Astro.site
     </script>
   </head>
   <body class="bg-gray-50 text-gray-900 dark:bg-black dark:text-white">
-    <FloatingNavbar logo={siteConfig.logo} title={siteConfig.name} storeLinks={siteConfig.storeLinks} client:load />
-    <div class="mx-auto h-screen max-w-[500px] px-5 lg:max-w-[1400px]">
+    <FloatingNavbar logo={siteConfig.logo} title={siteConfig.name} storeLinks={siteConfig.storeLinks} socialLinks={siteConfig.socialLinks} client:load />
+    <div class="mx-auto h-screen max-w-[600px] px-3 lg:max-w-[1500px]">
       <main><slot /></main>
       <Footer client:load />
     </div>

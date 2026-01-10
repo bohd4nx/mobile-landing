@@ -50,13 +50,15 @@ const ThemeToggle = () => {
 
 	if (!mounted)
 		return (
-			<div className="flex items-center rounded-lg border border-gray-300 dark:border-white/10 bg-gray-200/80 dark:bg-white/[0.03] p-1 shadow-sm">
+			<div className="flex items-center gap-0.5 rounded-xl border border-gray-300 dark:border-white/10 bg-white dark:bg-white/[0.04] p-1 shadow-lg">
+				<div className="w-8 h-8" />
+				<div className="w-8 h-8" />
 				<div className="w-8 h-8" />
 			</div>
 		);
 
 	return (
-		<div className="flex items-center rounded-lg border border-gray-300 dark:border-white/10 bg-gray-200/80 dark:bg-white/[0.03] p-1 shadow-sm">
+		<div className="flex items-center gap-0.5 rounded-xl border border-gray-300 dark:border-white/10 bg-white dark:bg-white/[0.04] p-1 shadow-lg">
 			{themes.map(({ key, icon: Icon, label }) => (
 				<motion.button
 					key={key}
@@ -65,19 +67,19 @@ const ThemeToggle = () => {
 						localStorage.setItem("theme", key);
 						applyTheme(key);
 					}}
-					className={`relative rounded-md p-2 text-sm font-medium ${theme === key
+					className={`relative rounded-lg p-2 text-sm font-medium transition-colors ${theme === key
 						? "text-heading"
-						: "text-gray-600 dark:text-white/60 hover:text-gray-800 dark:hover:text-white"
+						: "text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/[0.06]"
 						}`}
-					whileTap={{ scale: 0.95 }}
+					whileTap={{ scale: 0.9 }}
 					title={label}
 					aria-label={`Switch to ${label.toLowerCase()} theme`}
 				>
 					{theme === key && (
 						<motion.div
 							layoutId="activeTheme"
-							className="absolute inset-0 rounded-md bg-white dark:bg-white/10 shadow-sm border border-gray-300/60 dark:border-white/5"
-							transition={{ type: "spring", bounce: 0.15, duration: 0.5 }}
+							className="absolute inset-0 rounded-lg bg-gray-100 dark:bg-white/10 shadow-md border border-gray-300/80 dark:border-white/10"
+							transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
 						/>
 					)}
 					<Icon className="relative z-10 h-4 w-4" />

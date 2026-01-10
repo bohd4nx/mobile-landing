@@ -24,10 +24,6 @@ export interface LogoProps {
 	className?: string;
 }
 
-export interface SocialIconsProps {
-	className?: string;
-}
-
 export interface LegalLinksProps {
 	className?: string;
 }

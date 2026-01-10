@@ -19,10 +19,6 @@ module.exports = {
 					"@apply rounded-2xl border border-gray-300 dark:border-white/10 bg-white dark:bg-white/[0.03] shadow-sm":
 						{},
 				},
-				".card-interactive": {
-					"@apply border border-gray-300 dark:border-white/10 bg-white dark:bg-white/[0.04] hover:bg-gray-50 dark:hover:bg-white/[0.08] hover:border-gray-400 dark:hover:border-white/20":
-						{},
-				},
 				".button-base": {
 					"@apply rounded-xl border border-gray-300 dark:border-white/10 bg-white dark:bg-white/[0.04] shadow-sm":
 						{},
