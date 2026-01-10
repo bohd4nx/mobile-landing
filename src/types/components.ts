@@ -9,6 +9,11 @@ export interface AppHero {
 	description: string;
 	logo: string;
 	storeLinks: StoreLinks;
+	rating: { score: number; count: string };
+	ageRating: string;
+	version?: string;
+	minimumOS?: string;
+	releaseDate?: string;
 }
 
 export interface Lightbox {
@@ -40,4 +45,10 @@ export interface FloatingNavbar {
 	title: string;
 	storeLinks: StoreLinks;
 	socialLinks: SocialLink[];
+}
+
+export interface Footer {
+	name: string;
+	logo: string;
+	description: string;
 }

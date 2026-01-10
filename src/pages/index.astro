@@ -14,23 +14,49 @@ import Screenshots from "@/interactive/Screenshots";
 import AppHero from "@/sections/AppHero";
 import FAQ from "@/sections/FAQ";
 import Features from "@/sections/Features";
+import { fetchStoreData } from "@/utils/fetchStoreData";
 
-const { name, description, storeLinks, logo } = siteConfig;
-const title = `${name} - Modern Mobile App Landing Page Template`;
-const pageDescription = `${description} Download now for iOS and Android.`;
+const storeData = await fetchStoreData();
+
+const appData = {
+	name: storeData.name || siteConfig.name,
+	description: storeData.description || siteConfig.description,
+	logo: storeData.logo || siteConfig.logo,
+	storeLinks: storeData.storeLinks || siteConfig.storeLinks,
+	rating: storeData.rating || siteConfig.rating,
+	ageRating: storeData.ageRating || siteConfig.ageRating,
+	version: storeData.version || siteConfig.version,
+	minimumOS: storeData.minimumOS || siteConfig.minimumOS,
+	releaseDate: storeData.releaseDate || siteConfig.releaseDate,
+	screenshots: storeData.screenshots || screenshots,
+};
+
+const title = `${appData.name} - Modern Mobile App Landing Page Template`;
+const pageDescription = `${appData.description} Download now for iOS and Android.`;
 ---
 
-<Layout title={title} description={pageDescription}>
+<Layout title={title} description={pageDescription} appData={appData}>
   <main class="min-h-screen py-8 container mx-auto px-3 md:px-6">
-    <AppHero title={name} description={description} storeLinks={storeLinks} logo={logo} client:load />
-    <div class="mb-16"><Screenshots images={screenshots} client:load /></div>
+    <AppHero 
+      title={appData.name} 
+      description={appData.description} 
+      storeLinks={appData.storeLinks} 
+      logo={appData.logo}
+      rating={appData.rating}
+      ageRating={appData.ageRating}
+      version={appData.version}
+      minimumOS={appData.minimumOS}
+      releaseDate={appData.releaseDate}
+      client:load 
+    />
+    <div class="mb-16"><Screenshots images={appData.screenshots} client:load /></div>
     <Features items={features} client:load />
     <Reviews items={reviews} client:visible />
     <FAQ items={faqs} client:load />
   </main>
 </Layout>
 
-<Lightbox images={screenshots} client:load />
+<Lightbox images={appData.screenshots} client:load />
 
 <style is:global>
   .screenshots-scroll {

@@ -1,9 +1,10 @@
 import { socialLinks } from "./socialLinks";
 
-/**
- * Site configuration
- * Edit these values to customize your landing page
- */
+export const storeDataConfig = {
+	fetchRealData: false, // Set to true to fetch real data from App Store
+	appStoreAppId: 686449807, // Numeric App ID (without "id" prefix)
+};
+
 export const siteConfig = {
 	/** Your app name (displayed in header, footer, page title) */
 	name: "Your App Name",
@@ -20,8 +21,8 @@ export const siteConfig = {
 
 	/** App store download links */
 	storeLinks: {
-		apple: "#", // Replace with your App Store URL
-		google: "#", // Replace with your Google Play URL
+		apple: "#",
+		google: "#",
 	},
 
 	/** App rating and reviews */
@@ -32,6 +33,15 @@ export const siteConfig = {
 
 	/** Age rating (e.g., 4+, 12+, 17+) */
 	ageRating: "4+",
+
+	/** App version */
+	version: "1.0.0",
+
+	/** Minimum iOS version required */
+	minimumOS: "13.0",
+
+	/** Last update date */
+	releaseDate: "Jan 10, 2026",
 
 	/** Social media links (edit in socialLinks.ts) */
 	socialLinks,

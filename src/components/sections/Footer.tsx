@@ -1,21 +1,20 @@
 import { siteConfig } from "@config/site";
 import SocialLinks from "@/sections/SocialLinks";
+import type { Footer as FooterProps } from "@/types/components";
 import ThemeToggle from "@/ui/ThemeToggle";
 
-const Logo = ({ className = "w-10 h-10" }) => (
-	<div className="flex items-center gap-3">
-		<div className="relative">
-			<div className="absolute inset-0 bg-gradient-to-br from-gray-200/50 to-gray-300/50 dark:from-white/5 dark:to-white/10 rounded-lg blur-sm" />
+const Logo = ({ name, logo }: { name: string; logo: string }) => (
+	<a href="/" className="flex items-center gap-3 group">
+		<div className="relative w-10 h-10">
+			<div className="absolute inset-0 bg-gradient-to-br from-gray-200/50 to-gray-300/50 dark:from-white/5 dark:to-white/10 rounded-lg blur-sm group-hover:blur-md transition-all" />
 			<img
-				src={siteConfig.logo}
-				alt={`${siteConfig.name} Logo`}
-				className={`relative ${className} rounded-lg object-cover border border-gray-200/50 dark:border-white/10`}
+				src={logo}
+				alt={`${name} Logo`}
+				className="relative w-full h-full rounded-lg object-cover border border-gray-200/50 dark:border-white/10"
 			/>
 		</div>
-		<span className="text-xl font-bold text-heading">
-			{siteConfig.name}
-		</span>
-	</div>
+		<span className="text-xl font-bold text-heading group-hover:text-gray-900 dark:group-hover:text-white transition-colors">{name}</span>
+	</a>
 );
 
 const LegalLinks = ({ className = "" }) => (
@@ -36,7 +35,7 @@ const LegalLinks = ({ className = "" }) => (
 	</div>
 );
 
-const Footer = () => {
+const Footer = ({ name, logo, description }: FooterProps) => {
 	const currentYear = new Date().getFullYear();
 	const copyrightText = `© 2025-${currentYear} All rights reserved.`;
 
@@ -48,13 +47,11 @@ const Footer = () => {
 				{/* Mobile Layout */}
 				<div className="flex flex-col gap-6 md:hidden">
 					<div className="flex items-center justify-between">
-						<Logo />
+						<Logo name={name} logo={logo} />
 						<ThemeToggle />
 					</div>
 
-					<p className="text-lg text-body leading-relaxed">
-						{siteConfig.description}
-					</p>
+					<p className="text-lg text-body leading-relaxed">{description}</p>
 
 					<div className="flex items-center justify-between">
 						<div className="flex gap-3">
@@ -64,20 +61,16 @@ const Footer = () => {
 					</div>
 
 					<div className="text-center">
-						<div className="text-base text-body">
-							{copyrightText}
-						</div>
+						<div className="text-base text-body">{copyrightText}</div>
 					</div>
 				</div>
 
 				{/* Desktop Layout */}
 				<div className="hidden md:flex flex-col gap-4">
 					<div className="flex items-start justify-between">
-						<div className="flex flex-col gap-3 max-w-lg">
-							<Logo />
-							<p className="text-lg text-body leading-relaxed">
-								{siteConfig.description}
-							</p>
+						<div className="flex flex-col gap-3 max-w-3xl">
+							<Logo name={name} logo={logo} />
+							<p className="text-lg text-body leading-relaxed">{description}</p>
 						</div>
 						<ThemeToggle />
 					</div>
@@ -87,9 +80,7 @@ const Footer = () => {
 							<div className="flex gap-3">
 								<SocialLinks items={siteConfig.socialLinks} />
 							</div>
-							<div className="text-base text-body">
-								{copyrightText}
-							</div>
+							<div className="text-base text-body">{copyrightText}</div>
 						</div>
 						<LegalLinks />
 					</div>

@@ -21,7 +21,7 @@ const Screenshots = ({ images }: ScreenshotsGallery) => {
 					<div className="flex gap-6">
 						{currentImages.map((image: string, index: number) => (
 							<button
-								key={image}
+								key={`${activeDevice}-${index}`} // TODO: Fix photo key duplication issue
 								type="button"
 								onClick={() => window.openLightbox?.(index, activeDevice)}
 								className="relative flex-shrink-0 overflow-hidden rounded-xl focus:outline-none"

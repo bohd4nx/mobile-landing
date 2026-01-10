@@ -45,19 +45,64 @@ All your landing page content is here. Each file is focused on one specific aspe
 ## File Details
 
 ### site.ts
-Main configuration for your app:
+Main configuration for your app with two separate sections:
+
+#### 1. Store Data Auto-Fetch (`storeDataConfig`)
 ```typescript
-name: "Your App Name"          // Shown everywhere
-description: "..."             // Hero section + SEO
-keywords: [...]                // SEO optimization
-logo: "/path/to/logo.png"      // App icon
-storeLinks: { apple, google }  // Download buttons
-rating: {                      // App Store rating display
-  score: 4.8,                  // Rating score (0-5)
-  count: "1.2K"                // Number of ratings
+export const storeDataConfig = {
+  fetchRealData: true,          // Enable auto-fetch from App Store
+  appStoreAppId: 686449807,     // Numeric App Store ID (without "id" prefix)
 }
-ageRating: "4+"                // Age rating badge (4+, 12+, 17+)
 ```
+
+**How it works:**
+- When `fetchRealData: true`, data is automatically fetched from iTunes API at build time
+- Fetches: name, description, logo, rating (score + count), age rating, version, minimum OS, release date, screenshots, store links
+- Uses native `fetch()` API - no external dependencies
+- Find App Store ID: Open iTunes App Store → Search your app → Copy number from URL (e.g., `https://apps.apple.com/app/id686449807` → use `686449807`)
+
+**What gets auto-fetched:**
+- ✅ App name
+- ✅ Description (limited to 3 sentences)
+- ✅ Logo/Icon (512x512 URL)
+- ✅ Rating score and count (formatted as "1.2K" or "3.5M")
+- ✅ Age rating (e.g., "4+", "12+", "17+")
+- ✅ Version number (e.g., "1.0.0")
+- ✅ Minimum iOS version (e.g., "13.0")
+- ✅ Last update date (formatted as "Jan 7, 2026")
+- ✅ Screenshots (iPhone and iPad)
+- ✅ App Store link
+
+**Manual override:**
+Set `fetchRealData: false` to use manual values from `siteConfig` below.
+
+#### 2. Manual Site Configuration (`siteConfig`)
+```typescript
+export const siteConfig = {
+  name: "Your App Name",        // Fallback/override app name
+  description: "...",           // Hero section + SEO
+  keywords: [...]               // SEO optimization
+  logo: "/path/to/logo.png"     // Fallback app icon
+  storeLinks: { 
+    apple: "...",               // App Store URL
+    google: "..."               // Google Play URL (optional)
+  }
+  rating: {                     // Manual rating (used when fetchRealData: false)
+    score: 4.8,                 // Rating score (0-5)
+    count: "1.2K"               // Number of ratings
+  }
+  ageRating: "4+",              // Age rating badge (4+, 12+, 17+)
+  version: "1.0.0",             // Current app version
+  minimumOS: "13.0",            // Minimum iOS version required
+  releaseDate: "Jan 10, 2026",  // Last update date
+  socialLinks: [...]            // Social media links
+}
+```
+
+**Merge behavior:**
+- Fetched data takes precedence over `siteConfig` values
+- Use `siteConfig` for: SEO keywords, Google Play link, social links, fallback values
+- When `fetchRealData: false`, all values come from `siteConfig`
 
 ### features.ts
 Feature showcase cards:
