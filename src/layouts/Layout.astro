@@ -1,22 +1,14 @@
 ---
-/** biome-ignore-all lint/correctness/noUnusedImports: React icons are used in JSX */
-/** biome-ignore-all lint/correctness/noUnusedVariables: variables used in Astro components */
+/** biome-ignore-all lint/correctness/noUnusedImports: React components are hydrated client-side with icons */
+/** biome-ignore-all lint/correctness/noUnusedVariables: Props and config are passed to nested components */
 
 import { siteConfig } from "@config/site";
 import Footer from "@/sections/Footer";
-import type { StoreData } from "@/types/content";
-import type { LayoutProps } from "@/types/ui";
+import type { LayoutWithAppDataProps } from "@/types/layout";
 import BackToTop from "@/ui/BackToTop";
 import FloatingNavbar from "@/ui/FloatingNavbar";
 
-interface Props extends LayoutProps {
-	appData?: Partial<StoreData> & {
-		name: string;
-		logo: string;
-		description: string;
-		storeLinks: { apple: string; google: string };
-	};
-}
+interface Props extends LayoutWithAppDataProps {}
 
 const { title, description, appData } = Astro.props;
 const navData = appData || {

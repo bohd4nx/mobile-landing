@@ -1,25 +1,8 @@
 import { memo } from "react";
-import { FaApple, FaGooglePlay, FaRegStar, FaStar, FaStarHalfAlt } from "react-icons/fa";
+import { FaApple, FaGooglePlay } from "react-icons/fa";
 
 import type { AppHero as AppHeroProps } from "@/types/components";
-
-const RatingStars = ({ score }: { score: number }) => {
-	const fullStars = Math.floor(score);
-	const hasHalfStar = score % 1 >= 0.5;
-	const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
-
-	return (
-		<>
-			{Array.from({ length: fullStars }, (_, i) => (
-				<FaStar key={`full-star-${i + 1}`} className="w-3.5 h-3.5 text-yellow-500 dark:text-yellow-400" />
-			))}
-			{hasHalfStar && <FaStarHalfAlt key="half-star" className="w-3.5 h-3.5 text-yellow-500 dark:text-yellow-400" />}
-			{Array.from({ length: emptyStars }, (_, i) => (
-				<FaRegStar key={`empty-star-${fullStars + (hasHalfStar ? 1 : 0) + i + 1}`} className="w-3.5 h-3.5 text-yellow-500 dark:text-yellow-400" />
-			))}
-		</>
-	);
-};
+import RatingStars from "@/ui/RatingStars";
 
 const AppHero = ({ title, description, storeLinks, logo, rating, ageRating, version, minimumOS, releaseDate }: AppHeroProps) => (
 	<div className="mb-16 flex flex-col md:flex-row gap-8 items-start">
@@ -40,7 +23,7 @@ const AppHero = ({ title, description, storeLinks, logo, rating, ageRating, vers
 
 					<div className="flex items-center gap-3 mb-3 justify-center md:justify-start flex-wrap">
 						<div className="flex items-center gap-1.5">
-							<RatingStars score={rating.score} />
+							<RatingStars rating={rating.score} />
 							<span className="text-sm font-medium text-body ml-1">· {rating.count} ratings</span>
 						</div>
 						<div className="px-2 py-0.5 rounded-md border border-gray-300 dark:border-white/20 bg-gray-100 dark:bg-white/[0.05] text-xs font-semibold text-gray-700 dark:text-gray-300">

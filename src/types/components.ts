@@ -47,7 +47,7 @@ export interface FloatingNavbar {
 	socialLinks: SocialLink[];
 }
 
-export interface Footer {
+export interface FooterProps {
 	name: string;
 	logo: string;
 	description: string;

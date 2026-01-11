@@ -1,104 +1,20 @@
 ---
-/** biome-ignore-all lint/correctness/noUnusedImports: React icons are used in JSX */
-/** biome-ignore-all lint/correctness/noUnusedVariables: variables used in Astro components */
+/** biome-ignore-all lint/correctness/noUnusedImports: MarkdownContent component renders markdown content */
+/** biome-ignore-all lint/correctness/noUnusedVariables: Content and config variables used in Layout props */
 
 import { siteConfig } from "@config/site";
 import Layout from "@layouts/Layout.astro";
-import { marked } from "marked";
-import Breadcrumbs from "@/ui/Breadcrumbs";
+import MarkdownContent from "@layouts/MarkdownContent.astro";
 
 const privacyContent = Object.values(
 	import.meta.glob("./content/privacy.md", { eager: true }),
 )[0] as { rawContent: () => string };
-const htmlContent = marked(privacyContent.rawContent());
+const markdownContent = privacyContent.rawContent();
 ---
 
 <Layout 
   title={`Privacy Policy - ${siteConfig.name}`} 
   description="Learn how we collect, use, and protect your personal information. Our privacy policy outlines data handling practices, security measures, and your rights."
 >
-  <main class="min-h-screen py-8 md:py-12 px-4 md:px-6">
-    <Breadcrumbs items={[{ label: "Privacy Policy" }]} client:load />
-    <div class="prose prose-gray dark:prose-invert prose-base md:prose-lg max-w-none">
-      <div set:html={htmlContent} />
-    </div>
-  </main>
+  <MarkdownContent breadcrumbLabel="Privacy Policy" content={markdownContent} />
 </Layout>
-
-<style is:global>
-  .prose {
-    --tw-prose-headings: theme(colors.gray.900);
-    --tw-prose-links: theme(colors.blue.600);
-    --tw-prose-bold: theme(colors.gray.900);
-    --tw-prose-invert-headings: theme(colors.white);
-    --tw-prose-invert-links: theme(colors.blue.400);
-    --tw-prose-invert-bold: theme(colors.white);
-  }
-  
-  .prose {
-    a {
-      text-decoration: none;
-      font-weight: 500;
-      &:hover { text-decoration: underline; }
-    }
-
-    h1 { 
-      font-size: 2.5rem;
-      line-height: 1.2;
-      margin-bottom: 1.5rem;
-      font-weight: 700;
-    }
-    
-    h2 { 
-      font-size: 1.875rem;
-      line-height: 1.3;
-      margin-top: 2.5rem;
-      margin-bottom: 1rem;
-      font-weight: 600;
-    }
-    
-    h3 { 
-      font-size: 1.5rem;
-      margin-top: 2rem;
-      margin-bottom: 0.75rem;
-      font-weight: 600;
-    }
-
-    p, li { 
-      font-size: 1.125rem;
-      line-height: 1.75;
-      color: theme(colors.gray.700);
-    }
-    
-    ul, ol {
-      margin-top: 1rem;
-      margin-bottom: 1rem;
-      padding-left: 1.5rem;
-    }
-    
-    li {
-      margin-top: 0.5rem;
-      margin-bottom: 0.5rem;
-    }
-
-    strong { 
-      color: theme(colors.gray.800);
-      font-weight: 600;
-    }
-  }
-
-  .dark .prose {
-    h1, h2, h3, h4, h5, h6 { color: theme(colors.white); }
-    p, li { color: theme(colors.gray.300); }
-    strong { color: theme(colors.gray.100); }
-  }
-  
-  @media (max-width: 768px) {
-    .prose {
-      h1 { font-size: 2rem; }
-      h2 { font-size: 1.5rem; }
-      h3 { font-size: 1.25rem; }
-      p, li { font-size: 1rem; }
-    }
-  }
-</style>

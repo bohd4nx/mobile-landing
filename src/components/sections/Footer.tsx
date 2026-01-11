@@ -1,6 +1,6 @@
 import { siteConfig } from "@config/site";
 import SocialLinks from "@/sections/SocialLinks";
-import type { Footer as FooterProps } from "@/types/components";
+import type { FooterProps } from "@/types/components";
 import ThemeToggle from "@/ui/ThemeToggle";
 
 const Logo = ({ name, logo }: { name: string; logo: string }) => (
