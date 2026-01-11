@@ -1,12 +1,12 @@
 import { motion } from "framer-motion";
 import { memo, useCallback, useEffect, useState } from "react";
 import { FiMonitor, FiMoon, FiSun } from "react-icons/fi";
-import type { Theme } from "@/types/ui";
+import type { Theme } from "@/types/props";
 
-const themes: { key: Theme; icon: typeof FiSun; label: string }[] = [
-	{ key: "light", icon: FiSun, label: "Light" },
-	{ key: "dark", icon: FiMoon, label: "Dark" },
-	{ key: "system", icon: FiMonitor, label: "System" },
+const THEMES = [
+	{ key: "light" as const, icon: FiSun, label: "Light" },
+	{ key: "dark" as const, icon: FiMoon, label: "Dark" },
+	{ key: "system" as const, icon: FiMonitor, label: "System" },
 ];
 
 const ThemeToggle = () => {
@@ -15,22 +15,14 @@ const ThemeToggle = () => {
 
 	const applyTheme = useCallback((newTheme: Theme) => {
 		const root = document.documentElement;
+		const isDark = newTheme === "system"
+			? window.matchMedia("(prefers-color-scheme: dark)").matches
+			: newTheme === "dark";
 
 		root.classList.add("theme-switching");
 		root.classList.remove("light", "dark");
-
-		if (newTheme === "system") {
-			const prefersDark = window.matchMedia(
-				"(prefers-color-scheme: dark)",
-			).matches;
-			root.classList.add(prefersDark ? "dark" : "light");
-		} else {
-			root.classList.add(newTheme);
-		}
-
-		setTimeout(() => {
-			root.classList.remove("theme-switching");
-		}, 150);
+		root.classList.add(isDark ? "dark" : "light");
+		setTimeout(() => root.classList.remove("theme-switching"), 150);
 	}, []);
 
 	useEffect(() => {
@@ -42,49 +34,56 @@ const ThemeToggle = () => {
 
 	useEffect(() => {
 		if (!mounted || theme !== "system") return;
+
 		const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-		const handleChange = () => theme === "system" && applyTheme("system");
+		const handleChange = () => applyTheme("system");
+
 		mediaQuery.addEventListener("change", handleChange);
 		return () => mediaQuery.removeEventListener("change", handleChange);
 	}, [theme, applyTheme, mounted]);
 
-	if (!mounted)
+	if (!mounted) {
 		return (
-			<div className="flex items-center gap-0.5 rounded-xl border border-gray-300 dark:border-white/10 bg-white dark:bg-white/[0.04] p-1 shadow-lg">
-				<div className="w-8 h-8" />
-				<div className="w-8 h-8" />
-				<div className="w-8 h-8" />
+			<div className="flex items-center gap-1 rounded-xl bg-gray-100 dark:bg-white/5 border border-gray-200/50 dark:border-white/5 p-1">
+				{THEMES.map((t) => <div key={t.key} className="w-8 h-8" />)}
 			</div>
 		);
+	}
+
+	const handleThemeChange = (key: Theme) => {
+		setTheme(key);
+		localStorage.setItem("theme", key);
+		applyTheme(key);
+	};
 
 	return (
-		<div className="flex items-center gap-0.5 rounded-xl border border-gray-300 dark:border-white/10 bg-white dark:bg-white/[0.04] p-1 shadow-lg">
-			{themes.map(({ key, icon: Icon, label }) => (
-				<motion.button
-					key={key}
-					onClick={() => {
-						setTheme(key);
-						localStorage.setItem("theme", key);
-						applyTheme(key);
-					}}
-					className={`relative rounded-lg p-2 text-sm font-medium transition-colors ${theme === key
-						? "text-heading"
-						: "text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/[0.06]"
-						}`}
-					whileTap={{ scale: 0.9 }}
-					title={label}
-					aria-label={`Switch to ${label.toLowerCase()} theme`}
-				>
-					{theme === key && (
-						<motion.div
-							layoutId="activeTheme"
-							className="absolute inset-0 rounded-lg bg-gray-100 dark:bg-white/10 shadow-md border border-gray-300/80 dark:border-white/10"
-							transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-						/>
-					)}
-					<Icon className="relative z-10 h-4 w-4" />
-				</motion.button>
-			))}
+		<div className="flex items-center gap-1 rounded-xl bg-gray-100 dark:bg-white/5 border border-gray-200/50 dark:border-white/5 p-1">
+			{THEMES.map(({ key, icon: Icon, label }) => {
+				const isActive = theme === key;
+
+				return (
+					<motion.button
+						key={key}
+						onClick={() => handleThemeChange(key)}
+						className={`relative rounded-lg p-2 transition-all ${isActive
+								? "text-gray-900 dark:text-white"
+								: "text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 hover:bg-gray-200 dark:hover:bg-white/10"
+							}`}
+						whileTap={{ scale: 0.9 }}
+						title={label}
+						aria-label={`Switch to ${label.toLowerCase()} theme`}
+					>
+						{isActive && (
+							<motion.div
+								layoutId="activeTheme"
+								className="absolute inset-0 rounded-lg bg-white dark:bg-white/10 shadow-sm border border-gray-200 dark:border-white/10"
+								transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+							/>
+						)}
+						<Icon className="relative z-10 h-5 w-5" />
+					</motion.button>
+				);
+			})}
 		</div>
 	);
 };

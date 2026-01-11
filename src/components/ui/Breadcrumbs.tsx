@@ -1,24 +1,21 @@
 import { memo } from "react";
 import { FiChevronRight, FiHome } from "react-icons/fi";
-import type { BreadcrumbsProps } from "@/types/ui";
+import type { BreadcrumbsProps } from "@/types/props";
 
 const Breadcrumbs = ({ items }: BreadcrumbsProps) => (
-	<nav className="flex items-center space-x-2 text-sm text-muted mb-8">
-		<a href="/" className="hover:text-heading p-2 -ml-2">
-			<FiHome className="w-4 h-4" />
+	<nav className="flex items-center gap-2 text-base text-body mb-8">
+		<a href="/" className="hover:text-heading p-2 -ml-2 transition-colors">
+			<FiHome className="w-5 h-5" />
 		</a>
 		{items.map(({ label, href }) => (
-			<div key={label} className="flex items-center space-x-2">
-				<FiChevronRight className="w-4 h-4 text-gray-400 dark:text-gray-600" />
+			<div key={label} className="flex items-center gap-2">
+				<FiChevronRight className="w-5 h-5 text-gray-400 dark:text-gray-600" />
 				{href ? (
-					<a
-						href={href}
-						className="hover:text-heading"
-					>
+					<a href={href} className="hover:text-heading transition-colors">
 						{label}
 					</a>
 				) : (
-					<span className="text-heading">{label}</span>
+					<span className="text-heading font-medium">{label}</span>
 				)}
 			</div>
 		))}

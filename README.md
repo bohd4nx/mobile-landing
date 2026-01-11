@@ -28,6 +28,18 @@
 | 🔍 **SEO Ready** | Meta tags and semantic HTML |
 | 📊 **Review System** | Star ratings and testimonials |
 | 🎯 **TypeScript** | Type-safe configuration |
+| 🍎 **App Store Integration** | Auto-fetch data from Apple App Store |
+| 📖 **Enhanced Typography** | Optimized readability for legal pages |
+
+---
+
+## 🆕 Recent Updates
+
+- ✅ **App Store Data Fetching** - Automatically pull app info, ratings, version from App Store
+- ✅ **Improved Mobile UI** - Larger floating navbar on mobile devices
+- ✅ **Enhanced Download Buttons** - Responsive layout with color gradients
+- ✅ **Better Typography** - Improved font sizes and spacing for Privacy/Terms pages
+- ✅ **Desktop Layout** - Optimized AppHero layout with logo + text left, buttons right
 
 ---
 

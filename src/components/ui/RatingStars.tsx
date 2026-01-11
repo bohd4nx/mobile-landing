@@ -1,16 +1,34 @@
 import { memo } from "react";
-import { FiStar } from "react-icons/fi";
-import type { RatingStarsProps } from "@/types/ui";
+import { FaRegStar, FaStar, FaStarHalfAlt } from "react-icons/fa";
+import type { RatingStarsProps } from "@/types/props";
 
-const RatingStars = ({ rating, max = 5 }: RatingStarsProps) => (
-	<div className="flex items-center gap-1">
-		{Array.from({ length: max }).map((_, i) => (
-			<FiStar
-				key={`star-${i}-${max}`}
-				className={`h-4 w-4 ${i < rating ? "fill-yellow-400 text-yellow-400" : "text-white/30"}`}
-			/>
-		))}
-	</div>
-);
+const RatingStars = ({ rating, max = 5 }: RatingStarsProps) => {
+	const fullStars = Math.floor(rating);
+	const hasHalfStar = rating % 1 >= 0.5;
+	const emptyStars = max - fullStars - (hasHalfStar ? 1 : 0);
+
+	return (
+		<div className="flex items-center gap-1">
+			{Array.from({ length: fullStars }, (_, i) => (
+				<FaStar
+					key={`full-star-${i + 1}`}
+					className="w-3.5 h-3.5 text-yellow-500 dark:text-yellow-400"
+				/>
+			))}
+			{hasHalfStar && (
+				<FaStarHalfAlt
+					key="half-star"
+					className="w-3.5 h-3.5 text-yellow-500 dark:text-yellow-400"
+				/>
+			)}
+			{Array.from({ length: emptyStars }, (_, i) => (
+				<FaRegStar
+					key={`empty-star-${fullStars + (hasHalfStar ? 1 : 0) + i + 1}`}
+					className="w-3.5 h-3.5 text-yellow-500 dark:text-yellow-400"
+				/>
+			))}
+		</div>
+	);
+};
 
 export default memo(RatingStars);

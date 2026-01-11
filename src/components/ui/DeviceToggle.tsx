@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { memo, useCallback } from "react";
 import { FiTablet } from "react-icons/fi";
 import { IoPhonePortraitOutline } from "react-icons/io5";
-import type { DeviceToggleProps } from "@/types/ui";
+import type { DeviceToggleProps } from "@/types/props";
 
 const DeviceToggle = ({ activeDevice, onToggle }: DeviceToggleProps) => {
 	const handleIphoneClick = useCallback(() => onToggle("iphone"), [onToggle]);

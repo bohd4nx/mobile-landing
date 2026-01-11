@@ -18,18 +18,18 @@ import type { Screenshots } from "@/types/content";
 export const screenshots: Screenshots = {
 	iphone: [
 		"/assets/screenshots/iphone/1.png",
-		"/assets/screenshots/iphone/2.png",
-		"/assets/screenshots/iphone/3.png",
-		"/assets/screenshots/iphone/4.png",
-		"/assets/screenshots/iphone/5.png",
+		"/assets/screenshots/iphone/1.png",
+		"/assets/screenshots/iphone/1.png",
+		"/assets/screenshots/iphone/1.png",
+		"/assets/screenshots/iphone/1.png",
 		// Add more iPhone screenshots...
 	],
 	ipad: [
 		"/assets/screenshots/ipad/1.png",
-		"/assets/screenshots/ipad/2.png",
-		"/assets/screenshots/ipad/3.png",
-		"/assets/screenshots/ipad/4.png",
-		"/assets/screenshots/ipad/5.png",
+		"/assets/screenshots/ipad/1.png",
+		"/assets/screenshots/ipad/1.png",
+		"/assets/screenshots/ipad/1.png",
+		"/assets/screenshots/ipad/1.png",
 		// Add more iPad screenshots...
 	],
 };
