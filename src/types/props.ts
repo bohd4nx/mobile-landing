@@ -15,4 +15,11 @@ export interface RatingStarsProps {
 	max?: number;
 }
 
+export interface DeviceButtonProps {
+	isActive: boolean;
+	onClick: () => void;
+	label: string;
+	icon: React.ReactNode;
+}
+
 export type Theme = "light" | "dark" | "system";

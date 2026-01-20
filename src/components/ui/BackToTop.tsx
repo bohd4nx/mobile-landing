@@ -41,10 +41,10 @@ const BackToTop = () => {
 					whileHover={{ scale: 1.1 }}
 					whileTap={{ scale: 0.95 }}
 					onClick={scrollToTop}
-					className="button-base fixed bottom-8 right-8 z-50 flex h-14 w-14 items-center justify-center text-heading shadow-lg hover:shadow-xl transition-all duration-200 p-0 group"
+					className="button-base fixed bottom-8 right-8 z-50 flex h-14 w-14 items-center justify-center text-heading shadow-lg hover:shadow-xl transition-shadow duration-200 p-0"
 					aria-label="Back to top"
 				>
-					<FiChevronUp size={28} className="group-hover:scale-110 transition-transform" />
+					<FiChevronUp size={28} />
 				</motion.button>
 			)}
 		</AnimatePresence>

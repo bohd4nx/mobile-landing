@@ -6,7 +6,6 @@ import DeviceToggle from "@/ui/DeviceToggle";
 const Screenshots = ({ images }: ScreenshotsGallery) => {
 	const [activeDevice, setActiveDevice] = useState<"iphone" | "ipad">("iphone");
 	const currentImages = images[activeDevice];
-	const isIphone = activeDevice === "iphone";
 
 	return (
 		<div className="mb-16">
@@ -29,7 +28,7 @@ const Screenshots = ({ images }: ScreenshotsGallery) => {
 								<img
 									src={image}
 									alt={`Screenshot ${index + 1}`}
-									className={`rounded-xl border border-gray-300 dark:border-white/10 object-cover shadow-lg ${isIphone
+								className={`rounded-xl border border-gray-300 dark:border-white/10 object-cover shadow-lg ${activeDevice === "iphone"
 										? "aspect-[9/16] w-[260px]"
 										: "aspect-[4/3] w-[360px]"
 										}`}

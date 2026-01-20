@@ -13,9 +13,9 @@ function shortenDescription(description: string, maxSentences = 3): string {
     if (!description) return description;
 
     const sentences = description.match(/[^.!?]+[.!?]+/g) || [];
-    
-    return sentences.length <= maxSentences 
-        ? description 
+
+    return sentences.length <= maxSentences
+        ? description
         : sentences.slice(0, maxSentences).join(' ').trim();
 }
 
@@ -26,7 +26,7 @@ function formatRatingCount(count: number): string {
 }
 
 function formatReleaseDate(dateString?: string): string | undefined {
-    return dateString 
+    return dateString
         ? new Date(dateString).toLocaleDateString('en-US', {
             year: 'numeric',
             month: 'short',

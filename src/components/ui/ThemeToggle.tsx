@@ -4,10 +4,10 @@ import { FiMonitor, FiMoon, FiSun } from "react-icons/fi";
 import type { Theme } from "@/types/props";
 
 const THEMES = [
-	{ key: "light" as const, icon: FiSun, label: "Light" },
-	{ key: "dark" as const, icon: FiMoon, label: "Dark" },
-	{ key: "system" as const, icon: FiMonitor, label: "System" },
-];
+	{ key: "light", icon: FiSun, label: "Light" },
+	{ key: "dark", icon: FiMoon, label: "Dark" },
+	{ key: "system", icon: FiMonitor, label: "System" },
+] as const;
 
 const ThemeToggle = () => {
 	const [theme, setTheme] = useState<Theme>("system");
@@ -42,14 +42,6 @@ const ThemeToggle = () => {
 		return () => mediaQuery.removeEventListener("change", handleChange);
 	}, [theme, applyTheme, mounted]);
 
-	if (!mounted) {
-		return (
-			<div className="flex items-center gap-1 rounded-xl bg-gray-100 dark:bg-white/5 border border-gray-200/50 dark:border-white/5 p-1">
-				{THEMES.map((t) => <div key={t.key} className="w-8 h-8" />)}
-			</div>
-		);
-	}
-
 	const handleThemeChange = (key: Theme) => {
 		setTheme(key);
 		localStorage.setItem("theme", key);
@@ -58,32 +50,37 @@ const ThemeToggle = () => {
 
 	return (
 		<div className="flex items-center gap-1 rounded-xl bg-gray-100 dark:bg-white/5 border border-gray-200/50 dark:border-white/5 p-1">
-			{THEMES.map(({ key, icon: Icon, label }) => {
-				const isActive = theme === key;
+			{!mounted ? (
+				THEMES.map((t) => <div key={t.key} className="w-8 h-8" />)
+			) : (
+				THEMES.map(({ key, icon: Icon, label }) => {
+					const isActive = theme === key;
 
-				return (
-					<motion.button
-						key={key}
-						onClick={() => handleThemeChange(key)}
-						className={`relative rounded-lg p-2 transition-all ${isActive
-								? "text-gray-900 dark:text-white"
-								: "text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 hover:bg-gray-200 dark:hover:bg-white/10"
-							}`}
-						whileTap={{ scale: 0.9 }}
-						title={label}
-						aria-label={`Switch to ${label.toLowerCase()} theme`}
-					>
-						{isActive && (
-							<motion.div
-								layoutId="activeTheme"
-								className="absolute inset-0 rounded-lg bg-white dark:bg-white/10 shadow-sm border border-gray-200 dark:border-white/10"
-								transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-							/>
-						)}
-						<Icon className="relative z-10 h-5 w-5" />
-					</motion.button>
-				);
-			})}
+					return (
+						<motion.button
+							type="button"
+							key={key}
+							onClick={() => handleThemeChange(key)}
+							className={`relative rounded-lg p-2 transition-colors ${isActive
+								? "text-heading"
+								: "text-muted hover:text-body hover:bg-gray-200 dark:hover:bg-white/10"
+								}`}
+							whileTap={{ scale: 0.9 }}
+							title={label}
+							aria-label={`Switch to ${label.toLowerCase()} theme`}
+						>
+							{isActive && (
+								<motion.div
+									layoutId="activeTheme"
+									className="absolute inset-0 rounded-lg bg-white dark:bg-white/10 shadow-sm border border-gray-200 dark:border-white/10"
+									transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+								/>
+							)}
+							<Icon className="relative z-10 h-5 w-5" />
+						</motion.button>
+					);
+				})
+			)}
 		</div>
 	);
 };

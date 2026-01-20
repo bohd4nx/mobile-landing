@@ -1,6 +1,5 @@
 import { memo } from "react";
 import { FaApple, FaGooglePlay } from "react-icons/fa";
-
 import type { AppHero as AppHeroProps } from "@/types/components";
 import RatingStars from "@/ui/RatingStars";
 
@@ -34,19 +33,19 @@ const AppHero = ({ title, description, storeLinks, logo, rating, ageRating, vers
 					{(version || minimumOS || releaseDate) && (
 						<div className="flex items-center gap-2 mb-4 justify-center md:justify-start flex-wrap text-xs">
 							{version && (
-								<div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-gray-100 dark:bg-white/[0.05] border border-gray-200 dark:border-white/10">
+							<div className="info-badge">
 									<span className="font-semibold text-heading">Version</span>
 									<span className="text-body">{version}</span>
 								</div>
 							)}
 							{minimumOS && (
-								<div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-gray-100 dark:bg-white/[0.05] border border-gray-200 dark:border-white/10">
+							<div className="info-badge">
 									<span className="font-semibold text-heading">Requires</span>
 									<span className="text-body">iOS {minimumOS}+</span>
 								</div>
 							)}
 							{releaseDate && (
-								<div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-gray-100 dark:bg-white/[0.05] border border-gray-200 dark:border-white/10">
+							<div className="info-badge">
 									<span className="font-semibold text-heading">Updated</span>
 									<span className="text-body">{releaseDate}</span>
 								</div>

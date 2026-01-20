@@ -50,13 +50,13 @@ export interface StoreData {
 }
 
 export interface TocItem {
-    id: string;
-    text: string;
-    level: number;
+	id: string;
+	text: string;
+	level: number;
 }
 
 export interface TableOfContentsProps {
-    content: string;
+	content: string;
 }
 
 export const areImagesEqual = <T extends { images: Screenshots }>(

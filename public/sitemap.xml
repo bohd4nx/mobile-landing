@@ -6,7 +6,7 @@
   
   <url>
     <loc>https://landing.bohd4n.dev/</loc>
-    <lastmod>2026-01-11</lastmod>
+    <lastmod>2026-01-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -14,13 +14,13 @@
     <loc>https://landing.bohd4n.dev/privacy</loc>
     <lastmod>2026-01-11</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://landing.bohd4n.dev/terms</loc>
     <lastmod>2026-01-11</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <priority>0.8</priority>
   </url>
 
 </urlset>

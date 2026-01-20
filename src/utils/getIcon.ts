@@ -87,6 +87,5 @@ const iconMap: Record<string, IconType> = {
 	RiTwitterXFill,
 };
 
-export const getIcon = (iconName: string): IconType | null => {
-	return iconMap[iconName] || null;
-};
+export const getIcon = (iconName: string): IconType | null =>
+	iconMap[iconName] || null;

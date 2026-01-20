@@ -36,6 +36,9 @@ module.exports = {
 				".text-muted": {
 					"@apply text-gray-500 dark:text-gray-400": {},
 				},
+				".info-badge": {
+					"@apply flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-gray-100 dark:bg-white/[0.05] border border-gray-200 dark:border-white/10": {},
+				},
 			});
 		},
 	],

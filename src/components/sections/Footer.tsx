@@ -37,7 +37,10 @@ const LegalLinks = ({ className = "" }) => (
 
 const Footer = ({ name, logo, description }: FooterProps) => {
 	const currentYear = new Date().getFullYear();
-	const copyrightText = `© 2025-${currentYear} All rights reserved.`;
+	const startYear = 2025;
+	const copyrightText = currentYear > startYear 
+		? `© ${startYear}-${currentYear} All rights reserved.`
+		: `© All rights reserved.`;
 
 	return (
 		<footer className="py-10 bg-gray-50 dark:bg-black">
