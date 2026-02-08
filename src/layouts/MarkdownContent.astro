@@ -2,12 +2,14 @@
 /** biome-ignore-all lint/correctness/noUnusedImports: Breadcrumbs component is used in template below */
 /** biome-ignore-all lint/correctness/noUnusedVariables: Props interface extends imported type */
 
-import type { MarkdownContentProps } from "@/types/layout";
 import Breadcrumbs from "@/ui/Breadcrumbs";
 import TableOfContents from "@/ui/TableOfContents";
 import { parseMarkdown } from "@/utils/parseMarkdown";
 
-interface Props extends MarkdownContentProps {}
+interface Props {
+	breadcrumbLabel: string;
+	content: string;
+}
 
 const { breadcrumbLabel, content } = Astro.props;
 const htmlContent = await parseMarkdown(content);

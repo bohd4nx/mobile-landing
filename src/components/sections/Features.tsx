@@ -1,8 +1,8 @@
 import { memo } from "react";
-import type { FeaturesList } from "@/types/components";
+import type { Feature } from "@/types/content";
 import { getIcon } from "@/utils/getIcon";
 
-const Features = ({ items }: FeaturesList) => {
+const Features = ({ items }: { items: Feature[] }) => {
 	return (
 		<div className="mb-16">
 			<h2 className="mb-6 text-2xl font-semibold text-heading">Features</h2>

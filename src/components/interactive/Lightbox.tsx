@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { memo, useCallback, useEffect, useState } from "react";
 import { FiChevronLeft, FiChevronRight, FiX } from "react-icons/fi";
-import type { Lightbox as LightboxProps } from "@/types/components";
+import type { Screenshots } from "@/types/content";
 import { areImagesEqual } from "@/types/content";
 
 declare global {
@@ -10,7 +10,7 @@ declare global {
 	}
 }
 
-const Lightbox = ({ images }: LightboxProps) => {
+const Lightbox = ({ images }: { images: Screenshots }) => {
 	const [isOpen, setIsOpen] = useState(false);
 	const [currentIndex, setCurrentIndex] = useState(0);
 	const [activeDevice, setActiveDevice] = useState<"iphone" | "ipad">("iphone");

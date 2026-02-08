@@ -1,7 +1,7 @@
 import { memo } from "react";
-import type { FAQList } from "@/types/components";
+import type { FAQ as FAQType } from "@/types/content";
 
-const FAQ = ({ items }: FAQList) => (
+const FAQ = ({ items }: { items: FAQType[] }) => (
 	<div className="mb-0">
 		<h2 className="mb-6 text-2xl font-semibold text-heading">
 			FAQ

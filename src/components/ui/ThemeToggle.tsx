@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import { memo, useCallback, useEffect, useState } from "react";
 import { FiMonitor, FiMoon, FiSun } from "react-icons/fi";
-import type { Theme } from "@/types/props";
+
+type Theme = "light" | "dark" | "system";
 
 const THEMES = [
 	{ key: "light", icon: FiSun, label: "Light" },

@@ -1,7 +1,7 @@
 import { memo, useEffect, useState } from "react";
-import type { TableOfContentsProps, TocItem } from "@/types/content";
+import type { TocItem } from "@/types/content";
 
-const TableOfContents = ({ content }: TableOfContentsProps) => {
+const TableOfContents = ({ content }: { content: string }) => {
     const [headings, setHeadings] = useState<TocItem[]>([]);
     const [activeId, setActiveId] = useState<string>("");
 

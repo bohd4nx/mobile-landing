@@ -1,8 +1,8 @@
 import { memo } from "react";
-import type { SocialLinksList } from "@/types/components";
+import type { SocialLink } from "@/types/content";
 import { getIcon } from "@/utils/getIcon";
 
-const SocialLinks = ({ items }: SocialLinksList) => (
+const SocialLinks = ({ items }: { items: SocialLink[] }) => (
 	<>
 		{items.map((item) => {
 			const Icon = getIcon(item.icon);

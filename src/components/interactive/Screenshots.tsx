@@ -1,9 +1,9 @@
 import { memo, useState } from "react";
-import type { ScreenshotsGallery } from "@/types/components";
 import { areImagesEqual } from "@/types/content";
+import type { Screenshots as ScreenshotsType } from "@/types/content";
 import DeviceToggle from "@/ui/DeviceToggle";
 
-const Screenshots = ({ images }: ScreenshotsGallery) => {
+const Screenshots = ({ images }: { images: ScreenshotsType }) => {
 	const [activeDevice, setActiveDevice] = useState<"iphone" | "ipad">("iphone");
 	const currentImages = images[activeDevice];
 

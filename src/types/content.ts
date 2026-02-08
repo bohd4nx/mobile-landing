@@ -55,10 +55,6 @@ export interface TocItem {
 	level: number;
 }
 
-export interface TableOfContentsProps {
-	content: string;
-}
-
 export const areImagesEqual = <T extends { images: Screenshots }>(
 	prev: T,
 	next: T,

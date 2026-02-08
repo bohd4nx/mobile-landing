@@ -2,9 +2,13 @@ import { motion } from "framer-motion";
 import { memo } from "react";
 import { FiTablet } from "react-icons/fi";
 import { IoPhonePortraitOutline } from "react-icons/io5";
-import type { DeviceButtonProps, DeviceToggleProps } from "@/types/props";
 
-const DeviceButton = ({ isActive, onClick, label, icon }: DeviceButtonProps) => (
+const DeviceButton = ({ isActive, onClick, label, icon }: {
+	isActive: boolean;
+	onClick: () => void;
+	label: string;
+	icon: React.ReactNode;
+}) => (
 	<motion.button
 		type="button"
 		onClick={onClick}
@@ -26,7 +30,10 @@ const DeviceButton = ({ isActive, onClick, label, icon }: DeviceButtonProps) => 
 	</motion.button>
 );
 
-const DeviceToggle = ({ activeDevice, onToggle }: DeviceToggleProps) => {
+const DeviceToggle = ({ activeDevice, onToggle }: {
+	activeDevice: "iphone" | "ipad";
+	onToggle: (device: "iphone" | "ipad") => void;
+}) => {
 	return (
 		<div className="flex items-center justify-center gap-1 rounded-xl border border-gray-300 dark:border-white/10 bg-white dark:bg-white/[0.04] p-1 shadow-lg">
 			<DeviceButton
