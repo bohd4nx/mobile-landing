@@ -5,6 +5,7 @@ module.exports = {
 	theme: {
 		extend: {
 			screens: {
+				xs: "410px",
 				light: { raw: "(prefers-color-scheme: light)" },
 			},
 		},

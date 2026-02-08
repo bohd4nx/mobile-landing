@@ -15,9 +15,6 @@ const navData = appData || defaultAppData;
 const canonicalURL = Astro.site
 	? new URL(Astro.url.pathname, Astro.site)
 	: Astro.url;
-const appleTouchIconURL = Astro.site
-	? new URL(navData.logo, Astro.site).href
-	: navData.logo;
 ---
 
 <!DOCTYPE html>
@@ -59,6 +56,9 @@ const appleTouchIconURL = Astro.site
       !localStorage.getItem('theme') && localStorage.setItem('theme', 'system');
     </script>
   </head>
+
+  <!-- TODO: Prevent page scroll from jumping to the top on rapid F5 refreshes -->
+
   <body class="bg-gray-50 text-gray-900 dark:bg-black dark:text-white">
 	<FloatingNavbar logo={navData.logo} title={navData.name} storeLinks={navData.storeLinks} socialLinks={defaultAppData.socialLinks} client:load />
     <div class="mx-auto h-screen max-w-full px-2 lg:max-w-[1500px]">
