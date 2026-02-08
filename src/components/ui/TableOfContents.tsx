@@ -1,12 +1,11 @@
 import { memo, useEffect, useState } from "react";
-import type { TocItem } from "@/types/content";
 
 const TableOfContents = ({ content }: { content: string }) => {
-    const [headings, setHeadings] = useState<TocItem[]>([]);
+    const [headings, setHeadings] = useState<Array<{ id: string; text: string; level: number }>>([]);
     const [activeId, setActiveId] = useState<string>("");
 
     useEffect(() => {
-        const items: TocItem[] = [];
+        const items: Array<{ id: string; text: string; level: number }> = [];
         const regex = /^(#{2,3})\s+(.+)$/gm;
         let match: RegExpExecArray | null;
 

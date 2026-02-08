@@ -1,6 +1,5 @@
 import { siteConfig } from "@config/site";
 import SocialLinks from "@/sections/SocialLinks";
-import type { FooterProps } from "@/types/components";
 import ThemeToggle from "@/ui/ThemeToggle";
 
 const Logo = ({ name, logo }: { name: string; logo: string }) => (
@@ -35,7 +34,15 @@ const LegalLinks = ({ className = "" }) => (
 	</div>
 );
 
-const Footer = ({ name, logo, description }: FooterProps) => {
+const Footer = ({
+	name,
+	logo,
+	description
+}: {
+	name: string;
+	logo: string;
+	description: string;
+}) => {
 	const currentYear = new Date().getFullYear();
 	const startYear = 2025;
 	const copyrightText = currentYear > startYear 

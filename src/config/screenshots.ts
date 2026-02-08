@@ -1,4 +1,4 @@
-import type { Screenshots } from "@/types/content";
+import type { Screenshots } from "@/types/screenshots";
 
 /**
  * App screenshots configuration

@@ -1,5 +1,5 @@
 import { storeDataConfig } from "@config/site";
-import type { StoreData } from "@/types/content";
+import type { StoreData } from "@/types/store";
 
 async function getAppleApp(appId: number, country = "us") {
     const res = await fetch(

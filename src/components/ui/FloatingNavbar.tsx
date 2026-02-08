@@ -2,7 +2,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { FaApple, FaGooglePlay } from "react-icons/fa";
 import SocialLinks from "@/sections/SocialLinks";
-import type { FloatingNavbar as FloatingNavbarProps } from "@/types/components";
+import type { FloatingNavbarProps } from "@/types/layout";
 
 const FloatingNavbar = ({ logo, title, storeLinks, socialLinks }: FloatingNavbarProps) => {
     const [isVisible, setIsVisible] = useState(false);

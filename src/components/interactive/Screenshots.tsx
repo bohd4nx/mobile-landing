@@ -1,6 +1,6 @@
 import { memo, useState } from "react";
-import { areImagesEqual } from "@/types/content";
-import type { Screenshots as ScreenshotsType } from "@/types/content";
+import { areImagesEqual } from "@/types/screenshots";
+import type { Screenshots as ScreenshotsType } from "@/types/screenshots";
 import DeviceToggle from "@/ui/DeviceToggle";
 
 const Screenshots = ({ images }: { images: ScreenshotsType }) => {

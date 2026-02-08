@@ -1,8 +1,8 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { memo, useCallback, useEffect, useState } from "react";
 import { FiChevronLeft, FiChevronRight, FiX } from "react-icons/fi";
-import type { Screenshots } from "@/types/content";
-import { areImagesEqual } from "@/types/content";
+import type { Screenshots } from "@/types/screenshots";
+import { areImagesEqual } from "@/types/screenshots";
 
 declare global {
 	interface Window {
