@@ -1,0 +1,20 @@
+---
+/** biome-ignore-all lint/correctness/noUnusedImports: MarkdownContent component renders markdown content */
+/** biome-ignore-all lint/correctness/noUnusedVariables: Content and config variables used in Layout props */
+
+import Layout from "@layouts/Layout.astro";
+import MarkdownContent from "@layouts/MarkdownContent.astro";
+import { appData } from "../../data";
+
+const termsContent = Object.values(
+	import.meta.glob("./terms.md", { eager: true }),
+)[0] as { rawContent(): string };
+const markdownContent = termsContent.rawContent();
+---
+
+<Layout 
+  title={`Terms of Service - ${appData.name}`} 
+  description="Read our terms and conditions for using this application. Covers account usage, billing, content policy, and legal guidelines."
+>
+  <MarkdownContent breadcrumbLabel="Terms of Service" content={markdownContent} />
+</Layout>

@@ -1,0 +1,20 @@
+---
+/** biome-ignore-all lint/correctness/noUnusedImports: MarkdownContent component renders markdown content */
+/** biome-ignore-all lint/correctness/noUnusedVariables: Content and config variables used in Layout props */
+
+import Layout from "@layouts/Layout.astro";
+import MarkdownContent from "@layouts/MarkdownContent.astro";
+import { appData } from "../../data";
+
+const privacyContent = Object.values(
+	import.meta.glob("./privacy.md", { eager: true }),
+)[0] as { rawContent: () => string };
+const markdownContent = privacyContent.rawContent();
+---
+
+<Layout 
+  title={`Privacy Policy - ${appData.name}`} 
+  description="Learn how we collect, use, and protect your personal information. Our privacy policy outlines data handling practices, security measures, and your rights."
+>
+  <MarkdownContent breadcrumbLabel="Privacy Policy" content={markdownContent} />
+</Layout>

@@ -1,14 +1,10 @@
-import type { FAQ, Feature, Review, Screenshots, SocialLink } from "./content";
-export interface StoreLinks {
-	apple: string;
-	google: string;
-}
+import type { SocialLink } from "./content";
 
 export interface AppHero {
 	title: string;
 	description: string;
 	logo: string;
-	storeLinks: StoreLinks;
+	storeLinks: { apple: string; google: string };
 	rating: { score: number; count: string };
 	ageRating: string;
 	version?: string;
@@ -16,39 +12,27 @@ export interface AppHero {
 	releaseDate?: string;
 }
 
-export interface Lightbox {
-	images: Screenshots;
-}
-
-export interface ScreenshotsGallery {
-	images: Screenshots;
-}
-
-export interface ReviewsList {
-	items: Review[];
-}
-
-export interface FeaturesList {
-	items: Feature[];
-}
-
-export interface FAQList {
-	items: FAQ[];
-}
-
-export interface SocialLinksList {
-	items: SocialLink[];
-}
-
 export interface FloatingNavbar {
 	logo: string;
 	title: string;
-	storeLinks: StoreLinks;
+	storeLinks: { apple: string; google: string };
 	socialLinks: SocialLink[];
 }
 
-export interface FooterProps {
-	name: string;
-	logo: string;
+export interface AppInfoProps {
+	title: string;
 	description: string;
+	logo: string;
+	rating: { score: number; count: string };
+	ageRating: string;
+	version?: string;
+	minimumOS?: string;
+	releaseDate?: string;
+}
+
+export interface DeviceButtonProps {
+	isActive: boolean;
+	onClick: () => void;
+	label: string;
+	icon: React.ReactNode;
 }

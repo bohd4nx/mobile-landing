@@ -1,12 +1,12 @@
 ---
 /** biome-ignore-all lint/correctness/noUnusedImports: FiHome icon is used in JSX template below */
 
-import { siteConfig } from "@config/site";
 import Layout from "@layouts/Layout.astro";
 import { FiHome } from "react-icons/fi";
+import { appData } from "../data";
 ---
 
-<Layout title={`404 - Page Not Found | ${siteConfig.name}`} description="Sorry, this page doesn't exist. Return to homepage to explore our mobile app features and download links.">
+<Layout title={`404 - Page Not Found | ${appData.name}`} description="Sorry, this page doesn't exist. Return to homepage to explore our mobile app features and download links.">
   <main class="flex min-h-[calc(100vh-250px)] items-center justify-center px-4">
     <div class="w-full max-w-lg text-center">
       <div class="mb-8">

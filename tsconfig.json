@@ -5,14 +5,17 @@
 		"jsxImportSource": "react",
 		"baseUrl": "./src",
 		"paths": {
-			"@/interactive/*": ["components/interactive/*"],
-			"@/ui/*": ["components/ui/*"],
-			"@/sections/*": ["components/sections/*"],
-			"@/styles/*": ["styles/*"],
-			"@/utils/*": ["utils/*"],
 			"@layouts/*": ["layouts/*"],
-			"@config/*": ["config/*"],
-			"@/types/*": ["types/*"]
+			"@t/*": ["types/*"],
+			"@ui/*": ["components/ui/*"],
+			"@screenshots/*": ["components/screenshots/*"],
+			"@reviews/*": ["components/reviews/*"],
+			"@features/*": ["components/features/*"],
+			"@faq/*": ["components/faq/*"],
+			"@hero/*": ["components/hero/*"],
+			"@footer/*": ["components/footer/*"],
+			"@social/*": ["components/social/*"],
+			"@utils/*": ["utils/*"]
 		}
 	}
 }

@@ -2,27 +2,19 @@
 /** biome-ignore-all lint/correctness/noUnusedImports: React components are hydrated client-side with icons */
 /** biome-ignore-all lint/correctness/noUnusedVariables: Props and config are passed to nested components */
 
-import { siteConfig } from "@config/site";
-import Footer from "@/sections/Footer";
-import type { LayoutWithAppDataProps } from "@/types/layout";
-import BackToTop from "@/ui/BackToTop";
-import FloatingNavbar from "@/ui/FloatingNavbar";
+import Footer from "@footer/Footer";
+import type { LayoutWithAppDataProps } from "@t/layout";
+import FloatingNavbar from "@ui/navigation/FloatingNavbar";
+import BackToTop from "@ui/shared/BackToTop";
+import { appData as defaultAppData } from "../data";
 
 interface Props extends LayoutWithAppDataProps {}
 
 const { title, description, appData } = Astro.props;
-const navData = appData || {
-	name: siteConfig.name,
-	logo: siteConfig.logo,
-	description: siteConfig.description,
-	storeLinks: siteConfig.storeLinks,
-};
+const navData = appData || defaultAppData;
 const canonicalURL = Astro.site
 	? new URL(Astro.url.pathname, Astro.site)
 	: Astro.url;
-const appleTouchIconURL = Astro.site
-	? new URL(siteConfig.logo, Astro.site).href
-	: siteConfig.logo;
 ---
 
 <!DOCTYPE html>
@@ -31,7 +23,7 @@ const appleTouchIconURL = Astro.site
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
-    <meta name="keywords" content={siteConfig.keywords.join(", ")} />
+<meta name="keywords" content={defaultAppData.keywords.join(", ")} />
     
     <title>{title}</title>
     {description && <meta name="description" content={description} />}
@@ -46,13 +38,11 @@ const appleTouchIconURL = Astro.site
     <meta name="twitter:title" content={title} />
     {description && <meta name="twitter:description" content={description} />}
     
-    <link rel="icon" type="image/png" sizes="32x32" href={siteConfig.logo} />
-    <link rel="icon" type="image/png" sizes="16x16" href={siteConfig.logo} />
-    <link rel="icon" sizes="192x192" href={siteConfig.logo} />
-    <link rel="icon" sizes="512x512" href={siteConfig.logo} />
-    <link rel="apple-touch-icon" sizes="180x180" href={appleTouchIconURL} />
-    
-    <script is:inline>
+      <link rel="icon" type="image/png" sizes="32x32" href={navData.logo} />
+      <link rel="icon" type="image/png" sizes="16x16" href={navData.logo} />
+      <link rel="icon" sizes="192x192" href={navData.logo} />
+      <link rel="icon" sizes="512x512" href={navData.logo} />
+      <script is:inline>
       const theme = localStorage.getItem('theme') || 'system';
       document.documentElement.classList.remove('light', 'dark');
       
@@ -66,8 +56,11 @@ const appleTouchIconURL = Astro.site
       !localStorage.getItem('theme') && localStorage.setItem('theme', 'system');
     </script>
   </head>
+
+  <!-- TODO: Prevent page scroll from jumping to the top on rapid F5 refreshes -->
+
   <body class="bg-gray-50 text-gray-900 dark:bg-black dark:text-white">
-    <FloatingNavbar logo={navData.logo} title={navData.name} storeLinks={navData.storeLinks} socialLinks={siteConfig.socialLinks} client:load />
+	<FloatingNavbar logo={navData.logo} title={navData.name} storeLinks={navData.storeLinks} socialLinks={defaultAppData.socialLinks} client:load />
     <div class="mx-auto h-screen max-w-full px-2 lg:max-w-[1500px]">
       <main><slot /></main>
       <Footer name={navData.name} logo={navData.logo} description={navData.description} client:load />
