@@ -3,10 +3,10 @@
 /** biome-ignore-all lint/correctness/noUnusedVariables: Props and config are passed to nested components */
 
 import { siteConfig } from "@config/site";
-import Footer from "@/sections/Footer";
-import type { LayoutWithAppDataProps } from "@/types/layout";
-import BackToTop from "@/ui/BackToTop";
-import FloatingNavbar from "@/ui/FloatingNavbar";
+import Footer from "@footer/Footer";
+import type { LayoutWithAppDataProps } from "@t/layout";
+import FloatingNavbar from "@ui/navigation/FloatingNavbar";
+import BackToTop from "@ui/shared/BackToTop";
 
 interface Props extends LayoutWithAppDataProps {}
 

@@ -1,4 +1,4 @@
-import type { SocialLink } from "@/types/content";
+import type { SocialLink } from "@t/content";
 
 /**
  * Social media links configuration

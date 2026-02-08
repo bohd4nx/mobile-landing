@@ -1,7 +1,7 @@
+import DeviceToggle from "@screenshots/DeviceToggle";
+import type { Screenshots as ScreenshotsType } from "@t/screenshots";
+import { areImagesEqual } from "@t/screenshots";
 import { memo, useState } from "react";
-import { areImagesEqual } from "@/types/screenshots";
-import type { Screenshots as ScreenshotsType } from "@/types/screenshots";
-import DeviceToggle from "@/ui/DeviceToggle";
 
 const Screenshots = ({ images }: { images: ScreenshotsType }) => {
 	const [activeDevice, setActiveDevice] = useState<"iphone" | "ipad">("iphone");
@@ -20,15 +20,15 @@ const Screenshots = ({ images }: { images: ScreenshotsType }) => {
 					<div className="flex gap-6">
 						{currentImages.map((image: string, index: number) => (
 							<button
-								key={`${activeDevice}-${index}`} // TODO: Fix photo key duplication issue
+								key={`${activeDevice}-${index}`}
 								type="button"
-								onClick={() => window.openLightbox?.(index, activeDevice)}
+								onClick={() => window.dispatchEvent(new CustomEvent('openLightbox', { detail: { index, device: activeDevice } }))}
 								className="relative flex-shrink-0 overflow-hidden rounded-xl focus:outline-none"
 							>
 								<img
 									src={image}
 									alt={`Screenshot ${index + 1}`}
-								className={`rounded-xl border border-gray-300 dark:border-white/10 object-cover shadow-lg ${activeDevice === "iphone"
+									className={`rounded-xl border border-gray-300 dark:border-white/10 object-cover shadow-lg ${activeDevice === "iphone"
 										? "aspect-[9/16] w-[260px]"
 										: "aspect-[4/3] w-[360px]"
 										}`}

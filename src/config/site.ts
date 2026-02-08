@@ -1,4 +1,4 @@
-import { socialLinks } from "./socialLinks";
+import { socialLinks } from "@social/data";
 
 export const storeDataConfig = {
 	fetchRealData: false, // Set to true to fetch real data from App Store

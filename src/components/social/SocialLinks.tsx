@@ -1,6 +1,6 @@
+import type { SocialLink } from "@t/content";
+import { getIcon } from "@utils/getIcon";
 import { memo } from "react";
-import type { SocialLink } from "@/types/content";
-import { getIcon } from "@/utils/getIcon";
 
 const SocialLinks = ({ items }: { items: SocialLink[] }) => (
 	<>

@@ -1,15 +1,20 @@
-import type { Review } from "@/types/content";
+import type { Review } from "@t/content";
 
 /**
  * User reviews configuration
- * 
- * Display customer testimonials and ratings.
+ *
+ * Display customer testimonials and ratings to build trust.
  * Each review should include:
- * - author: Name or initials (e.g., "John D.")
- * - rating: Number from 1 to 5
+ * - author: Name or initials (e.g., "John D.", "Sarah K.")
+ * - rating: Numeric rating from 1 to 5 stars
  * - text: Review content (2-3 sentences recommended)
- * 
- * Tip: Mix ratings (1-5 stars) for authenticity
+ * - avatar: (Optional) URL to reviewer's profile picture
+ *
+ * Tips for authentic reviews:
+ * - Mix ratings between 4-5 stars for authenticity
+ * - Keep testimonials genuine and specific
+ * - Highlight different app features across reviews
+ * - Use realistic names and scenarios
  */
 export const reviews: Review[] = [
 	{

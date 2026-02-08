@@ -2,19 +2,19 @@
 /** biome-ignore-all lint/correctness/noUnusedImports: React components with icons are rendered in client:load mode */
 /** biome-ignore-all lint/correctness/noUnusedVariables: Config variables and store data used in component props */
 
-import { faqs } from "@config/faqs";
-import { features } from "@config/features";
-import { reviews } from "@config/reviews";
-import { screenshots } from "@config/screenshots";
 import { siteConfig } from "@config/site";
+import { faqs } from "@faq/data";
+import FAQ from "@faq/FAQ";
+import { features } from "@features/data";
+import Features from "@features/Features";
+import AppHero from "@hero/AppHero";
 import Layout from "@layouts/Layout.astro";
-import Lightbox from "@/interactive/Lightbox";
-import Reviews from "@/interactive/Reviews";
-import Screenshots from "@/interactive/Screenshots";
-import AppHero from "@/sections/AppHero";
-import FAQ from "@/sections/FAQ";
-import Features from "@/sections/Features";
-import { fetchStoreData } from "@/utils/fetchStoreData";
+import { reviews } from "@reviews/data";
+import Reviews from "@reviews/Reviews";
+import { screenshots } from "@screenshots/data";
+import Lightbox from "@screenshots/Lightbox";
+import Screenshots from "@screenshots/Screenshots";
+import { fetchStoreData } from "@utils/fetchStoreData";
 
 const storeData = await fetchStoreData();
 

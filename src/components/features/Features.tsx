@@ -1,6 +1,6 @@
+import type { Feature } from "@t/content";
+import { getIcon } from "@utils/getIcon";
 import { memo } from "react";
-import type { Feature } from "@/types/content";
-import { getIcon } from "@/utils/getIcon";
 
 const Features = ({ items }: { items: Feature[] }) => {
 	return (

@@ -1,5 +1,5 @@
+import type { FAQ as FAQType } from "@t/content";
 import { memo } from "react";
-import type { FAQ as FAQType } from "@/types/content";
 
 const FAQ = ({ items }: { items: FAQType[] }) => (
 	<div className="mb-0">

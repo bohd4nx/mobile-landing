@@ -1,24 +1,36 @@
 # Configuration Files
 
-All your landing page content is here. Each file is focused on one specific aspect of your site.
+All your landing page content is organized by features. Each component has its own folder with configuration.
 
 ## Quick Reference
 
-| File | Purpose | What to edit |
-|------|---------|--------------|
-| **[site.ts](./site.ts)** | Main site info | App name, description, logo, store links |
-| **[features.ts](./features.ts)** | Feature cards | Feature titles, descriptions, icons |
-| **[reviews.ts](./reviews.ts)** | User reviews | Customer testimonials and ratings |
-| **[faqs.ts](./faqs.ts)** | FAQ section | Questions and answers |
-| **[screenshots.ts](./screenshots.ts)** | App screenshots | iPhone and iPad image paths |
-| **[socialLinks.ts](./socialLinks.ts)** | Social media | Social profile URLs and icons |
+| Component | Location | What to edit |
+|-----------|----------|--------------|
+| **Screenshots** | [components/screenshots/images.ts](../components/screenshots/images.ts) | iPhone and iPad image paths |
+| **Reviews** | [components/reviews/data.ts](../components/reviews/data.ts) | Customer testimonials and ratings |
+| **Features** | [components/features/data.ts](../components/features/data.ts) | Feature titles, descriptions, icons |
+| **FAQ** | [components/faq/data.ts](../components/faq/data.ts) | Questions and answers |
+| **Social Links** | [components/social/data.ts](../components/social/data.ts) | Social media profile URLs |
+| **Site Config** | [site.ts](./site.ts) | App name, description, logo, store links |
 
 ## How to Edit
 
-1. **Open the file** you want to modify
-2. **Edit the values** (all have clear comments)
-3. **Save** the file
-4. Done! Changes appear on the site automatically
+1. **Navigate to the component folder** you want to modify
+2. **Open the data.ts or images.ts file**
+3. **Edit the values** (all have clear comments)
+4. **Save** the file
+5. Done! Changes appear on the site automatically
+
+## Component Structure
+
+Each feature is now organized in its own folder:
+- `components/screenshots/` - Screenshot gallery & lightbox
+- `components/reviews/` - User reviews section
+- `components/features/` - App features grid
+- `components/faq/` - FAQ accordion
+- `components/social/` - Social media links
+- `components/hero/` - App hero section
+- `components/footer/` - Footer section
 
 ## Tips
 

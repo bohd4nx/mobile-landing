@@ -1,6 +1,6 @@
+import RatingStars from "@reviews/RatingStars";
+import type { Review } from "@t/content";
 import { memo } from "react";
-import type { Review } from "@/types/content";
-import RatingStars from "@/ui/RatingStars";
 
 const Reviews = ({ items }: { items: Review[] }) => (
 	<div className="mb-16">
