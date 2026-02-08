@@ -1,10 +1,16 @@
 import AppInfo from "@hero/AppInfo";
 import StoreButtons from "@hero/StoreButtons";
 import type { AppHeroProps } from "@t/layout";
+import { motion } from "framer-motion";
 import { memo } from "react";
 
 const AppHero = ({ title, description, storeLinks, logo, rating, ageRating, version, minimumOS, releaseDate }: AppHeroProps) => (
-	<div className="mb-16 flex flex-col md:flex-row gap-8 items-start">
+	<motion.div
+		initial={{ opacity: 0, y: 20 }}
+		animate={{ opacity: 1, y: 0 }}
+		transition={{ duration: 0.5 }}
+		className="mb-16 flex flex-col md:flex-row gap-8 items-start"
+	>
 		<AppInfo
 			title={title}
 			description={description}
@@ -16,7 +22,7 @@ const AppHero = ({ title, description, storeLinks, logo, rating, ageRating, vers
 			releaseDate={releaseDate}
 		/>
 		<StoreButtons storeLinks={storeLinks} />
-	</div>
+	</motion.div>
 );
 
 export default memo(AppHero);

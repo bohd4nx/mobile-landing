@@ -9,6 +9,7 @@ import { memo, useCallback, useEffect, useState } from "react";
 const Lightbox = ({ images }: { images: Screenshots }) => {
 	const [isOpen, setIsOpen] = useState(false);
 	const [currentIndex, setCurrentIndex] = useState(0);
+	const [direction, setDirection] = useState(0);
 	const [activeDevice, setActiveDevice] = useState<"iphone" | "ipad">("iphone");
 	const currentImages = images[activeDevice];
 
@@ -40,12 +41,14 @@ const Lightbox = ({ images }: { images: Screenshots }) => {
 	}, [isOpen]);
 
 	const handlePrevious = useCallback(() => {
+		setDirection(-1);
 		setCurrentIndex(
 			(prev) => (prev - 1 + currentImages.length) % currentImages.length,
 		);
 	}, [currentImages.length]);
 
 	const handleNext = useCallback(() => {
+		setDirection(1);
 		setCurrentIndex((prev) => (prev + 1) % currentImages.length);
 	}, [currentImages.length]);
 
@@ -83,6 +86,7 @@ const Lightbox = ({ images }: { images: Screenshots }) => {
 						src={currentImages[currentIndex]}
 						alt={`Screenshot ${currentIndex + 1}`}
 						index={currentIndex}
+						direction={direction}
 					/>
 
 					<LightboxIndicators

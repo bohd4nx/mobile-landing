@@ -4,6 +4,8 @@
 
 import Breadcrumbs from "@ui/navigation/Breadcrumbs";
 import TableOfContents from "@ui/navigation/TableOfContents";
+import AnimatedContent from "@ui/shared/AnimatedContent";
+import AnimatedSidebar from "@ui/shared/AnimatedSidebar";
 import { parseMarkdown } from "@utils/parseMarkdown";
 
 interface Props {
@@ -19,14 +21,16 @@ const htmlContent = await parseMarkdown(content);
 	<div class="max-w-[1500px] mx-auto">
 		<Breadcrumbs items={[{ label: breadcrumbLabel }]} client:load />
 		<div class="flex gap-16">
-			<article class="flex-1 min-w-0">
-				<div class="prose">
-					<Fragment set:html={htmlContent} />
-				</div>
-			</article>
-			<aside class="w-72 flex-shrink-0 hidden xl:block">
+			<AnimatedContent client:load>
+				<article>
+					<div class="prose">
+						<Fragment set:html={htmlContent} />
+					</div>
+				</article>
+			</AnimatedContent>
+			<AnimatedSidebar client:load>
 				<TableOfContents content={content} client:load />
-			</aside>
+			</AnimatedSidebar>
 		</div>
 	</div>
 </main>

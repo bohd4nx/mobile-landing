@@ -1,8 +1,10 @@
-import { appData } from "../../data";
 import FooterLegal from "@footer/FooterLegal";
 import FooterLogo from "@footer/FooterLogo";
 import SocialLinks from "@social/SocialLinks";
 import ThemeToggle from "@ui/shared/ThemeToggle";
+import { motion } from "framer-motion";
+import { memo } from "react";
+import { appData } from "../../data";
 
 const Footer = ({
 	name,
@@ -20,7 +22,13 @@ const Footer = ({
 		: `© All rights reserved.`;
 
 	return (
-		<footer className="py-10 bg-gray-50 dark:bg-black">
+		<motion.footer
+			initial={{ opacity: 0 }}
+			whileInView={{ opacity: 1 }}
+			viewport={{ once: true }}
+			transition={{ duration: 0.5 }}
+			className="py-10 bg-gray-50 dark:bg-black"
+		>
 			<div className="container mx-auto px-3 md:px-6">
 				<div className="mb-8 h-px w-full bg-gray-200 dark:bg-gray-800" />
 
@@ -35,7 +43,7 @@ const Footer = ({
 
 					<div className="flex items-center justify-between">
 						<div className="flex gap-3">
-						<SocialLinks items={appData.socialLinks} />
+							<SocialLinks items={appData.socialLinks} />
 						</div>
 						<FooterLegal />
 					</div>
@@ -66,8 +74,8 @@ const Footer = ({
 					</div>
 				</div>
 			</div>
-		</footer>
+		</motion.footer>
 	);
 };
 
-export default Footer;
+export default memo(Footer);

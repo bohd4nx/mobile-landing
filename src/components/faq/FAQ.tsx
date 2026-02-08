@@ -1,14 +1,28 @@
 import type { FAQ as FAQType } from "@t/content";
+import { motion } from "framer-motion";
 import { memo } from "react";
 
 const FAQ = ({ items }: { items: FAQType[] }) => (
 	<div className="mb-0">
-		<h2 className="mb-6 text-2xl font-semibold text-heading">
+		<motion.h2
+			initial={{ opacity: 0, y: 20 }}
+			whileInView={{ opacity: 1, y: 0 }}
+			viewport={{ once: true }}
+			transition={{ duration: 0.4 }}
+			className="mb-6 text-2xl font-semibold text-heading"
+		>
 			FAQ
-		</h2>
+		</motion.h2>
 		<div className="space-y-4">
-			{items.map((item) => (
-				<div key={item.question} className="card-base">
+			{items.map((item, index) => (
+				<motion.div
+					key={item.question}
+					initial={{ opacity: 0, y: 20 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					viewport={{ once: true }}
+					transition={{ duration: 0.4, delay: index * 0.1 }}
+					className="card-base"
+				>
 					<details className="group">
 						<summary className="flex cursor-pointer items-center justify-between p-5 md:p-6 hover:bg-gray-50 dark:hover:bg-white/[0.02] transition-colors rounded-2xl">
 							<h3 className="pr-6 font-semibold text-lg text-gray-800 dark:text-white">
@@ -34,7 +48,7 @@ const FAQ = ({ items }: { items: FAQType[] }) => (
 							<p className="text-body leading-relaxed">{item.answer}</p>
 						</div>
 					</details>
-				</div>
+				</motion.div>
 			))}
 		</div>
 	</div>

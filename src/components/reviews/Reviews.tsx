@@ -1,16 +1,31 @@
 import RatingStars from "@reviews/RatingStars";
 import type { Review } from "@t/content";
+import { motion } from "framer-motion";
 import { memo } from "react";
 
 const Reviews = ({ items }: { items: Review[] }) => (
 	<div className="mb-16">
-		<h2 className="mb-6 text-2xl font-semibold text-heading">
+		<motion.h2
+			initial={{ opacity: 0, y: 20 }}
+			whileInView={{ opacity: 1, y: 0 }}
+			viewport={{ once: true }}
+			transition={{ duration: 0.4 }}
+			className="mb-6 text-2xl font-semibold text-heading"
+		>
 			User Reviews
-		</h2>
+		</motion.h2>
 
 		<div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-			{items.map((review: Review) => (
-				<div key={review.author} className="card-base">
+			{items.map((review: Review, index) => (
+				<motion.div
+					key={review.author}
+					initial={{ opacity: 0, y: 20 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					viewport={{ once: true }}
+					transition={{ duration: 0.4, delay: index * 0.1 }}
+					whileHover={{ scale: 1.02 }}
+					className="card-base"
+				>
 					<div className="p-5 md:p-6 border-b border-gray-200 dark:border-white/5 bg-gray-50 dark:bg-white/[0.02]">
 						<div className="flex items-center gap-4">
 							{review.avatar ? (
@@ -35,7 +50,7 @@ const Reviews = ({ items }: { items: Review[] }) => (
 					<div className="p-5 md:p-6">
 						<p className="text-body leading-relaxed">{review.text}</p>
 					</div>
-				</div>
+				</motion.div>
 			))}
 		</div>
 	</div>
