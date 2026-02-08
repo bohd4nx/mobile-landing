@@ -2,7 +2,6 @@
 /** biome-ignore-all lint/correctness/noUnusedImports: React components with icons are rendered in client:load mode */
 /** biome-ignore-all lint/correctness/noUnusedVariables: Config variables and store data used in component props */
 
-import { siteConfig } from "@config/site";
 import { faqs } from "@faq/data";
 import FAQ from "@faq/FAQ";
 import { features } from "@features/data";
@@ -15,6 +14,7 @@ import { screenshots } from "@screenshots/data";
 import Lightbox from "@screenshots/Lightbox";
 import Screenshots from "@screenshots/Screenshots";
 import { fetchStoreData } from "@utils/fetchStoreData";
+import { appData as siteConfig } from "../data";
 
 const storeData = await fetchStoreData();
 

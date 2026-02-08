@@ -1,4 +1,4 @@
-import { siteConfig } from "@config/site";
+import { appData } from "../../data";
 import FooterLegal from "@footer/FooterLegal";
 import FooterLogo from "@footer/FooterLogo";
 import SocialLinks from "@social/SocialLinks";
@@ -35,7 +35,7 @@ const Footer = ({
 
 					<div className="flex items-center justify-between">
 						<div className="flex gap-3">
-							<SocialLinks items={siteConfig.socialLinks} />
+						<SocialLinks items={appData.socialLinks} />
 						</div>
 						<FooterLegal />
 					</div>
@@ -58,7 +58,7 @@ const Footer = ({
 					<div className="flex items-center justify-between pt-6 border-t border-gray-200/30 dark:border-gray-700/30">
 						<div className="flex items-center gap-6">
 							<div className="flex gap-3">
-								<SocialLinks items={siteConfig.socialLinks} />
+								<SocialLinks items={appData.socialLinks} />
 							</div>
 							<div className="text-base text-body">{copyrightText}</div>
 						</div>

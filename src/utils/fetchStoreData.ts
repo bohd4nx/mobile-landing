@@ -1,4 +1,4 @@
-import { storeDataConfig } from "@config/site";
+import { storeDataConfig } from "../data";
 import type { StoreData } from "@t/store";
 
 async function getAppleApp(appId: number, country = "us") {
