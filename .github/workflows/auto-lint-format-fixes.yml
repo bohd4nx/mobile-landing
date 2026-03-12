@@ -1,0 +1,58 @@
+name: Automated Lint and Formatting Fixes
+
+on:
+  push:
+    branches:
+      - master
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  lint-format-and-pr:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "lts/*"
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Apply lint fixes
+        run: pnpm lint:fix
+
+      - name: Apply formatting
+        run: pnpm format
+
+      - name: Verify lint
+        run: pnpm lint
+
+      - name: Create pull request with auto-fixes
+        uses: peter-evans/create-pull-request@v8
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "chore: apply automated lint and formatting fixes"
+          title: "chore: automated lint and formatting fixes"
+          body: |
+            This pull request was created automatically after a push to master.
+
+            It includes the following automated updates:
+            - Biome lint fixes
+            - Biome formatting changes
+            - Re-validation with `pnpm lint`
+          branch: "chore/auto-lint-format-fixes"
+          delete-branch: true
+          labels: |
+            automated
+            automation

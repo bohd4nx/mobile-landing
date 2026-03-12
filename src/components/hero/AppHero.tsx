@@ -4,7 +4,17 @@ import type { AppHeroProps } from "@t/layout";
 import { motion } from "framer-motion";
 import { memo } from "react";
 
-const AppHero = ({ title, description, storeLinks, logo, rating, ageRating, version, minimumOS, releaseDate }: AppHeroProps) => (
+const AppHero = ({
+	title,
+	description,
+	storeLinks,
+	logo,
+	rating,
+	ageRating,
+	version,
+	minimumOS,
+	releaseDate,
+}: AppHeroProps) => (
 	<motion.div
 		initial={{ opacity: 0, y: 20 }}
 		animate={{ opacity: 1, y: 0 }}

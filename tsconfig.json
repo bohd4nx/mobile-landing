@@ -6,7 +6,9 @@
 		"baseUrl": "./src",
 		"paths": {
 			"@layouts/*": ["layouts/*"],
+			"@styles/*": ["styles/*"],
 			"@t/*": ["types/*"],
+			"@shared/*": ["components/ui/shared/*"],
 			"@ui/*": ["components/ui/*"],
 			"@screenshots/*": ["components/screenshots/*"],
 			"@reviews/*": ["components/reviews/*"],

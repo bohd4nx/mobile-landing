@@ -1,7 +1,10 @@
 import { marked } from "marked";
 
 const slugify = (text: string) =>
-	text.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+	text
+		.toLowerCase()
+		.replace(/[^a-z0-9]+/g, "-")
+		.replace(/(^-|-$)/g, "");
 
 const renderer = new marked.Renderer();
 renderer.heading = ({ text, depth }: { text: string; depth: number }) => {
