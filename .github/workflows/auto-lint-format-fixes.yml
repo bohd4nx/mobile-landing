@@ -3,15 +3,44 @@ name: Automated Lint and Formatting Fixes
 on:
   push:
     branches:
-      - master
+      - "**"
+  pull_request:
+    branches:
+      - "**"
+  workflow_dispatch:
 
 permissions:
-  contents: write
-  pull-requests: write
+  contents: read
 
 jobs:
-  lint-format-and-pr:
+  lint:
     runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "lts/*"
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Verify Biome
+        run: npx biome check .
+
+  lint-format-and-pr:
+    if: github.event_name == 'push' && github.ref_name == 'master'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
 
     steps:
       - name: Checkout
@@ -42,7 +71,7 @@ jobs:
           commit-message: "chore: apply automated lint and formatting fixes"
           title: "chore: automated lint and formatting fixes"
           body: |
-            This pull request was created automatically after a push to master.
+            This pull request was created automatically after a push to a protected branch.
 
             It includes the following automated updates:
             - Biome auto-fixes via `npx biome check --write .`
