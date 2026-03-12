@@ -1,7 +1,4 @@
 ---
-/** biome-ignore-all lint/correctness/noUnusedImports: React components with icons are rendered in client:load mode */
-/** biome-ignore-all lint/correctness/noUnusedVariables: Config variables and store data used in component props */
-
 import { faqs } from "@faq/data";
 import FAQ from "@faq/FAQ";
 import { features } from "@features/data";
@@ -11,8 +8,7 @@ import Layout from "@layouts/Layout.astro";
 import { reviews } from "@reviews/data";
 import Reviews from "@reviews/Reviews";
 import { screenshots } from "@screenshots/data";
-import Lightbox from "@screenshots/Lightbox";
-import Screenshots from "@screenshots/Screenshots";
+import ScreenshotsSection from "@screenshots/ScreenshotsSection";
 import { fetchStoreData } from "@utils/fetchStoreData";
 import { appData as siteConfig } from "../data";
 
@@ -49,20 +45,9 @@ const pageDescription = `${appData.description} Download now for iOS and Android
       releaseDate={appData.releaseDate}
       client:load 
     />
-    <div class="mb-16"><Screenshots images={appData.screenshots} client:load /></div>
+    <ScreenshotsSection images={appData.screenshots} client:load />
     <Features items={features} client:load />
     <Reviews items={reviews} client:visible />
     <FAQ items={faqs} client:load />
   </main>
 </Layout>
-
-<Lightbox images={appData.screenshots} client:load />
-
-<style is:global>
-  .screenshots-scroll {
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    &::-webkit-scrollbar { display: none; }
-  }
-</style>

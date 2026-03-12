@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { memo, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { FiChevronUp } from "react-icons/fi";
 
 const BackToTop = () => {
@@ -51,4 +51,4 @@ const BackToTop = () => {
 	);
 };
 
-export default memo(BackToTop);
+export default BackToTop;

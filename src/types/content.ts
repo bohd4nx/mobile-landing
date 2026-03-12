@@ -21,3 +21,8 @@ export interface SocialLink {
 	icon: string;
 	label: string;
 }
+
+export interface MarkdownContentProps {
+	breadcrumbLabel: string;
+	content: string;
+}

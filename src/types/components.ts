@@ -29,10 +29,3 @@ export interface AppInfoProps {
 	minimumOS?: string;
 	releaseDate?: string;
 }
-
-export interface DeviceButtonProps {
-	isActive: boolean;
-	onClick: () => void;
-	label: string;
-	icon: React.ReactNode;
-}

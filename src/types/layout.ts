@@ -1,6 +1,8 @@
 import type { SocialLink } from "./content";
 import type { StoreData } from "./store";
 
+export type ThemeMode = "light" | "dark" | "system";
+
 export interface LayoutWithAppDataProps {
 	title: string;
 	description?: string;

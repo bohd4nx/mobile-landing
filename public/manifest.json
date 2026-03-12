@@ -1,25 +1,25 @@
 {
-  "name": "Your App Name",
-  "short_name": "YourApp",
-  "description": "Here you can write a brief description of your application. Tell users about its main features and benefits in 1-2 sentences.",
-  "start_url": "/",
-  "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#3b82f6",
-  "orientation": "portrait-primary",
-  "scope": "/",
-  "lang": "en",
-  "categories": ["productivity", "utilities"],
-  "icons": [
-    {
-      "src": "/assets/favicon.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "/assets/favicon.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    }
-  ]
+	"name": "Your App Name",
+	"short_name": "YourApp",
+	"description": "Here you can write a brief description of your application. Tell users about its main features and benefits in 1-2 sentences.",
+	"start_url": "/",
+	"display": "standalone",
+	"background_color": "#ffffff",
+	"theme_color": "#3b82f6",
+	"orientation": "portrait-primary",
+	"scope": "/",
+	"lang": "en",
+	"categories": ["productivity", "utilities"],
+	"icons": [
+		{
+			"src": "/assets/favicon.png",
+			"sizes": "192x192",
+			"type": "image/png"
+		},
+		{
+			"src": "/assets/favicon.png",
+			"sizes": "512x512",
+			"type": "image/png"
+		}
+	]
 }

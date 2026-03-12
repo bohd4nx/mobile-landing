@@ -29,9 +29,7 @@ const Features = ({ items }: { items: Feature[] }) => {
 							className="card-base p-5 md:p-6"
 						>
 							<div className="mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-gray-100 dark:bg-white/[0.04]">
-								{Icon && (
-									<Icon className="h-7 w-7 text-heading opacity-90" />
-								)}
+								{Icon && <Icon className="h-7 w-7 text-heading opacity-90" />}
 							</div>
 							<h3 className="mb-2.5 text-xl font-semibold text-gray-800 dark:text-white">
 								{feature.title}
