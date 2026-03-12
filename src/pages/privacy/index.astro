@@ -4,7 +4,7 @@ import MarkdownContent from "@layouts/MarkdownContent.astro";
 import { appData } from "../../data";
 
 const privacyContent = Object.values(
-	import.meta.glob("./privacy.md", { eager: true }),
+	import.meta.glob("./_privacy.md", { eager: true }),
 )[0] as { rawContent: () => string };
 const markdownContent = privacyContent.rawContent();
 ---

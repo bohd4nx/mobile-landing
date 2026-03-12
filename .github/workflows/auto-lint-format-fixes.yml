@@ -29,14 +29,11 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Apply lint fixes
-        run: pnpm lint:fix
+      - name: Apply Biome fixes
+        run: npx biome check --write .
 
-      - name: Apply formatting
-        run: pnpm format
-
-      - name: Verify lint
-        run: pnpm lint
+      - name: Verify Biome
+        run: npx biome check .
 
       - name: Create pull request with auto-fixes
         uses: peter-evans/create-pull-request@v8
@@ -48,9 +45,8 @@ jobs:
             This pull request was created automatically after a push to master.
 
             It includes the following automated updates:
-            - Biome lint fixes
-            - Biome formatting changes
-            - Re-validation with `pnpm lint`
+            - Biome auto-fixes via `npx biome check --write .`
+            - Re-validation with `npx biome check .`
           branch: "chore/auto-lint-format-fixes"
           delete-branch: true
           labels: |

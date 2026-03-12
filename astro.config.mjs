@@ -10,6 +10,9 @@ export default defineConfig({
 	site: "https://landing.bohd4n.dev",
 	integrations: [react()],
 	output: "static",
+	devToolbar: {
+		enabled: false,
+	},
 	vite: {
 		resolve: {
 			alias: {

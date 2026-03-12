@@ -19,16 +19,11 @@
 	],
 	"scripts": {
 		"dev": "astro dev",
-		"start": "astro dev",
 		"build": "astro build",
 		"preview": "astro preview",
 		"lint": "biome lint .",
 		"lint:fix": "biome lint --write .",
-		"format": "biome format --write .",
-		"check": "biome check .",
-		"check:fix": "biome check --write .",
-		"toolbar:disable": "astro preferences disable devToolbar",
-		"toolbar:enable": "astro preferences enable devToolbar"
+		"format": "biome format --write ."
 	},
 	"dependencies": {
 		"@astrojs/react": "^5.0.0",
