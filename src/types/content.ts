@@ -22,7 +22,7 @@ export interface SocialLink {
 	label: string;
 }
 
-export interface MarkdownContentProps {
-	breadcrumbLabel: string;
-	content: string;
+export interface MarkdownLayoutProps {
+	htmlContent: string;
+	rawContent: string;
 }

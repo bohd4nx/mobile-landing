@@ -3,21 +3,20 @@
 	"compilerOptions": {
 		"jsx": "react-jsx",
 		"jsxImportSource": "react",
-		"baseUrl": "./src",
 		"paths": {
-			"@layouts/*": ["layouts/*"],
-			"@styles/*": ["styles/*"],
-			"@t/*": ["types/*"],
-			"@shared/*": ["components/ui/shared/*"],
-			"@ui/*": ["components/ui/*"],
-			"@screenshots/*": ["components/screenshots/*"],
-			"@reviews/*": ["components/reviews/*"],
-			"@features/*": ["components/features/*"],
-			"@faq/*": ["components/faq/*"],
-			"@hero/*": ["components/hero/*"],
-			"@footer/*": ["components/footer/*"],
-			"@social/*": ["components/social/*"],
-			"@utils/*": ["utils/*"]
+			"@layouts/*": ["./src/layouts/*"],
+			"@styles/*": ["./src/styles/*"],
+			"@t/*": ["./src/types/*"],
+			"@shared/*": ["./src/components/ui/shared/*"],
+			"@ui/*": ["./src/components/ui/*"],
+			"@screenshots/*": ["./src/components/screenshots/*"],
+			"@reviews/*": ["./src/components/reviews/*"],
+			"@features/*": ["./src/components/features/*"],
+			"@faq/*": ["./src/components/faq/*"],
+			"@hero/*": ["./src/components/hero/*"],
+			"@footer/*": ["./src/components/footer/*"],
+			"@social/*": ["./src/components/social/*"],
+			"@utils/*": ["./src/utils/*"]
 		}
 	}
 }

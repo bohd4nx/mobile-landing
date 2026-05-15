@@ -74,7 +74,7 @@ const TableOfContents = ({ content }: { content: string }) => {
 						<a
 							href={`#${id}`}
 							onClick={(e) => handleClick(e, id)}
-							className={`block py-2 transition-all duration-200 border-l-2 -ml-[2px] ${
+							className={`block py-2 transition-all duration-200 border-l-2 -ml-0.5 ${
 								level === 3 ? "pl-7" : "pl-5"
 							} ${
 								activeId === id

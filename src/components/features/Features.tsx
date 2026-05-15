@@ -28,7 +28,7 @@ const Features = ({ items }: { items: Feature[] }) => {
 							whileHover={{ scale: 1.03, y: -5 }}
 							className="card-base p-5 md:p-6"
 						>
-							<div className="mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-gray-100 dark:bg-white/[0.04]">
+							<div className="mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-gray-100 dark:bg-white/4">
 								{Icon && <Icon className="h-7 w-7 text-heading opacity-90" />}
 							</div>
 							<h3 className="mb-2.5 text-xl font-semibold text-gray-800 dark:text-white">

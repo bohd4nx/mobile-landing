@@ -26,7 +26,7 @@ const Reviews = ({ items }: { items: Review[] }) => (
 					whileHover={{ scale: 1.02 }}
 					className="card-base"
 				>
-					<div className="p-5 md:p-6 border-b border-gray-200 dark:border-white/5 bg-gray-50 dark:bg-white/[0.02]">
+					<div className="p-5 md:p-6 border-b border-gray-200 dark:border-white/5 bg-gray-50 dark:bg-white/2">
 						<div className="flex items-center gap-4">
 							{review.avatar ? (
 								<img
@@ -35,7 +35,7 @@ const Reviews = ({ items }: { items: Review[] }) => (
 									className="h-12 w-12 rounded-full object-cover border border-gray-300 dark:border-white/10"
 								/>
 							) : (
-								<div className="flex h-12 w-12 items-center justify-center rounded-full bg-gray-200 dark:bg-white/[0.08] text-lg font-semibold text-gray-700 dark:text-white">
+								<div className="flex h-12 w-12 items-center justify-center rounded-full bg-gray-200 dark:bg-white/8 text-lg font-semibold text-gray-700 dark:text-white">
 									{review.author[0]}
 								</div>
 							)}

@@ -7,7 +7,7 @@ import { FaApple, FaGooglePlay } from "react-icons/fa";
 const NavbarLogo = ({ logo, title }: { logo: string; title: string }) => (
 	<a href="/" className="group flex items-center justify-start gap-3 md:gap-4">
 		<div className="relative h-11 w-11">
-			<div className="absolute inset-0 rounded-xl bg-gradient-to-br from-gray-200/50 to-gray-300/50 blur-sm transition-all group-hover:blur-md dark:from-white/5 dark:to-white/10" />
+			<div className="absolute inset-0 rounded-xl bg-linear-to-br from-gray-200/50 to-gray-300/50 blur-sm transition-all group-hover:blur-md dark:from-white/5 dark:to-white/10" />
 			<img
 				src={logo}
 				alt={`${title} Icon`}
@@ -85,7 +85,7 @@ const FloatingNavbar = ({
 						animate={{ y: 0, opacity: 1 }}
 						exit={{ y: -100, opacity: 0 }}
 						transition={{ duration: 0.3, ease: "easeOut" }}
-						className="w-full max-w-[600px] lg:max-w-[1500px] mx-auto bg-white/90 dark:bg-black/90 backdrop-blur-xl border border-gray-200/50 dark:border-gray-800/50 shadow-lg shadow-gray-200/20 dark:shadow-black/40 rounded-2xl"
+						className="w-full max-w-150 lg:max-w-375 mx-auto bg-white/90 dark:bg-black/90 backdrop-blur-xl border border-gray-200/50 dark:border-gray-800/50 shadow-lg shadow-gray-200/20 dark:shadow-black/40 rounded-2xl"
 					>
 						<div className="px-5 md:px-8 py-4 md:py-4">
 							<div className="flex md:grid md:grid-cols-3 items-center justify-between md:gap-4">

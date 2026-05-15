@@ -17,7 +17,7 @@ const StoreLinkCard = ({
 		href={href}
 		target="_blank"
 		rel="noopener noreferrer"
-		className="group button-base flex items-center justify-start gap-3 px-5 py-4 transition-all duration-200 hover:scale-[1.02] hover:shadow-md active:scale-[0.98] md:min-w-[200px]"
+		className="group button-base flex items-center justify-start gap-3 px-5 py-4 transition-all duration-200 hover:scale-[1.02] hover:shadow-md active:scale-[0.98] md:min-w-50"
 	>
 		<Icon className={iconClassName} />
 		<span className="min-w-0 text-left">
@@ -36,7 +36,7 @@ const StoreButtons = ({
 }: {
 	storeLinks: { apple: string; google: string };
 }) => (
-	<div className="w-full max-w-md mx-auto grid grid-cols-1 xs:grid-cols-2 gap-3 md:flex md:flex-col md:mx-0 md:w-auto md:flex-shrink-0">
+	<div className="w-full max-w-md mx-auto grid grid-cols-1 xs:grid-cols-2 gap-3 md:flex md:flex-col md:mx-0 md:w-auto md:shrink-0">
 		{[
 			{
 				href: storeLinks.apple,

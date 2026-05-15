@@ -1,17 +1,27 @@
 ---
 import Layout from "@layouts/Layout.astro";
-import MarkdownContent from "@layouts/MarkdownContent.astro";
+import MarkdownLayout from "@shared/MarkdownLayout";
+import "@styles/markdown-content.css";
+import Breadcrumbs from "@ui/navigation/Breadcrumbs";
+import { parseMarkdown } from "@utils/parseMarkdown";
 import { appData } from "../../data";
 
+type MarkdownModule = { rawContent(): string };
 const termsContent = Object.values(
-	import.meta.glob("./_terms.md", { eager: true }),
-)[0] as { rawContent(): string };
-const markdownContent = termsContent.rawContent();
+	import.meta.glob<MarkdownModule>("./_terms.md", { eager: true }),
+)[0];
+const rawContent = termsContent.rawContent();
+const htmlContent = String(await parseMarkdown(rawContent));
 ---
 
-<Layout 
-  title={`Terms of Service - ${appData.name}`} 
-  description="Read our terms and conditions for using this application. Covers account usage, billing, content policy, and legal guidelines."
+<Layout
+	title={`Terms of Service - ${appData.name}`}
+	description="Read our terms and conditions for using this application. Covers account usage, billing, content policy, and legal guidelines."
 >
-  <MarkdownContent breadcrumbLabel="Terms of Service" content={markdownContent} />
+	<main class="pt-8 md:pt-12 px-4 md:px-6">
+		<div class="max-w-375 mx-auto">
+			<Breadcrumbs items={[{ label: "Terms of Service" }]} client:load />
+			<MarkdownLayout htmlContent={htmlContent} rawContent={rawContent} client:load />
+		</div>
+	</main>
 </Layout>

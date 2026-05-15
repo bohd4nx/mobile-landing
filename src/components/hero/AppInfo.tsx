@@ -12,8 +12,8 @@ const AppInfo = ({
 	releaseDate,
 }: AppInfoProps) => (
 	<div className="flex flex-1 flex-col md:flex-row gap-8 items-start text-center md:text-left">
-		<div className="flex-shrink-0 self-center md:self-start">
-			<div className="group/icon rounded-2xl border border-gray-200/50 dark:border-white/10 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-white/[0.02] dark:to-white/[0.05] p-7 w-56 h-56 flex items-center justify-center shadow-sm hover:shadow-md transition-all duration-300">
+		<div className="shrink-0 self-center md:self-start">
+			<div className="group/icon rounded-2xl border border-gray-200/50 dark:border-white/10 bg-linear-to-br from-gray-50 to-gray-100 dark:from-white/2 dark:to-white/5 p-7 w-56 h-56 flex items-center justify-center shadow-sm hover:shadow-md transition-all duration-300">
 				<img
 					src={logo}
 					alt={`${title} Icon`}
@@ -33,7 +33,7 @@ const AppInfo = ({
 							· {rating.count} ratings
 						</span>
 					</div>
-					<div className="px-2 py-0.5 rounded-md border border-gray-300 dark:border-white/20 bg-gray-100 dark:bg-white/[0.05] text-xs font-semibold text-gray-700 dark:text-gray-300">
+					<div className="px-2 py-0.5 rounded-md border border-gray-300 dark:border-white/20 bg-gray-100 dark:bg-white/5 text-xs font-semibold text-gray-700 dark:text-gray-300">
 						{ageRating}
 					</div>
 				</div>

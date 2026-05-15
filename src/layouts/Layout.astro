@@ -20,20 +20,20 @@ const canonicalURL = Astro.site
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
     <meta name="keywords" content={defaultAppData.keywords.join(", ")} />
-    
+
     <title>{title}</title>
     {description && <meta name="description" content={description} />}
-    
+
     <link rel="canonical" href={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:type" content="website" />
     {description && <meta property="og:description" content={description} />}
-    
+
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     {description && <meta name="twitter:description" content={description} />}
-    
+
       <link rel="icon" type="image/png" sizes="32x32" href={navData.logo} />
       <link rel="icon" type="image/png" sizes="16x16" href={navData.logo} />
       <link rel="icon" sizes="192x192" href={navData.logo} />
@@ -41,14 +41,14 @@ const canonicalURL = Astro.site
       <script is:inline>
       const theme = localStorage.getItem('theme') || 'system';
       document.documentElement.classList.remove('light', 'dark');
-      
+
       if (theme === 'system') {
         const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
         document.documentElement.classList.add(prefersDark ? 'dark' : 'light');
       } else {
         document.documentElement.classList.add(theme);
       }
-      
+
       !localStorage.getItem('theme') && localStorage.setItem('theme', 'system');
     </script>
   </head>
@@ -57,7 +57,7 @@ const canonicalURL = Astro.site
 
   <body class="bg-gray-50 text-gray-900 dark:bg-black dark:text-white">
 	<FloatingNavbar logo={navData.logo} title={navData.name} storeLinks={navData.storeLinks} socialLinks={defaultAppData.socialLinks} client:load />
-    <div class="mx-auto h-screen max-w-full px-2 lg:max-w-[1500px]">
+    <div class="mx-auto h-screen max-w-full px-2 lg:max-w-375">
       <main><slot /></main>
       <Footer name={navData.name} logo={navData.logo} description={navData.description} client:load />
     </div>

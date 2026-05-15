@@ -22,7 +22,7 @@ const DeviceToggle = ({
 			initial={{ opacity: 0, scale: 0.9 }}
 			animate={{ opacity: 1, scale: 1 }}
 			transition={{ duration: 0.3 }}
-			className="flex items-center justify-center gap-1 rounded-xl border border-gray-300 bg-white p-1 shadow-lg dark:border-white/10 dark:bg-white/[0.04]"
+			className="flex items-center justify-center gap-1 rounded-xl border border-gray-300 bg-white p-1 shadow-lg dark:border-white/10 dark:bg-white/4"
 		>
 			<motion.button
 				type="button"
@@ -30,7 +30,7 @@ const DeviceToggle = ({
 				className={`relative flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
 					activeDevice === "iphone"
 						? "text-heading"
-						: "text-muted hover:bg-gray-100 hover:text-heading dark:hover:bg-white/[0.06]"
+						: "text-muted hover:bg-gray-100 hover:text-heading dark:hover:bg-white/6"
 				}`}
 				whileTap={{ scale: 0.9 }}
 			>
@@ -53,7 +53,7 @@ const DeviceToggle = ({
 				className={`relative flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
 					activeDevice === "ipad"
 						? "text-heading"
-						: "text-muted hover:bg-gray-100 hover:text-heading dark:hover:bg-white/[0.06]"
+						: "text-muted hover:bg-gray-100 hover:text-heading dark:hover:bg-white/6"
 				}`}
 				whileTap={{ scale: 0.9 }}
 			>
@@ -127,15 +127,15 @@ const Screenshots = ({
 									transition={{ duration: 0.3, delay: index * 0.05 }}
 									whileHover={{ scale: 1.05, y: -5 }}
 									onClick={() => handleOpen(index)}
-									className="relative flex-shrink-0 overflow-hidden rounded-xl focus:outline-none"
+									className="relative shrink-0 overflow-hidden rounded-xl focus:outline-none"
 								>
 									<img
 										src={image}
 										alt={`Screenshot ${index + 1}`}
 										className={`rounded-xl border border-gray-300 dark:border-white/10 object-cover shadow-lg ${
 											activeDevice === "iphone"
-												? "aspect-[9/16] w-[260px]"
-												: "aspect-[4/3] w-[360px]"
+												? "aspect-9/16 w-65"
+												: "aspect-4/3 w-90"
 										}`}
 										loading="lazy"
 									/>

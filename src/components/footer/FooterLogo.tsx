@@ -1,7 +1,7 @@
 const FooterLogo = ({ name, logo }: { name: string; logo: string }) => (
 	<a href="/" className="flex items-center gap-3 group">
 		<div className="relative h-10 w-10">
-			<div className="absolute inset-0 rounded-lg bg-gradient-to-br from-gray-200/50 to-gray-300/50 blur-sm transition-all group-hover:blur-md dark:from-white/5 dark:to-white/10" />
+			<div className="absolute inset-0 rounded-lg bg-linear-to-br from-gray-200/50 to-gray-300/50 blur-sm transition-all group-hover:blur-md dark:from-white/5 dark:to-white/10" />
 			<img
 				src={logo}
 				alt={`${name} Logo`}

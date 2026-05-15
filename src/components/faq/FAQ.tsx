@@ -24,12 +24,12 @@ const FAQ = ({ items }: { items: FAQType[] }) => (
 					className="card-base"
 				>
 					<details className="group">
-						<summary className="flex cursor-pointer items-center justify-between p-5 md:p-6 hover:bg-gray-50 dark:hover:bg-white/[0.02] transition-colors rounded-2xl">
+						<summary className="flex cursor-pointer items-center justify-between p-5 md:p-6 hover:bg-gray-50 dark:hover:bg-white/2 transition-colors rounded-2xl">
 							<h3 className="pr-6 font-semibold text-lg text-gray-800 dark:text-white">
 								{item.question}
 							</h3>
 							<svg
-								className="h-5 w-5 flex-shrink-0 group-open:rotate-180 text-gray-500 dark:text-gray-400 transition-transform duration-200"
+								className="h-5 w-5 shrink-0 group-open:rotate-180 text-gray-500 dark:text-gray-400 transition-transform duration-200"
 								fill="none"
 								viewBox="0 0 24 24"
 								stroke="currentColor"
