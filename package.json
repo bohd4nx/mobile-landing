@@ -30,7 +30,7 @@
 		"@astrojs/sitemap": "^3.7.2",
 		"@tailwindcss/typography": "^0.5.19",
 		"@tailwindcss/vite": "^4.3.0",
-		"astro": "^6.3.3",
+		"astro": "^6.4.3",
 		"framer-motion": "^12.38.0",
 		"marked": "^18.0.3",
 		"react": "^19.2.6",
