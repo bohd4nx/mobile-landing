@@ -68,6 +68,16 @@ export interface StoreData {
 
 export type ThemeMode = "light" | "dark" | "system";
 
+export interface StoreButtonsProps {
+	storeLinks: { apple: string; google: string };
+}
+
+export interface AppInfoProps {
+	version?: string;
+	minimumOS?: string;
+	releaseDate?: string;
+}
+
 export interface BreadcrumbItem {
 	label: string;
 	href?: string;
@@ -86,12 +96,27 @@ export interface FeaturesProps {
 	items: Feature[];
 }
 
+export interface FeatureCardProps {
+	feature: Feature;
+	index: number;
+}
+
 export interface ReviewsProps {
 	items: Review[];
 }
 
+export interface ReviewCardProps {
+	review: Review;
+	index: number;
+}
+
 export interface FAQProps {
 	items: FAQItem[];
+}
+
+export interface FAQCardProps {
+	item: FAQItem;
+	index: number;
 }
 
 export interface PricingProps {
