@@ -1,16 +1,12 @@
-/* ─── Tailwind v4 ─────────────────────────────────────────────────────── */
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
-/* Class-based dark mode */
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* Custom breakpoints */
 @theme {
 	--breakpoint-xs: 410px;
 }
 
-/* ─── Component utilities ─────────────────────────────────────────────── */
 @layer components {
 	.card-base {
 		@apply rounded-2xl border border-gray-200 dark:border-white/8 bg-white dark:bg-white/4 backdrop-blur-sm shadow-sm dark:shadow-none;
@@ -53,7 +49,6 @@
 	}
 }
 
-/* ─── Dot grid ────────────────────────────────────────────────────────── */
 body::before {
 	content: "";
 	position: fixed;
@@ -67,7 +62,6 @@ html.dark body::before {
 	background-image: radial-gradient(circle, rgba(139,92,246,0.3) 1px, transparent 1px);
 }
 
-/* ─── Theme transitions ────────────────────────────────────────────────── */
 html.theme-switching *,
 html.theme-switching {
 	transition: none;
@@ -76,7 +70,6 @@ html.theme-switching {
 html.light { color-scheme: light; }
 html.dark  { color-scheme: dark; }
 
-/* ─── Screenshots scrollbar ───────────────────────────────────────────── */
 .screenshots-scrollbar {
 	scrollbar-width: thin;
 	scrollbar-color: rgba(109, 40, 217, 0.35) transparent;
@@ -106,7 +99,6 @@ html.dark  { color-scheme: dark; }
 	background: rgba(139, 92, 246, 0.7);
 }
 
-/* ─── Markdown prose ──────────────────────────────────────────────────── */
 .prose {
 	max-width: 1000px;
 	line-height: 1.75;

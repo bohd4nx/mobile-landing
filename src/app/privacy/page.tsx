@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default async function PrivacyPage() {
 	const raw = fs.readFileSync(
-		path.join(process.cwd(), "content/privacy.md"),
+		path.join(process.cwd(), "src/app/privacy/privacy.md"),
 		"utf-8",
 	);
 	const body = raw.replace(/^#[^\n]+\n+\*\*[^\n]+\n+/, "");

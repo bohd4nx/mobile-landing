@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default async function TermsPage() {
 	const raw = fs.readFileSync(
-		path.join(process.cwd(), "content/terms.md"),
+		path.join(process.cwd(), "src/app/terms/terms.md"),
 		"utf-8",
 	);
 	const body = raw.replace(/^#[^\n]+\n+\*\*[^\n]+\n+/, "");
