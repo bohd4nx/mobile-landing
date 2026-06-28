@@ -4,7 +4,10 @@ const config: NextConfig = {
 	output: "export",
 	images: { unoptimized: true },
 	trailingSlash: true,
-	// allowedDevOrigins: [""],
+	reactStrictMode: true,
+	compiler: {
+		removeConsole: { exclude: ["error"] },
+	},
 };
 
 export default config;
