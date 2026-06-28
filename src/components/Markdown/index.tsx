@@ -16,10 +16,10 @@ const MarkdownLayout = ({
 				initial={{ opacity: 0, y: 20 }}
 				animate={{ opacity: 1, y: 0 }}
 				transition={{ duration: 0.5 }}
-				className="relative mb-12 overflow-hidden rounded-2xl border border-gray-200/60 bg-white px-8 py-10 dark:border-white/8 dark:bg-white/4 md:px-12 md:py-12"
+				className="relative mb-12 overflow-hidden rounded-2xl border border-gray-200/60 bg-white px-10 py-12 dark:border-white/8 dark:bg-white/4 md:px-16 md:py-14"
 			>
 				<span className="section-label mb-4 inline-flex">Legal</span>
-				<h1 className="mb-3 text-3xl font-black tracking-tight text-gray-900 dark:text-white md:text-4xl">
+				<h1 className="mb-3 text-4xl font-black tracking-tight text-gray-900 dark:text-white md:text-5xl">
 					{title}
 				</h1>
 				{lastUpdated && (

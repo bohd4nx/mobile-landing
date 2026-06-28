@@ -8,7 +8,7 @@
 [![Forks](https://img.shields.io/github/forks/bohd4nx/app-landing?style=flat&color=7c3aed&label=Forks)](https://github.com/bohd4nx/app-landing/forks)
 [![License](https://img.shields.io/github/license/bohd4nx/app-landing?style=flat&color=7c3aed)](LICENSE)
 
-100% vibe-coded mobile app landing page template — built with Next.js 16, React 19, and Tailwind CSS v4. Drop in your app's content, deploy, done.
+100% vibe-coded mobile app landing page template — built with Next.js, React, and Tailwind CSS. Drop in your app's content, deploy, done.
 
 **[Live Demo](https://landing.bohd4n.dev)** · **[Report Bug](https://github.com/bohd4nx/app-landing/issues)**
 
