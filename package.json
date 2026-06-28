@@ -2,45 +2,34 @@
 	"name": "landing.bohd4n.dev",
 	"version": "2026.2.1",
 	"private": true,
-	"description": "Modern landing page template built with Astro, React, and Tailwind CSS",
+	"description": "Mobile app landing page template built with Next.js, React, and Tailwind CSS",
 	"author": "Bohdan <https://bohd4n.dev>",
 	"license": "MIT",
 	"packageManager": "pnpm@11.8.0+sha512.c1f5e7c4cb241c8f174b743851d82f42b802324afc8b0f116b96adb15aa06664948dde36960a3ba1079ba5b4b29dd0140135b94b5b5f5263592249d68e555f26",
 	"homepage": "https://landing.bohd4n.dev",
-	"keywords": [
-		"astro",
-		"landing-page",
-		"react",
-		"tailwindcss",
-		"template",
-		"mobile landing page",
-		"modern landing page",
-		"landing page template"
-	],
 	"scripts": {
-		"dev": "astro dev",
-		"build": "astro build",
-		"preview": "astro preview",
-		"lint": "biome lint .",
-		"lint:fix": "biome lint --write .",
-		"format": "biome format --write ."
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "biome check --write ."
 	},
 	"dependencies": {
-		"@astrojs/react": "^5.0.7",
-		"@astrojs/sitemap": "^3.7.3",
 		"@tailwindcss/typography": "^0.5.20",
-		"@tailwindcss/vite": "^4.3.1",
-		"astro": "^6.4.8",
-		"framer-motion": "^12.40.0",
+		"framer-motion": "^12.42.0",
 		"marked": "^18.0.5",
+		"next": "^16.2.9",
 		"react": "^19.2.7",
 		"react-dom": "^19.2.7",
 		"react-icons": "^5.6.0",
 		"tailwindcss": "^4.3.1"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "2.5.0",
+		"@biomejs/biome": "2.5.1",
+		"@tailwindcss/postcss": "^4.3.1",
+		"@types/node": "^26.0.1",
 		"@types/react": "^19.2.17",
-		"@types/react-dom": "^19.2.3"
+		"@types/react-dom": "^19.2.3",
+		"postcss": "^8.5.15",
+		"typescript": "6.0.3"
 	}
 }

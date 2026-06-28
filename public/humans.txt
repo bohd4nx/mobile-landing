@@ -5,16 +5,9 @@ Contact: hello@bohd4n.dev
 GitHub: github.com/bohd4nx
 Location: Ukraine
 
-/* THANKS */
-
-Astro: astro.build
-Tailwind CSS: tailwindcss.com
-React: reactjs.org
-
 /* SITE */
 
-Last update: 2026/01/11
+Last update: 2026/06/28
 Language: English
 Doctype: HTML5
-IDE: Visual Studio Code
-Technologies: Astro, React, TypeScript, Tailwind CSS
+Technologies: Next.js, React, TypeScript, Tailwind CSS, Framer Motion
