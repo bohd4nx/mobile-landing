@@ -15,6 +15,7 @@ export const storeConfig = {
 
 export const site = {
 	name: "Your App Name",
+	url: "https://your-domain.com",
 	description:
 		"Here you can write a brief description of your application. Tell users about its main features and benefits in 1-2 sentences.",
 	logo: "/favicon.svg",

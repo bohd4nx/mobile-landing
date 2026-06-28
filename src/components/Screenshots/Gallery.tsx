@@ -27,29 +27,26 @@ const Gallery = ({ images, onOpen }: GalleryProps) => (
 			</motion.h2>
 		</div>
 
-		<div className="screenshots-scrollbar overflow-x-scroll overflow-y-visible py-6 scrollbar-gutter-stable">
+		<div
+			className="screenshots-scrollbar overflow-x-scroll overflow-y-visible py-6 scrollbar-gutter-stable"
+			style={{ WebkitOverflowScrolling: "touch" }}
+		>
 			<div className="flex gap-4">
 				{images.map((src, index) => (
-					<motion.button
+					<button
 						// biome-ignore lint/suspicious/noArrayIndexKey: screenshot list has no stable id
 						key={index}
 						type="button"
-						initial={{ opacity: 0, scale: 0.95 }}
-						whileInView={{ opacity: 1, scale: 1 }}
-						viewport={{ once: true }}
-						transition={{ duration: 0.35, delay: index * 0.06 }}
-						whileHover={{ scale: 1.03, y: -6 }}
-						whileTap={{ scale: 0.97 }}
 						onClick={() => onOpen(index)}
 						className="group relative shrink-0 focus:outline-none"
 					>
 						<img
 							src={src}
 							alt={`Screenshot ${index + 1}`}
-							loading="lazy"
-							className="aspect-9/16 w-52 rounded-2xl border border-gray-200 object-cover shadow-xl transition-shadow duration-300 group-hover:shadow-2xl dark:border-white/10 md:w-64"
+							loading={index < 3 ? "eager" : "lazy"}
+							className="aspect-9/16 w-52 rounded-2xl border border-gray-200 object-cover shadow-xl transition-all duration-300 will-change-transform group-hover:-translate-y-1.5 group-hover:scale-[1.02] group-hover:shadow-2xl dark:border-white/10 md:w-64"
 						/>
-					</motion.button>
+					</button>
 				))}
 			</div>
 		</div>

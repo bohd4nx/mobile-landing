@@ -30,6 +30,8 @@ const AppHero = ({
 				<img
 					src={logo}
 					alt={`${title} icon`}
+					fetchPriority="high"
+					loading="eager"
 					className="relative h-24 w-24 rounded-3xl border border-gray-200/50 object-cover shadow-2xl dark:border-white/10 sm:h-28 sm:w-28 md:h-32 md:w-32"
 				/>
 			</motion.div>
