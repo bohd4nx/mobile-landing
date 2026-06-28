@@ -1,11 +1,11 @@
 "use client";
 
+import { motion } from "framer-motion";
+import { FaApple, FaGooglePlay } from "react-icons/fa";
 import SocialLinks from "@/components/SocialLinks";
 import ThemeToggle from "@/components/ThemeToggle";
 import { site } from "@/config";
 import type { FooterProps } from "@/types";
-import { motion } from "framer-motion";
-import { FaApple, FaGooglePlay } from "react-icons/fa";
 import { fade, LEGAL_LINKS, NAV_LINKS } from "./links";
 
 const colHeader = (title: string) => (

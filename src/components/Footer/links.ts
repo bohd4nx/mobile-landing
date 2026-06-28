@@ -7,8 +7,8 @@ export const NAV_LINKS = [
 ];
 
 export const LEGAL_LINKS = [
-	{ label: "Privacy", href: "/privacy" },
-	{ label: "Terms", href: "/terms" },
+	{ label: "Privacy Policy", href: "/privacy-policy" },
+	{ label: "Terms of Service", href: "/terms-of-service" },
 ];
 
 export const fade = (delay = 0) => ({

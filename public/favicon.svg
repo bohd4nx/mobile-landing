@@ -1,4 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none" role="img" aria-label="App logo">
+  <title>App logo</title>
   <rect width="32" height="32" rx="8" fill="#6d28d9"/>
   <circle cx="8" cy="8" r="1.5" fill="white" fill-opacity="0.9"/>
   <circle cx="16" cy="8" r="1.5" fill="white" fill-opacity="0.9"/>

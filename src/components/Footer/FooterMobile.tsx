@@ -1,10 +1,10 @@
 "use client";
 
+import { motion } from "framer-motion";
 import SocialLinks from "@/components/SocialLinks";
 import ThemeToggle from "@/components/ThemeToggle";
 import { site } from "@/config";
 import type { FooterProps } from "@/types";
-import { motion } from "framer-motion";
 import { fade, LEGAL_LINKS, NAV_LINKS } from "./links";
 
 const FooterMobile = ({ name, logo }: FooterProps) => (

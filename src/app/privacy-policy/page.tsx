@@ -6,13 +6,14 @@ import MarkdownLayout from "@/components/Markdown";
 import { parseMarkdown } from "@/components/Markdown/parseMarkdown";
 
 export const metadata: Metadata = {
-	title: "Terms of Service",
-	description: "Read our terms and conditions for using this application.",
+	title: "Privacy Policy",
+	description:
+		"Learn how we collect, use, and protect your personal information.",
 };
 
-export default async function TermsPage() {
+export default async function PrivacyPage() {
 	const raw = fs.readFileSync(
-		path.join(process.cwd(), "src/app/terms/terms.md"),
+		path.join(process.cwd(), "src/app/privacy-policy/privacy.md"),
 		"utf-8",
 	);
 	const body = raw.replace(/^#[^\n]+\n+\*\*[^\n]+\n+/, "");
@@ -21,11 +22,11 @@ export default async function TermsPage() {
 	return (
 		<main className="px-4 pb-8 pt-8 md:px-6 md:pt-12">
 			<div className="mx-auto max-w-375">
-				<Breadcrumbs items={[{ label: "Terms of Service" }]} />
+				<Breadcrumbs items={[{ label: "Privacy Policy" }]} />
 				<MarkdownLayout
 					htmlContent={html}
 					rawContent={body}
-					title="Terms of Service"
+					title="Privacy Policy"
 					lastUpdated="February 1, 2025"
 				/>
 			</div>

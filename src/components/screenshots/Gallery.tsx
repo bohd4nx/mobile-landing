@@ -27,7 +27,7 @@ const Gallery = ({ images, onOpen }: GalleryProps) => (
 			</motion.h2>
 		</div>
 
-		<div className="screenshots-scrollbar overflow-x-scroll overflow-y-visible py-6 [scrollbar-gutter:stable]">
+		<div className="screenshots-scrollbar overflow-x-scroll overflow-y-visible py-6 scrollbar-gutter-stable">
 			<div className="flex gap-4">
 				{images.map((src, index) => (
 					<motion.button

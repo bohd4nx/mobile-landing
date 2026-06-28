@@ -6,16 +6,31 @@ node_modules/
 out/
 next-env.d.ts
 
+# Environment & Secrets
+.env
+.env.*
+!.env.example
+
 # Build output
 dist/
+build/
 
-# Log files
+# Cache
+.cache/
+*.cache
+.turbo/
+.eslintcache
+
+# Logs
+logs/
 *.log*
 
-# macOS system files
+# macOS
 .DS_Store
+
+# Windows
 Thumbs.db
 
-# IDE settings
+# IDE
 .idea/
 .vscode/
