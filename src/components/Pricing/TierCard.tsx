@@ -13,14 +13,10 @@ const TierCard = ({ tier, index }: TierCardProps) => (
 		whileHover={{ y: -4 }}
 		className={`relative flex flex-col rounded-2xl border p-7 transition-shadow duration-300 ${
 			tier.highlighted
-				? "border-violet-400/60 bg-white shadow-lg shadow-violet-500/10 dark:border-violet-500/50 dark:bg-violet-500/5"
+				? "border-violet-400/60 bg-white shadow-[0_0_0_1px_rgba(139,92,246,0.15),0_8px_32px_rgba(139,92,246,0.12)] dark:border-violet-500/50 dark:bg-violet-500/5 dark:shadow-[0_0_0_1px_rgba(139,92,246,0.2),0_8px_32px_rgba(139,92,246,0.15)]"
 				: "border-gray-200 bg-white shadow-sm dark:border-white/8 dark:bg-white/4"
 		}`}
 	>
-		{tier.highlighted && (
-			<div className="absolute inset-x-0 top-0 h-0.5 rounded-t-2xl bg-violet-500 dark:bg-violet-400" />
-		)}
-
 		{tier.badge && (
 			<span className="absolute -top-3.5 left-1/2 -translate-x-1/2 inline-flex items-center whitespace-nowrap rounded-full bg-violet-600 px-4 py-1.5 text-[11px] font-bold uppercase tracking-widest text-white shadow-lg shadow-violet-500/40 ring-1 ring-violet-400/50">
 				{tier.badge}

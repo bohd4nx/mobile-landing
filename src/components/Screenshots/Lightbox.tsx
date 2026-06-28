@@ -118,9 +118,9 @@ const Dots = ({ count, currentIndex, onSelect }: DotsProps) => (
 );
 
 const slideVariants = {
-	enter: (dir: number) => ({ x: dir > 0 ? 100 : -100, opacity: 0 }),
-	center: { x: 0, opacity: 1 },
-	exit: (dir: number) => ({ x: dir > 0 ? -100 : 100, opacity: 0 }),
+	enter: (dir: number) => ({ x: dir > 0 ? 60 : -60, opacity: 0, scale: 0.97 }),
+	center: { x: 0, opacity: 1, scale: 1 },
+	exit: (dir: number) => ({ x: dir > 0 ? -60 : 60, opacity: 0, scale: 0.97 }),
 };
 
 const Lightbox = ({
@@ -180,19 +180,21 @@ const Lightbox = ({
 						onNext={handleNext}
 					/>
 
-					<motion.img
-						key={currentIndex}
-						custom={direction}
-						variants={slideVariants}
-						initial="enter"
-						animate="center"
-						exit="exit"
-						transition={{ duration: 0.4, ease: [0.4, 0.0, 0.2, 1] }}
-						src={images[currentIndex]}
-						alt={`Screenshot ${currentIndex + 1}`}
-						onClick={(e) => e.stopPropagation()}
-						className="max-h-[95vh] max-w-[95vw] rounded-xl object-contain shadow-2xl md:max-h-[90vh] md:max-w-[85vw]"
-					/>
+					<AnimatePresence mode="popLayout" custom={direction} initial={false}>
+						<motion.img
+							key={currentIndex}
+							custom={direction}
+							variants={slideVariants}
+							initial="enter"
+							animate="center"
+							exit="exit"
+							transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+							src={images[currentIndex]}
+							alt={`Screenshot ${currentIndex + 1}`}
+							onClick={(e) => e.stopPropagation()}
+							className="max-h-[95vh] max-w-[95vw] rounded-xl object-contain shadow-2xl md:max-h-[90vh] md:max-w-[85vw]"
+						/>
+					</AnimatePresence>
 
 					<Dots
 						count={images.length}
