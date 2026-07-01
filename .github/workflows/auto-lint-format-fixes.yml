@@ -65,7 +65,7 @@ jobs:
         run: npx biome check .
 
       - name: Create pull request with auto-fixes
-        uses: peter-evans/create-pull-request@v7
+        uses: peter-evans/create-pull-request@v8
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: "chore: apply automated lint and formatting fixes"
